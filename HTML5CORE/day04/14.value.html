@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {ename:'凯凯'}
+
+        //通过define方式新增属性
+        //如果emp中存在age属性，则为修改操作
+        //如果emp中不存在age属性 则为新增属性
+        Object.defineProperty(emp,'age',{
+            value:33,
+            writable:true, //必须手动开启权限 才能赋值
+        })
+        //此方式新增的属性,默认的权限配置都是最低的：不可写,不可配置,不可遍历
+
+        console.log(emp);
+    </script>
+</body>
+</html>

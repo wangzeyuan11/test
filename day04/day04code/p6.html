@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS选择器</title>
+		<style>
+			/* 通用选择器 */
+			* {
+				color: red;
+			}
+
+			/* 标签民选择器:选中指定的这一类标签 */
+			div {
+				background-color: yellow;
+			}
+
+			/* i选择器:选中指定id值的那一个元素 */
+			#d2 {
+				color: blue;
+			}
+
+			/* 类/class选择器:选定指定class值的一类元素 */
+			.text-danger {
+				background-color: red;
+				color: white;
+			}
+
+			.text-success {
+				background-color: green;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div>div</div>
+		<span>span</span>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<h4>h4</h4>
+		<div id="d2">有一个div</div>
+		<hr>
+		<span class="text-danger">用户名不能为空</span>
+		<span class="text-danger">密码不能为空</span>
+		<span class="text-danger">两次密码输入不一致</span>
+		<br>
+		<span class="text-success">用户名可以使用</span>
+		<span class="text-success">密码可以使用</span>
+		<span class="text-success">两次密码输入一致</span>
+		<br>
+		<p>欢迎各位WEB2212班级的<span style="color: green;">小可爱</span></p>
+	</body>
+</html>

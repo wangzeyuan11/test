@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//声明变量score保存用户的成绩
+			//根据成绩进行对应的分档，并输出结果
+			//90-100 优秀
+			//80-90以下 良好
+			//70-80中等
+			//60-70及格
+			//60以下不及格
+			var score = 100
+			if (score < 0 || score > 100) {
+				alert(score + '非法的成绩')
+			} else if (score >= 90) {
+				console.log('优秀')
+			} else if (score >= 80) {
+				console.log('良好')
+			} else if (score >= 70) {
+				console.log('中等')
+			} else if (score >= 60) {
+				console.log('及格')
+			} else if (score < 60) {
+				console.log('不及格')
+			}
+
+			//声明变量，保存原价，满1000打9折 满2000打8折
+			//满5000打7折 输出结果：原价XXX，实际应支付XXX
+			//原价price 实际支付价格count
+			var price = 1000
+			//count 需要有初始值 就是原价 否则不够1000会是undefined
+			var count = price
+			if (price >= 5000) {
+				count = price * 0.7
+			} else if (price >= 2000) {
+				count = price * 0.8
+			} else if (price >= 1000) {
+				count = price * 0.9
+			}
+			console.log('原价' + price + '实际应支付' + count)
+		</script>
+	</body>
+</html>

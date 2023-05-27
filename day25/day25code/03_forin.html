@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>遍历属性</title>
+	</head>
+	<body>
+		<script>
+			//键值对
+			// var obj = {
+			// 	a: 1,
+			// 	b: 'hello',
+			// 	c: true,
+			// 	d: 20
+			// }
+			//遍历属性
+			// for (var k in obj) {
+			// 	// k代表每个属性名
+			// 	// obg[k] 属性值
+			// 	console.log(k, obj[k])
+			// }
+			// console.log(obj)
+
+			var gz = {
+				a: 100,
+				b: 200,
+				c: 300,
+				d: 400,
+				f: 500,
+				g: 600
+			}
+			//声明变量，用于保存总和
+			var sum = 0
+			//声明一个变量，用于保存工资的数量
+			var count = 0
+			//获取每个工资的值
+			for (var l in gz) {
+				//gz[k]每个工资的值
+				//console.log(l, gz[l])
+				//把每个工资的值加到sum
+				sum += gz[l]
+				//数量+1
+				count++
+			}
+			console.log(sum, count, sum / count)
+		</script>
+	</body>
+</html>

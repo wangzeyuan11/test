@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d1{
+      width: 150px;
+      height: 150px;
+      background-color: pink;
+      padding-top: 30px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .d2{
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      padding-top: 30px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .d3{
+      width: 50px;
+      height: 50px;
+      background-color: brown;
+      /* 绝对定位:根据 最近的 做过定位的 祖先元素做定位 */
+      position: absolute;
+      /* top: 0;
+      left: 0; */
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d1">
+    <div class="d2">
+      <div class="d3"></div>
+    </div>
+  </div>
+</body>
+
+</html>

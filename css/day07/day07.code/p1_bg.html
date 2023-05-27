@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>背景图尺寸</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.center {
+				/* 版心尽量清爽一点 就设置宽度与居中*/
+				width: 900px;
+				margin: 0 auto;
+			}
+
+			.bg1 .pic1 {
+				/* 宽度无需设置 版心已经设置好了 */
+				height: 500px;
+				border: 5px solid #f00;
+				background-image: url(bg1.jpg);
+				background-size: 900px 500px;
+				/* 背景图的尺寸可以使用像素值 */
+				background-size: 100% auto;
+				/* 宽度100% 高度自适应 牺牲高度*/
+				background-size: auto 100%;
+				/* 高度100% 宽度自适应 牺牲宽度*/
+				background-size: 100% 100%;
+				background-size: contain;
+				/* 至少有一张完整的图呈现出来 多余的空间平铺*/
+				background-size: cover;
+				/* 铺满整个屏幕 多余的图片裁掉*/
+				background-repeat: no-repeat;
+			}
+
+			.bg2 .pic2 {
+				width: 700px;
+				height: 355px;
+				border: 3px solid #0f0;
+				background-image: url(bg2.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 最外层功能块 -->
+		<div class="bg1">
+			<!-- 版心 -->
+			<div class="center">
+				<!-- 版心中的具体内容 -->
+				<div class="pic1"></div>
+			</div>
+
+		</div>
+		<div class="bg2">
+			<!-- 版心 -->
+			<div class="center">
+				<!-- 版心中的具体内容 -->
+				<div class="pic2"></div>
+			</div>
+
+		</div>
+	</body>
+</html>

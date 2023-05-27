@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #ad{
+            background-color: #eee;
+            padding: 5px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad">
+        <button>关闭</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit deleniti ea tempora aut? In sed saepe reprehenderit eligendi iusto, quam repellat eaque ullam rem ratione, corrupti ducimus reiciendis labore repudiandae?</p>
+    </div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#ad>button').click(function(){
+            // $('#ad').hide()
+            //滑动收起
+            //回调函数：当动画结束时会触发
+            $('#ad').slideUp(function(){
+                // alert('动画结束！')
+                setTimeout(()=>{
+                    $('#ad').slideDown() // 滑动展开
+                },2000)
+            })
+        })
+    </script>
+</body>
+</html>

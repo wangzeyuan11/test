@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //制作一个sum函数 能够计算出所有实参的总和
+        function sum(){
+            var total = 0
+            for(var i = 0;i<arguments.length;i++){
+                total += arguments[i]
+            }
+            return total
+        }
+
+        var nums = [21,32,43,6546,65,3]
+        //用sum函数，求出nums数组中的元素总和
+        //利用app把数组转为参数列表的形式
+        //参数1：是sum在哪个对象执行，即this的一个指向
+        //由于函数中没有用到this，则可以随意传递
+        console.log(sum.apply(1,nums));
+
+        //预期用法：
+        console.log(sum(11,22,33));
+        console.log(sum(5,4,32,14,45,67));
+
+        //练习：
+        //max：求出实参列表中的最大值
+        console.log(Math.max(1,21,43,54,65));
+        //参数1：随便书写，max的执行不依赖于this
+        console.log(Math.max.apply(null,nums));
+
+        console.log(Math.min.apply(null,nums));
+
+    </script>
+</body>
+</html>

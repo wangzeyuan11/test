@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 600px;
+        height: 600px;
+      }
+      .box {
+        color: orange;
+        font-size: 20px;
+        padding: 5px;
+        background-color: white;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "3969059c33dd9a8bec12286f60ad8c0b",
+      };
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script type="text/javascript">
+      AMapLoader.load({
+        key: "61408c15b423058e673e6d6348a97eea", // 申请好的Web端开发者Key，首次调用 load 时必填
+        version: "2.0", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+      })
+        .then((AMap) => {
+          const map = new AMap.Map("container");
+          //天气信息
+          map.plugin(["AMap.Weather"], function () {
+            //构造 Weather 类
+            var amapWeather = new AMap.Weather();
+
+            amapWeather.getLive('北京',function(err,data){
+                console.log(data);
+            })
+
+          });
+
+          AMap.plugin(
+            [
+              "AMap.ToolBar",
+              "AMap.Scale",
+              "AMap.HawkEye",
+              "AMap.MapType",
+              "AMap.Geolocation",
+            ],
+            function () {
+              // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+              map.addControl(new AMap.ToolBar());
+
+              // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+              map.addControl(new AMap.Scale());
+
+              // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+              map.addControl(new AMap.HawkEye({ isOpen: true }));
+
+              // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
+              map.addControl(new AMap.MapType());
+
+              // 在图面添加定位控件，用来获取和展示用户主机所在的经纬度位置
+              map.addControl(new AMap.Geolocation());
+            }
+          );
+
+          let toolbar;
+          AMap.plugin("AMap.ToolBar", function () {
+            // 异步加载插件
+            toolbar = new AMap.ToolBar(); // 缩放工具条实例化
+            map.addControl(toolbar);
+          });
+
+          const traffic = new AMap.TileLayer.Traffic({
+            autoRefresh: true, //是否自动刷新，默认为false
+            interval: 180, //刷新间隔，默认180s
+          });
+
+          map.add(traffic); //通过add方法添加图层
+
+          // 创建信息窗体
+          const infoWindow = new AMap.InfoWindow({
+            closeWhenClickMap: true, //点击地图时，关闭信息窗体
+            isCustom: true, // 使用自定义窗体
+            content: '<div class="box">这是我的家!</div>', // 信息窗体的内容可以是任意 html 片段
+            offset: new AMap.Pixel(16, -45),
+          });
+          const onMarkerClick = function (e) {
+            //点击标记时，先判断当前开启的状态，再决定打开or关闭
+            infoWindow.getIsOpen()
+              ? infoWindow.close()
+              : infoWindow.open(map, e.target.getPosition()); // 打开信息窗体
+            // e.target 就是被点击的 Marker
+          };
+          //添加标记点
+          const marker_home = new AMap.Marker({
+            position: [125.233495, 43.855513], //位置
+          });
+          map.add(marker_home);
+          const marker = new AMap.Marker({
+            position: [116.397455, 39.909187], //位置
+          });
+          map.add(marker); //添加到地图
+          marker_home.on("click", onMarkerClick); // 绑定 click 事件
+        })
+        .catch((e) => {
+          console.error(e); //加载错误提示
+        });
+
+      //坐标拾取系统：用于查询经纬度
+      //https://lbs.amap.com/tools/picker
+    </script>
+  </body>
+</html>

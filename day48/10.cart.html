@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        table{
+            width: 800px;
+        }
+        thead{
+            background-color: #eee;
+        }
+        td{
+            padding: 10px 0;
+            text-align: center;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>商品名</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>小计</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="5" id="tota">总金额:????</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        var data = [
+            {name:'黄焖鸡',count:3,price:22},
+            {name:'强连败',count:6,price:17},
+            {name:'西红柿牛腩',count:3,price:52},
+            {name:'包子',count:6,price:3},
+            {name:'烤鸭',count:1,price:40},
+            {name:'麻辣烫',count:13,price:35},
+
+        ]
+
+        var temp = data.reduce((box,value,index)=>{
+            const {count,name,price}=value
+
+            return box + `<tr>
+                <td>${index+1}</td>
+                <td>${name}</td>
+                <td data-price="${price}">${price}</td>
+                <td>
+                    <button>-</button>
+                    <span>${count}</span>
+                    <button>+</button>
+                    </td>
+                <td></td>
+            </tr>`
+        },'')
+
+        const tbody = document.querySelector('tbody')
+        tbody.innerHTML = temp
+
+
+        //1.查询到所有的计数器，然后挨个实现其+和-操作
+        const counters = document.querySelectorAll('tbody td:nth-child(4)')
+
+        console.log(counters);
+
+        counters.forEach(counter =>{
+            const[btn_minus,span_count,btn_add]=counter.children
+
+            btn_minus.onclick = function(){
+                span_count.innerHTML--
+                update()
+            }
+            btn_add.onclick = function(){
+                span_count.innerHTML++
+                update()
+            }
+        })
+        function update(){
+            var sum = 0
+        
+          counters.forEach(counter =>{
+            const [btn_minus,span_count] = counter.children
+            //计数器td的上一个兄弟
+            const td_price = counter.previousElementSibling
+            //小计
+            const td_subtotal = counter.nextElementSibling
+            //单价：
+            const price = td_price.dataset.price
+            //小计 = 单价*数量
+            const total = price*span_count.innerHTML
+
+            sum += total
+            // arr.push(total)
+            td_subtotal.innerHTML = `￥${total}`
+            btn_minus.disabled = (span_count.innerHTML == 1)
+          })
+
+          //查询到总金额的td，进行赋值
+          const td_sum = document.querySelector('tfoot td')
+          td_sum.innerHTML = `总金额：${sum}`
+        }
+        update()
+    </script>
+</body>
+</html>

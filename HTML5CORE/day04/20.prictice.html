@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {ename:"凯凯",age:32}
+
+        Object.defineProperties(emp,{
+            _age:{writable:true,value:emp.age},
+            age:{
+                get(){return this._age},
+                set(value){
+                    if(value>=1&&value<=150){
+                        this._age = value
+                    }else{
+                        throw Error('年龄范围错误,合理范围1-150')
+                    }
+                },
+            }
+        })
+
+        //emp.age = 260
+
+        emp.age = 40
+
+        console.log(emp.age);
+    </script>
+</body>
+</html>

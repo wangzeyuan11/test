@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //块级作用域就是函数作用域的简化版本
+
+        //以前用匿名函数自调用语法生成作用域
+
+        //现在：用{}配合let/const即可形成块级作用域
+        {
+            let a = 10
+            const b = 20
+            console.log(111);
+        }
+
+        for(let i = 0;i<10;i++){
+            console.log(i);
+        }
+        console.log(window);
+
+        //私有属性：函数作用域 诞生私有的变量，通过闭包机制存储在函数里
+        var show = (function(){
+            var _count = 0
+
+            return function(){
+                _count++
+                console.log('次数：',_count);
+            }
+        })()
+
+        console.dir(show);
+        show()
+
+        ///////////////////////////////
+        //块级实现私有属性
+        {
+            let _count = 0
+
+            function talk(){
+                _count++
+                console.log('次数：',_count);
+            }
+        }
+        console.dir(talk);
+        talk()
+    </script>
+</body>
+</html>

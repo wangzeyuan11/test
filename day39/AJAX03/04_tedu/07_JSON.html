@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj = {
+				a: 1,
+				b: 'hello',
+				c: true,
+				color: ['红色', '绿色', '蓝色'],
+				person: {
+					name: 'xin'
+				}
+			}
+			//JS转为JSON stringfy
+			//JSON对象
+			var str = JSON.stringify(obj)
+			console.log(str)
+			//JSON转JS parse()
+			console.log(JSON.parse(str))
+		</script>
+	</body>
+</html>

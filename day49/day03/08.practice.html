@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 适合采用委托模式的场景：动态新增的子元素 -->
+    <button>新增元素</button>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+    <script>
+        const btn = document.querySelector('button')
+        const ul = document.querySelector('ul')
+        btn.onclick = function(){
+            ul.innerHTML += `<li>新增</li>`
+        }
+        //点击li之后，颜色变红 style.color='red'
+
+        //问题：运行时只有3个li存在，所以只影响了这3个li
+        //对于后续增加的li，并没有影响，所以导致没有点击效果
+
+        // const lis = document.querySelectorAll('li')
+        // lis.forEach(li=>{
+        //     li.onclick = function(){
+        //         li.style.color='red'
+        //     }
+        // })
+        //委托：给父元素增加人物 不管设么时候增加的子元素 都让父元素帮忙
+        ul.onclick = function(e){
+            //判定：当事元素不是li 不进行处理
+            if(e.target.localName != 'li') return
+            e.target.style.color = 'red'
+        }
+    </script>
+</body>
+</html>

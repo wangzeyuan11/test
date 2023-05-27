@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>回调函数2</title>
+	</head>
+	<body>
+		<script>
+			//练习：创建函数getSum(),传递任意一个数字
+			//求1~任意数字之间所有整数的合，并返回结果
+			function getSum(a) {
+				for (var i = 1, count = 0; i <= a; i++) {
+					count += i
+
+				}
+				return count
+			}
+			console.log(getSum(100))
+
+			//回调函数的特殊用法
+			function fn(cb) {
+				console.log('fn()开始了')
+				var a = 666
+				cb(a) //执行传入的回调函数，666也作为实参传给回调函数
+				console.log('fn()结束了')
+			}
+			//fn()表示调用fn函数
+			//将下面的匿名函数作为回调函数传给fn()
+			fn(function(r) {
+				console.log(r)
+			})
+
+
+			function getSum2(n, cb) {
+				for (var i = 1, count = 0; i <= n; i++) {
+					count += i
+				}
+				cb(count)
+			}
+			getSum2(10, function(r) {
+				console.log(r)
+			})
+
+			//练习创建函数getCount 传递任意两个字数
+			//统计这两个数之间闰年的数量
+			//回调函数
+			function getCount(a, b, cb) {
+				for (var i = a, c = 0; i <= b; i++) {
+					if (i % 4 === 0 && i % 100 !== 0 || i % 400 === 0) {
+						c++
+					}
+				}
+				cb(c)
+			}
+			getCount(2000, 2023, function(r) {
+				console.log(r)
+			})
+		</script>
+	</body>
+</html>

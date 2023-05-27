@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nums = [12,43,435,12,43,6,67,45]
+
+        //ES6推出了 展开运算符：...
+        //可以把 数组/对象 的内容提取出来
+        console.log(
+        //下方两种写法是等效的
+            Math.max(...nums),
+            //...和[]会抵消掉
+            Math.min(...nums)
+        );
+        console.log(
+            //apply:把数组转为参数列表，来触发函数
+            Math.max.apply(0,nums),
+            Math.min.apply(null,nums)
+        );
+        /////////////////////
+        var x = [11,22]
+        var y = [33,44]
+
+        var z = [...x,...y,55,66]
+        console.log(z);
+
+        //////////////////
+        var m = {x:10,y:20}
+        var n = {y:400,z:600}
+
+        var q = {...m,...n,b:1000}
+        console.log(q);
+    </script>
+</body>
+</html>

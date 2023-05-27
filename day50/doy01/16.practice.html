@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #box{
+            width: 300px;
+            box-shadow: 0 0 2px 2px rgba(0,0,0,0.1);
+        }
+        #box>img{
+            width: 100%;
+        }
+        #box>div{
+            display: flex;
+        }
+        #box>div>img{
+            flex: 1;
+            border: 2px solid transparent;
+        }
+        #box>div>img.active{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="imgs/1_lg.jpg" alt="">
+        <div>
+            <img data-lg="imgs/1_lg.jpg" class="active" src="imgs/1_sm.jpg" alt="">
+            <img data-lg="imgs/2_lg.jpg" src="imgs/2_sm.jpg" alt="">
+            <img data-lg="imgs/3_lg.jpg" src="imgs/3_sm.jpg" alt="">
+             <img data-lg="imgs/4_lg.jpg" src="imgs/4_sm.jpg" alt="">
+            <img data-lg="imgs/5_lg.jpg" src="imgs/5_sm.jpg" alt="">        
+        </div>
+    </div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#box>div>img').mouseover(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+
+            const lg = $(this).data('lg')
+            $('#box>img').prop('src',lg)
+        })
+    </script>
+</body>
+</html>

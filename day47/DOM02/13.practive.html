@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            width: 900px;
+            display: flex;
+            background-color: #002c69;
+            justify-content: center;
+        }
+        li{
+            /* margin: 0 auto; */
+            transition: 0.3s;
+            width: 150px;
+            height: 50px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        li.active{
+            background-color: #f39700;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">首页</li>
+        <li>关于静美仕</li>
+        <li>公司动态</li>
+        <li>产品中心</li>
+        <li>联系我们</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll('li')
+        lis.forEach(li=>{
+            li.onclick = function(){
+            const li_active = document.querySelector('li.active')
+            li_active.classList.remove('active')
+                this.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>

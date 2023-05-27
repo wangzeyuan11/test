@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1">
+        <!-- <a title="" href=""></a> -->
+    </div>
+    <script>
+        var webs = [
+            {title:'百度一下',href:'http://www.baidu.com'},
+            {title:'京东',href:'http://www.dy.com'},
+            {title:'淘宝',href:'http://www.taobao.com'},
+            {title:'斗鱼',href:'http://www.douyu.com'},
+
+        ]
+        var res = webs.map(value => `<a title="${value.title}" href="${value.href}">${value.title}</a>`)
+        box1.innerHTML = res.join('')
+        var names = ['凯凯','明明','泡泡','小新']
+        //要求：把元素放在button标签里，显示到页面上
+        var res = names.map(value => `<button>${value}</button>`)
+        box.innerHTML = res.join('')
+    </script>
+</body>
+</html>

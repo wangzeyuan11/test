@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素的阴影</title>
+		<style>
+			.s1 {
+				margin: 30px;
+				width: 200px;
+				height: 200px;
+				background-color: #ff0;
+				/* 值1：必写 x轴偏移量 默认值为0，数字越大越向右移动，可以有负值*/
+				/* 值2：必写 y轴偏移量 默认值为0 数字越大越向下移动，可以有负值*/
+				/* 值3：羽化值 数字越大阴影越虚 默认值为0 不允许有负值*/
+				/* 值4：扩展半径 默认值为0 数字越大 阴影范围越大 可以有负值（用的较少） */
+				/* 值5：阴影颜色 */
+				box-shadow: 5px 5px 3px 5px #aaa;
+			}
+
+			.jiao {
+				margin: 30px;
+				width: 200px;
+				height: 50px;
+				border-radius: 25px;
+				background-color: red;
+			}
+
+			.jiao:hover {
+				box-shadow: 5px 5px 3px 5px #aaa;
+			}
+
+			.s3 {
+				width: 100px;
+				height: 100px;
+				background-color: #ff0;
+				margin: 30px;
+				box-shadow: 5px 5px 3px 5px #aaa inset;
+				/* inset 内阴影 */
+			}
+
+			/* 完成一个200*50的红色胶囊 鼠标悬停 有阴影效果 */
+		</style>
+	</head>
+	<body>
+		<div class="s1"></div>
+		<div class="jiao"></div>
+		<div class="s3"></div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Rect(length,width){
+            this.length = length
+            this.width = width
+        }
+        Rect.prototype.area = function(){
+            return this.length*this.width;
+        }
+        Rect.prototype.perimeter = function(){
+            return (this.length+this.width)*2;
+        }
+        var r1 = new Rect(20,30)
+        console.log(r1);
+        console.log(r1.area());
+        console.log(r1.perimeter());
+
+        ////////////////////////////////////
+
+        //立方体构造函数 Cube
+        function Cube(length,width,height){
+            this.length = length
+            this.width = width
+            this.height = height
+        }
+        Cube.prototype.area = function(){
+            return (this.length*this.width+this+length*this.height+this.width*this.height)*2
+        }
+        Cube.prototype.perimeter = function(){
+            return (this.length+this.width+this.height)*4
+        }
+        Cube.prototype.volume = function(){
+            return this.length*this.width*this.height
+        }
+        var c1 = new Cube(10,20,30)
+        console.log(c1.area());
+        console.log(c1.perimeter());
+        console.log(c1.volume());
+        console.log(c1);
+
+        ///////////////
+        function Circle(radius){
+            this.radius = radius
+        }
+        Circle.prototype.diameter = function(){
+            return this.radius*2
+        }
+        Circle.prototype.area = function(){
+            return 3.14*this.radius*this.radius
+        }
+        Circle.prototype.perimeter = function(){
+            return this.radius*2*3.14
+        }
+        var c2 = new Circle(10)
+        console.log(c2.diameter());
+        console.log(c2.area());
+        console.log(c2.perimeter());
+        console.log(c2);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function getDays(a, b, c) {
+				// var b = new Date('2023/12/31')
+				// console.log(b.getTime())
+				// var c = new Date(2023, 2, 27)
+				// console.log(c.getTime())
+				// var d = b - c
+				// console.log(d)
+				// d = parseInt(d / 1000)
+				// var day = parseInt(d / (24 * 3600))
+				// console.log(day)
+				// var f = new Date('2023/1/1')
+				// console.log(f.getTime())
+				// var g = b - f
+				// g = parseInt(g / 1000)
+				// var g = parseInt(g / (24 * 3600))
+				// console.log(g)
+				var d = new Date(a, b - 1, c + 1).getTime()
+				var d1 = new Date(a, 0, 1).getTime()
+				var d2 = d - d1
+				return parseInt(d2 / (1000 * 60 * 60 * 24))
+				// console.log(d2)
+				// console.log(parseInt())
+			}
+			var n = getDays(2023, 2, 27)
+			console.log(n)
+			//console.log(day)
+		</script>
+	</body>
+</html>

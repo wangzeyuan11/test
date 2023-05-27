@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <ul></ul>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        var url = 'https://mfresh.xin88.top/data/news_select.php'
+
+        $.get(url,data=>{
+            console.log(data);
+            $('ul').html(
+                data.data.map(value=>{
+                    return `<li>${value.title}</li>`
+                })
+            )
+        })
+        $.get(url,data=>{
+            console.log(data);
+            $('ul').html(
+                data.data.map(value=>{
+                    return`<li>${value.title}</li>`
+                })
+            )
+        })
+    </script>
+</body>
+</html>

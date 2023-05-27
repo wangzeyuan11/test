@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒子模型</title>
+		<style>
+			.pic1 {
+				width: 300px;
+				/* 宽度是图片本身的宽度 300 */
+				padding: 30px;
+				/* 300+30*2=360 */
+				border: 20px solid black;
+				/* 300+30*2+20*2=400 */
+				margin: 10px;
+				/* 加上面的哪一项都会使占据的页面总大小变大
+				 但注意：外间距不算在当前元素本身的大小里*/
+			}
+
+			.pic2 {
+				width: 300px;
+				box-sizing: border-box;
+				border: 20px solid black;
+				padding: 30px;
+				margin: 10px;
+			}
+
+			.left {
+				box-sizing: border-box;
+				padding-right: 20px;
+				width: 300px;
+			}
+
+			.right {
+				box-sizing: border-box;
+				padding-left: 20px;
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./2.jpg" alt="pic1" class="pic1">
+		<br>
+		<img src="./2.jpg" alt="pic2" class="pic2">
+		<br>
+		<img src="./2.jpg" class="left">
+		<img src="./2.jpg" class="right">
+	</body>
+</html>

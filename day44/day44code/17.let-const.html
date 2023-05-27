@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10
+        function aa(){}
+        //问题：在全局中声明的变量，会存储在顶级对象 window中
+        //window用于存储系统属性，放自定义属性则 污染
+
+        //解决方案：利用匿名函数自调用语法，把变量存储在这里
+
+        //使用let/const生命的变量，存储在新增的顶级对象script中
+        //专门存储 自定义的全局属性 需要利用浏览器的断点功能查看
+        //断点：中断的点 让代码在运行时停在某一行(子弹时间)
+        let abb = 111
+        const bba = 222
+        console.log(window);
+
+        //let:变量 --值可以变更 和var相同
+        //const：常量 --初始化赋值后，不能修改 更安全
+
+        //根据实际的场景来选择用什么方式声明变量
+
+        //声明一个变量 存放薪资
+        let salary = 8000
+        salary = 20000
+
+        //声明一个变量 存放媳妇
+        const wife = '翠花'
+        // wife = '甜甜'
+        // console.log(wife);
+
+        //特殊情况
+        const wifel = {name:'翠花',hair:'短发'}
+        wifel.hair = '大波浪'
+        console.log(wifel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义对象</title>
+	</head>
+	<body>
+		<script>
+			//创建对象
+			//对象字面量：直接写对象
+			//属性：属性名+属性值
+			var cup = {
+				color: '白色',
+				size: '200ML',
+				price: 30,
+				'made - in': '中国'
+			}
+
+			console.log(cup)
+			console.log(typeof cup)
+
+			var sp = {
+				id: 1,
+				name: '手机',
+				jiage: 1000,
+				image: "img/1.jpg"
+			}
+			console.log(sp)
+
+			var emp = {
+				eid: 1,
+				ename: 'tom',
+				sex: 1,
+				birthday: '1990-05-05',
+				salary: 6000.00,
+				'dept - id': 20
+			}
+			// console.log(emp.eid, emp.ename)
+			// console.log(emp['dept - id'])
+			emp.ename = '新歌'
+			emp.dname = '市场部'
+			console.log(emp)
+
+			var book = {
+				id: 1,
+				name: 'nt',
+				zuozhe: 'wzy',
+				jiage: 1000,
+			}
+			console.log(book.name)
+			book.jiage = 200
+			book.chuban = 'zyj'
+			console.log(book)
+		</script>
+	</body>
+</html>

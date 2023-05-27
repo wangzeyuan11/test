@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>for循环练习</title>
+	</head>
+	<body>
+		<script>
+			//练习：循环打印1-10之间所有的整数
+			//初始值；循环条件；增量
+			for (var i = 1; i <= 10; i++) {
+				console.log(i)
+			}
+
+			for (var i = 50; i >= 30; i -= 5) {
+				console.log(i)
+			}
+
+			for (var i = 2000, count = 0; i <= 2100; i++) {
+				if (i % 4 === 0 && i % 100 !== 0 || i % 400 === 0) {
+					count++
+				}
+			}
+			console.log(count)
+
+			//计算出1-100之间所有能被7整除的数字之合
+			for (var i = 1, a = 0; i <= 100; i++) {
+				if (i % 7 === 0) {
+					console.log(i)
+					a += i
+				}
+			}
+			console.log(a)
+
+			//注意：循环条件如果有多个的话，最后一个起作用
+			for (var i = 1, j = 50; i <= 10, j >= 30; i++, j--) {
+				console.log(i, j)
+			}
+		</script>
+	</body>
+</html>

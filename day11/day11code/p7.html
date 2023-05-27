@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变换练习 缩放函数scale()</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				font-size: 50px;
+				color: #fff;
+				margin: 0 auto;
+			}
+
+			.box1 {
+				background-color: #f00;
+				transform: scaleX(2);
+				transform: scaleY(2);
+				transform: scaleX(1);
+				/* 大小不变*/
+			}
+
+			.box2 {
+				background-color: #0f0;
+				transform: scaleX(0.5);
+			}
+
+			.box3 {
+				background-color: #00f;
+				/* 元素小时的第四种方案：缩小到看不见，但元素还在 */
+				transform: scaleX(0);
+			}
+
+			.box4 {
+				background-color: #0ff;
+				transform: scaleX(-1);
+				/* x轴镜面翻转效果*/
+				transform: scaley(-1);
+				/* y轴镜面翻转效果*/
+				transform: scale(-1);
+				/* xy轴翻转效果*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">福</div>
+		<div class="box2">福</div>
+		<div class="box3">福</div>
+		<div class="box4">福</div>
+	</body>
+</html>

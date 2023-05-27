@@ -1,0 +1,6 @@
+const express = require('express')
+const userRouter = require('./user')
+const app = express()
+app.listen(3000)
+app.use(express.static('public'))
+app.use('/user', userRouter)

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>循环嵌套</title>
+	</head>
+	<body>
+		<script>
+			//*****
+			//声明变量str，用于拼接一组*，初始值为空字符串
+			for (var i = 1, str = ''; i <= 5; i++) {
+				//	console.log('*')
+				//每次向str的最后拼接一个'*'
+				str += "*"
+				console.log(str)
+			}
+
+			for (var i = 1; i <= 3; i++) { //外层循环
+				console.log('我是第' + i + '轮循环')
+				for (var j = 1; j <= 5; j++) { //内层循环
+					console.log('我是第' + j + '轮循环')
+				}
+			}
+
+			//在浏览器中打印三轮*****
+			for (var i = 1; i <= 3; i++) {
+				//内层循环：控制这一行要显示的内容
+				for (var a = 1, b = ''; a <= 5; a++) {
+					//每次自动向b后拼接一个*
+					b += '*'
+
+				}
+				//内层循环结束 拼接完毕这一行打印这一行
+				console.log(i)
+				console.log(b)
+			}
+			//外层循环控制图形的行数
+			for (var i = 1; i <= 3; i++) {
+				console.log('外层循环i的值：' + i)
+				//内层循环控制这一行的拼接
+				//这里的j是随着i（行）的变化而变化的
+				for (var a = 1, b = ''; a <= i; a++) {
+					b += '*'
+					console.log('内层循环a的值：' + a + '和b:' + b)
+				}
+				//当内层循环结束后打印刚刚拼接好的这一行
+				console.log(b)
+			}
+			// 9hang
+			for (var i = 1; i <= 9; i++) {
+				for (var a = 1, b = ''; a <= i; a++) {
+					b += '*'
+				}
+				console.log(b)
+			}
+			for (var i = 1; i <= 9; i++) {
+				for (var a = 1, b = ''; a <= i; a++) {
+
+					b += a + '*' + i + '=' + (a * i) + ' '
+					//如果是第三行或者第四行，并且是第二列，多拼接一个空格
+					//注意：与的优先级高于或，所以可以使用小括号调整优先级
+					if ((i === 3 || i === 4) && j === 2) {
+						b += ' '
+					}
+				}
+				console.log(b)
+			}
+		</script>
+	</body>
+</html>

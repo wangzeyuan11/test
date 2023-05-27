@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS尺寸表示法</title>
+		<style>
+			.d1 {
+				/* 块级元素的宽度默认是父级宽度的100% */
+				background-color: #f00;
+				/* 高度靠内容撑起来,或者自设高度,否则高度为0 */
+				height: 100px;
+
+			}
+
+			.d2 {
+				width: 500px;
+				height: 500px;
+				border: 2px solid #000;
+			}
+
+			.d2 img {
+				/* 百分比尺寸,设置图片宽度是父级的百分之百 */
+				width: 100%;
+			}
+
+			.d2 p {
+				background-color: #00f;
+				height: 100px;
+			}
+
+			span {
+				background-color: #0f0;
+				width: 300px;
+				height: 300px;
+				/* 行内元素是靠内容撑起来的 设置宽高无效 */
+				font-size: 200px;
+			}
+
+			/* 行内块元素 既能与其他元素共处一行,也可以设置宽高 */
+			input {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1"></div>
+		<div class="d2">
+			<img src="img/zichan5.jpg" alt="">
+			<p></p>
+			<span>1234567890</span>
+			<input type="text">
+			<input type="text">
+
+		</div>
+	</body>
+</html>

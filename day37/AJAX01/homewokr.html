@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.box1 {
+				width: 60%;
+				margin: 0 auto;
+				border-top: 1px dashed #000;
+			}
+
+			.box1 li:first-child {
+				font-weight: 800;
+			}
+
+			ul {
+				list-style: none;
+				/* display: flex; */
+			}
+
+			li {
+				text-align: center;
+				padding: 20px;
+				border-bottom: 1px solid #000;
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: center;
+			}
+
+			li>span {
+				/* text-align: center; */
+				width: 145px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="box" class="box1">
+			<!-- 			<li></li>
+			<li></li> -->
+		</ul>
+
+		<script>
+			var obj = [{
+					yname: '医院名称',
+					yleve: '医院等级',
+					yimg: '医院图片',
+					city: '省份',
+					dizhi: '详细地址',
+					phone: '练习电话'
+				}, {
+					yname: '乐青市人民医院',
+					yleve: '甲级',
+					yimg: '&nbsp',
+					city: '浙江',
+					dizhi: '乐青市清源路220号',
+					phone: '18888888888'
+				},
+				{
+					yname: '乐青市人民医院',
+					yleve: '甲级',
+					yimg: '&nbsp',
+					city: '浙江',
+					dizhi: '乐青市清源路220号',
+					phone: '18888888888'
+				},
+				{
+					yname: '乐青市人民医院',
+					yleve: '甲级',
+					yimg: '&nbsp',
+					city: '浙江',
+					dizhi: '乐青市清源路220号',
+					phone: '18888888888'
+				},
+				{
+					yname: '乐青市人民医院',
+					yleve: '甲级',
+					yimg: '&nbsp',
+					city: '浙江',
+					dizhi: '乐青市清源路220号',
+					phone: '18888888888'
+				}
+			]
+
+			for (var i = 0, str = ''; i < obj.length; i++) {
+				str += `
+					<li>
+					<span>${obj[i].yname}</span>
+					<span>${obj[i].yleve}</span>
+					<span>${obj[i].yimg}</span>
+					<span>${obj[i].city}</span>
+					<span>${obj[i].dizhi}</span>
+					<span>${obj[i].phone}</span>
+					</li>
+				`
+			}
+			box.innerHTML = str
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: #72b134;
+            color: white;
+            width: 150px;
+            border: none;
+            border-radius: 2px;
+            height: 34px;
+        }
+        button:active{
+            opacity: 0.8;
+        }
+        /* 伪类选择器：不可用时 */
+        button:disabled{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>
+            <input type="checkbox">
+        我已阅读并同意用户注册协议
+        </label>
+    </div>
+   <button>提交注册</button>
+
+   <script>
+    const chb = document.querySelector('input')
+    const btn = document.querySelector('button')
+    chb.onchange = function(){
+        btn.disabled =!this.checked
+        // if(this.checked){
+        //     //勾选-真 不可用-假
+        //     btn.disabled = false
+        // }else{
+        //     btn.disabled = true
+        // }
+    }
+   </script>
+</body>
+</html>

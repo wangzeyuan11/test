@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据渲染</title>
+		<style>
+			table {
+				width: 1000px;
+				border: 1px solide #CCC;
+				margin: 100px auto;
+				border-collapse: collapse;
+				/* 线合并 */
+			}
+
+			th,
+			td {
+				border: 1px solid #CCC;
+				text-align: center;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>医院名称</th>
+					<th>等级</th>
+					<th>省份</th>
+					<th>详细地址</th>
+					<th>联系电话</th>
+				</tr>
+			</thead>
+			<tbody id="cont">
+				<tr>
+					<td>1</td>
+					<td>解放军总医院</td>
+					<td>三级甲等</td>
+					<td>北京</td>
+					<td>海淀区复兴路77号</td>
+					<td>010-12345678</td>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+			var arr = [{
+					id: 1,
+					title: '北京大学第三医院',
+					level: '三级甲等',
+					province: '北京',
+					addr: '北京市海淀区105号',
+					tel: '010-8848'
+				},
+				{
+					id: 2,
+					title: '北京协和医院',
+					level: '三级甲等',
+					province: '北京',
+					addr: '北京市海淀区105号',
+					tel: '010-8848'
+				},
+				{
+					id: 3,
+					title: '解放军总医院',
+					level: '三级甲等',
+					province: '北京',
+					addr: '北京市海淀区105号',
+					tel: '010-8848'
+				}
+			]
+			//遍历数组，获取每条数据
+			//声明变量，用于拼接多组数据，初始化为空字符串
+			for (var i = 0, str = ''; i < arr.length; i++) {
+				// console.log(arr[i])
+				//把每条数据中的值拼到模板中
+				console.log(`
+			<tr>
+				<td>${arr[i].id}</td>
+				<td>${arr[i].title}</td>
+				<td>${arr[i].level}</td>
+				<td>${arr[i].province}</td>
+				<td>${arr[i].addr}</td>
+				<td>${arr[i].tel}</td>
+			</tr>`)
+				//多组数据拼接
+				str += `
+			<tr>
+				<td>${arr[i].id}</td>
+				<td>${arr[i].title}</td>
+				<td>${arr[i].level}</td>
+				<td>${arr[i].province}</td>
+				<td>${arr[i].addr}</td>
+				<td>${arr[i].tel}</td>
+			</tr>
+			`
+			}
+
+			//渲染
+			cont.innerHTML = str
+		</script>
+	</body>
+</html>

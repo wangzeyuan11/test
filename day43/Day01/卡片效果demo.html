@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .card {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+
+            /* 设置透视距离，值越大翻转效果越明显 */
+        }
+
+        .card__front,
+        .card__back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            /* 隐藏背面 */
+            transition: transform 0.5s ease-in-out;
+            /* 动画过渡效果 */
+        }
+
+        .card__front {
+            background-color: #fff;
+            transform: rotateY(0deg);
+        }
+
+        .card__back {
+            background-color: #f00;
+            transform: rotateY(180deg);
+            /* 初始状态背面朝上 */
+        }
+
+        .card:hover .card__front {
+            transform: rotateY(-180deg);
+            /* 鼠标悬停时翻转到背面 */
+        }
+
+        .card:hover .card__back {
+            transform: rotateY(0deg);
+            /* 鼠标悬停时翻转回正面 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card__front" style="background-color: green;">前面</div>
+        <div class="card__back">背面</div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		单价<input type="text" id="box"> <br>
+		数量<input type="text" id="box2"><br>
+		<button id="btn">支付</button>
+
+		<script>
+			var hy = 1500
+			var sp = hy
+			btn.onclick = function() {
+				var a = box.value
+				var b = box2.value
+				var c = a * b
+				console.log(c)
+				if (c > 1500) {
+					alert('余额不足，会员卡余额还剩1500元，请充值')
+				} else if (c >= 1000) {
+					sp = c * 0.9
+					hy = 1500 - sp
+					alert('支付成功，还剩余' + hy + '元')
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>flex弹性布局练习</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.center {
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			body {
+				background-color: #f5f5f5;
+			}
+
+			/* 第一层样式 */
+			.top .area {
+				height: 40px;
+				display: flex;
+				justify-content: space-between;
+				/* 诶区域设置渐变背景色 */
+				background-image: linear-gradient(#f5f4f5, #e6e6e5);
+				/* 阴影颜色 */
+				box-shadow: 0 2px 5px #aaa;
+				padding: 0 5px;
+				align-items: center;
+			}
+
+			/* 处理第一层的两个按钮 */
+			.top .area button {
+				border-radius: 5px;
+				height: 30px;
+				padding: 0 10px;
+				align-items: center;
+				border: none;
+			}
+
+			.top .area button:nth-child(1) {
+				background-color: #ffaf0f;
+				color: #fff;
+			}
+
+			.top .area button:nth-child(2) {
+				background-color: #bbbbbb;
+				color: #fff;
+			}
+
+			/* 第二层样式 */
+			.main ul {
+				background-color: #fff;
+				height: 620px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				/* 多行项目在交叉轴上的对齐方式：公平对齐 */
+				align-content: space-evenly;
+				/* 让二楼向下来一点 不然会遮盖一楼的阴影 */
+				margin-top: 7px;
+			}
+
+			.main ul li {
+				width: 230px;
+				height: 280px;
+				border: 1px solid #999;
+
+			}
+
+			.main ul li img {
+				width: 100%;
+				/* 变快可以用于去除内联元素自带的幽灵空白节点 */
+				display: block;
+			}
+
+			.main ul li a {
+				font-size: 12px;
+				color: #000;
+				display: block;
+				margin: 5px 0;
+				/* 强制文字不换行 */
+				white-space: nowrap;
+				/* 溢出部分隐藏 */
+				overflow: hidden;
+				/* 文字溢出的部分替换成省略号 */
+				text-overflow: ellipsis;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 第一层 -->
+		<div class="top">
+			<!-- 设置版心 -->
+			<div class="center">
+				<div class="area">
+					<button>管理收藏夹</button>
+					<button>清理失效商品</button>
+				</div>
+			</div>
+		</div>
+		<!-- 第二层 -->
+		<div class="main">
+			<div class="center">
+				<ul>
+					<!-- 商品列表-->
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop1.jpg" alt="">
+						<a href="#">戴尔（DELL）MS116 鼠标有线 商务办公经典对称 有线鼠标</a>
+						<h4>￥ 19.90 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop2.jpg" alt="">
+						<a href="#">华为笔记本电脑MateBook D 14 SE版 14英寸 11代酷睿 i5</a>
+						<h4>￥ 3899.00 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop3.jpg" alt="">
+						<a href="#">雷柏（Rapoo） V500PRO 机械键盘 有线键盘 游戏键盘 104键混光键盘</a>
+						<h4>￥ 109.00 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop4.jpg" alt="">
+						<a href="#">先马（SAMA）平头哥M1电竞版 Mini小机箱 支持MATX主板240水冷</a>
+						<h4>￥ 179.00 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop5.jpg" alt="">
+						<a href="#">英特尔i5 10400F/10600KF i511400F标</a>
+						<h4>￥ 1299.00 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop6.jpg" alt="">
+						<a href="#">金士顿（Kingston）32GB USB3.2 Gen 1 U盘 DTX</a>
+						<h4>￥ 27.90 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop7.jpg" alt="">
+						<a href="#">罗技（Logitech）C270高清网络摄像头 网课 摄像头家用 视频通话 带麦克风台式机电脑摄像头</a>
+						<h4>￥119.00 </h4>
+					</li>
+					<li>
+						<!-- 每个列表项代表每一张商品卡片-->
+						<img src="img/shop8.jpg" alt="">
+						<a href="#">戴尔（DELL）MS116 鼠标有线 商务办公经典对称 有线鼠标</a>
+						<h4>￥ 19.90 </h4>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

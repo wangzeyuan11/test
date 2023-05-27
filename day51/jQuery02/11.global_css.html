@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css全局变量</title>
+
+    <style>
+        html{
+            /* 伪类选择器：代表页面的根元素。即html标签，习惯在这里声明全局变量 */
+        }
+        :root{
+            /* css变量的格式：--变量名：值 */
+            --color-red:rgb(0,200,0)
+            /* 在html标签下的所有后代元素中，都可以使用此变量 */
+
+            /* 全局变量的优点：便于维护；只要修改变量的值，就可以影响到所有使用了此变量的元素 */
+        }
+        li:nth-child(2){
+            /* var(变量)：此语法找到变量的值 */
+            color: var(--color-red);
+        }
+        ul{
+            border: 2px solid var(--color-red);
+        }
+    </style>
+</head>
+<body>
+    <!-- 变量：可以多次 重复的使用 -->
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

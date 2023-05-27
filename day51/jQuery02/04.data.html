@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        data:可以在元素上存储数据
+        当使用data方法读取数据时，拥有附加功能：如果有data-自定义属性，也能帮忙读取
+     -->
+     <div id="box"></div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#box').data('x',100) //元素上存储一个属性x，值是100
+        console.log($('#box'));
+        console.log($('#box').data('x'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <style>
+    #progress{
+      height: 20px;
+      background-color: #aaa;
+      width: 200px;
+    }
+    #progress>#thumb{
+      height: 100%;
+      background-color: orange;
+      width: 0%;
+      transition: 0.1s;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome To Express!</h1>
+
+  <!-- 用DOM的方式, 可以实现更加灵活的上传 -->
+  <input type="file">
+  <br>
+  <button id="upload">上传文件</button>
+  <img src="" alt="">
+  <div id="progress">
+    <div id="thumb"></div>
+  </div>
+  <!-- 运行时 必须用 localhost:3000 -->
+  <!-- 因为live server 自带刷新, 与上传操作有冲突! -->
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    // 思路: 点击上传按钮后, 获取 上传文件 的信息, 通过结果传递给服务器
+    $('button#upload').click(function () {
+      // 查看文件上传元素中的值
+      // console.log($(':file'))
+      // files属性: 存储文件上传的信息
+      const files = $(':file').prop('files')
+      console.log('files:', files)
+
+      // 1. 先检查上传文件的个数, 如果是0个 则可以弹出提醒
+      if (files.length == 0) {
+        alert("请先选择文件, 再进行上传操作")
+        return
+      }
+
+      // 2. 限制只能传递 图片类型的文件
+      // type 的值中 含有 image 字样, 就是图片类型. 反之 不含有image 就不是图片
+      // indexOf() : 值 -1 代表找不到
+      if (files[0].type.indexOf('image') == -1) {
+        alert("只允许图片类型文件的上传!!")
+        return
+      }
+
+      // 大小检测: 只允许上传 2M 以内文件
+      // 2MB = 2*1024KB = 2 * 1024 * 1024B
+      if (files[0].size > 2 * 1024 * 1024) {
+        alert("只允许上传2M以内的文件!")
+        return
+      }
+
+      // 需要把文件数据封装到 FormData 类型的对象中, 才能被服务器接收
+      const fd = new FormData()
+      // 利用 append 方法 把文件数据添加到 fd 中
+      fd.append('avatar', files[0])
+      // 参数1: 数据的名字, 相当于 <input type='file' name="avatar"> 中的name属性. 服务器接口中会点名接收此属性的值
+
+      // 利用POST方式进行上传
+      // 需要使用更加自定义的 ajax 方法实现
+      $.ajax({
+        // ctrl+i: 可以查看可选的配置项
+        url: 'http://localhost:3000/avatar', //接口地址
+        type: 'post', //请求类型
+        data: fd, // 传输的数据
+        // 内容类型: false代表不允许更改,采用原始数据类型;  
+        // 默认会自动更改为 字符串类型
+        contentType: false,
+        // 数据编码方式: false代表不对数据进行编码, 保持原有状态.
+        processData: false,
+
+        //监听上传进度
+        xhr() {
+          //提供自定义的xhr对象 实现网络操作，可以添加进度条
+          var xhr = new XMLHttpRequest()
+          //progress事件：当上传进度发生变化时触发
+          xhr.upload.addEventListener('progress',e =>{
+            //事件参数e中，包含本次事件的相关信息
+            // console.log('事件参数：',e);
+            //总大小，已加载大小
+            const {total,loaded} = e
+            
+            console.log('加载进度：',((loaded / total)*100).toFixed(0) + '%');
+            const percentage = ((loaded / total)*100).toFixed(0) + '%'
+            $('#thumb').width(percentage)
+            
+          })
+
+          return xhr
+        },
+
+        // 上传完毕后的回调函数
+        success(data) {
+          console.log('上传结果:', data)
+          const {filename} = data
+          //把存储在服务器上的文件，用img标签进行展示
+          $('img').prop('src',`http://localhost:3000/${filename}`)
+          .height(100)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

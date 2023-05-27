@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            width: 200px;
+        }
+        li{
+            padding: 10px;
+            background-color: #eee;
+            margin-bottom: 4px;
+            transition: 0.3s;
+        }
+        li.active{
+            box-shadow: 0 0 2px 2px rgba(50, 150, 200, 0.2);
+            padding-left: 30px;
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">阶段1:晓宇</li>
+        <li>阶段2:亮亮</li>
+        <li>阶段3:小新</li>
+        <li class="xx yy">阶段4:铭铭</li>
+        <li>阶段5:文华</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll('li')
+        lis.forEach(li=>{
+            li.onclick = function(){
+                //唯一性的激活效果：
+                //先删除之前激活的元素，在激活新的
+                //预判：只有一个处于激活状态，qs
+                const li_active = document.querySelector('li.active')
+                //采用classList提供的remove方法，删除元素指定的样式类
+                li_active.classList.remove('active')
+
+                // if(this.className == ''){
+                    //=:会导致覆盖操作，覆盖原有的值，此写法存在风险
+                    // this.className = 'active'
+                    //classList中提供了add方案，会保留原有的class然后添加新的
+                    this.classList.add('active')
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

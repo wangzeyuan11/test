@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var nums = [12,4,34,54,67,76,8,43]
+        var obj = 0
+        var arr = 0
+        //要求：分别用for-of 和 forEach方式，计算出数组中元素总和
+        for(const value of nums){
+            // console.log(value);
+            obj += value
+        }
+        console.log(obj);
+        nums.forEach(value=>arr+=value)
+        console.log(arr);
+
+        //////////////////////
+        //结合html
+        var skills = ['html','css','js','dom']
+        //把元素转化成button标签，拼接到一起形成字符串
+        var template = '' //模板
+        skills.forEach(value=>template+=`<button>${value}</button>`)
+        console.log(template);
+        box.innerHTML = template
+    </script>
+</body>
+</html>

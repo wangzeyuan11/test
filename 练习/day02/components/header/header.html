@@ -1,0 +1,23 @@
+<!-- 引入:关注相对路径 是 相对index.html -->
+<link rel="stylesheet" href="./components/header/header.css">
+
+<!-- header.html -->
+<div class="header">
+    <!-- 由于当前文件的代码最终是在index.html中运行，所以这里的图片路径要相对index.html来写 -->
+    <img src="./assets/img/logo.png" alt="">
+    <div class="search">
+        <input type="text" placeholder="菜谱明，食材名">
+        <button>搜索</button>
+    </div>
+
+    <div class="nav">
+        <!-- 认为制造巧合：p的值 必须和页面ming一样 -->
+        <a href="?p=home">首页</a>
+        <a href="?p=menu">视频菜谱</a>
+        <a href="?p=note">笔记</a>
+        <a href="?p=mall">商城</a>
+        <a href="?p=live">直播</a>
+    </div>
+
+    <a href="?p=login">登录</a>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 10:52</title>
+</head>
+
+<body>
+  <script>
+    // 构造员工对象的 构造函数
+    function Employee(eid, ename, age, married) {
+      this.eid = eid // 员工id
+      this.ename = ename
+      this.age = age
+      this.married = married //婚姻
+    }
+
+    var emps = [
+      new Employee('0001', '凯凯', 29, false),
+      new Employee('0002', '铭铭', 32, true),
+      new Employee('0003', '亮亮', 36, true),
+      new Employee('0004', '楠姐', 19, false),
+      new Employee('0005', '小新', 34, true),
+    ]
+
+    console.log(emps)
+
+    // 1. 判断是否所有人都已婚
+    var res = emps.every((value, index, array) => {
+      // value: Employee类型的对象
+      return value.married == true
+    })
+
+    var res = emps.every(value => value.married)
+
+    console.log(res ? '都已婚' : '非都已婚');
+
+    // 2. 是否所有人年龄都超过20
+    var res = emps.every(value => value.age > 20)
+  </script>
+</body>
+
+</html>

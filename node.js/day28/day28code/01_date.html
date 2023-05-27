@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date对象</title>
+	</head>
+	<body>
+		<script>
+			// //创建Date对象,存储日期时间
+			// var d1 = new Date('2023/2/27 10:20:30')
+			// //第二个参数，月份值范围0~11 代表1~12月
+			// var d2 = new Date(2023, 2, 27, 10, 20, 30)
+			// //存储系统时间
+			// var d3 = new Date()
+			// //一个数字，表示时间戳：距离计算机元年的毫秒数
+			// //1970-1-1 0:0:0
+			// var d4 = new Date(1000)
+
+			// //console.log(d1);
+			// //转为本地字符串,存在兼容性
+			// console.log(d4.toLocaleString())
+
+			var d = new Date('2023/2/27 10:49:50')
+			//获取存储的值
+			console.log(d.getFullYear())
+			console.log(d.getMonth() + 1)
+			console.log(d.getDate())
+			console.log(d.getHours())
+			console.log(d.getMinutes())
+			console.log(d.getSeconds())
+			//毫秒
+			console.log(d.getMilliseconds())
+			//星期 0~6 对应日~六
+			console.log(d.getDay())
+			//获取时间戳格式
+			console.log(d.getTime())
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {name:'凯凯',salary:10000}
+        function total(zhong,shui){
+            return 12*this.salary-shui
+        }
+        //区别：实参传递不同
+        //实参需要一个一个传递
+        console.log(total.call(emp,5000,30000));
+        //apply：实参要放数组里传递
+        console.log(total.apply(emp,[5000,30000]));
+
+    </script>
+</body>
+</html>

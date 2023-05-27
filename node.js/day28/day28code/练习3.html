@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var d1 = new Date('2023 / 2 / 28')
+			//拷贝一份入职时间，作为到期时间
+			var d2 = new Date(d1)
+			// 3年后合同到期
+			d2.setFullYear(d2.getFullYear() + 3)
+			//拷贝一份到期时间，作为续签时间
+			var d3 = new Date(d2)
+			//提前一个月
+			d3.setMonth(d3.getMonth() - 1)
+			console.log('入职时间:' + d1.toLocaleString())
+			console.log('到期时间:' + d2.toLocaleString())
+			console.log('续签时间:' + d3.toLocaleString())
+		</script>
+	</body>
+</html>

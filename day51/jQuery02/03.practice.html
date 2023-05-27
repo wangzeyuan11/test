@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        ul>li{
+            margin: 0 15px 15px 0;
+            box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <!-- <li>
+            <img src="" alt="">
+            <span></span>
+        </li> -->
+    </ul>
+    <button>获取更多</button>
+    
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        //场景：一大堆代码，频繁执行，只有小部分变更
+        //封装技巧来实现复用效果
+        function getData(page){        
+            var url = `https://douyu.xin88.top/api/room/list?page=${page}&;type=yz`
+            $.get(url,data=>{
+                console.log(data);
+                //html:innerHTML = xxx 属于覆盖效果
+                //append:累加 新增
+                $('ul').append(
+                    data.data.list.map(value=>{   
+                    return `<li>
+                <img src="${value.roomSrc}" alt="">
+                <span>${value.roomName}</span>
+            </li>`
+                }))
+                
+                //在ul标签上，添加一个属性，存储当前项
+                $('ul').attr('data-page',data.data.nowPage)
+            })
+        }
+        
+        //初始化时，获取第一特数据
+        getData(1)
+        //获取更多
+        $('button').click(function(){
+            //读取ul的自定义属性 data-page
+            const page = $('ul').attr('data-page')*1
+            getData(page + 1)
+        })
+   
+   </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+/* 首页 3 4 5 6楼的css */
+/* 3楼轮播图的css */
+.carousel {
+	height: 450px;
+}
+
+.carousel .pic img {
+	width: 100%;
+	display: block;
+}
+
+.carousel .control {
+	width: 100%;
+	/* 作为子级绝对定位的参照物 */
+	position: relative;
+}
+
+/* 轮播图的底部区域 */
+.carousel .bottom {
+	/* 使用绝对定位脱离文档流，元素宽度需要自设或靠内容撑开 */
+	width: 1000px;
+	height: 30px;
+	background-color: rgba(255, 255, 255, .5);
+	position: absolute;
+	bottom: 0;
+}
+
+.carousel .bottom ul {
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel .bottom ul li {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #fff;
+	margin: 0 5px 0 5px;
+}
+
+.carousel .bottom .active {
+	background-color: #fd4219;
+}
+
+/* 轮播图的左控制符 */
+.carousel .left {
+	width: 40px;
+	height: 70px;
+	background-image: url(img/arr.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+/* 右控制符 */
+.carousel .right {
+	background-position: right;
+	width: 40px;
+	height: 70px;
+	background-image: url(img/arr.png);
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+/* 4楼新闻资讯的css */
+.news {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 50px;
+	display: flex;
+}
+
+.news .left {
+	width: 400px;
+	position: relative;
+	margin-right: 50px;
+}
+
+.news .left img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.news .left .bottom {
+	width: 100%;
+	height: 30px;
+	background-color: rgb(0, 0, 0, 0.5);
+	position: absolute;
+	bottom: 0;
+	display: flex;
+}
+
+.news .left .bottom .wenzi {
+	font-size: 14px;
+	color: #fff;
+	display: flex;
+	padding-left: 10px;
+	line-height: 30px;
+	height: 30px;
+	position: relative;
+	width: 100%;
+}
+
+.news .left .bottom .xian {
+	width: 15px;
+	height: 4px;
+	background-color: #949494;
+	border-radius: 3px;
+	align-items: center;
+	/* line-height: 30px; */
+	/* display: flex; */
+	margin: auto 3px;
+}
+
+.xinbox {
+	height: 30px;
+	display: flex;
+	position: absolute;
+	right: 5px;
+}
+
+.news .right {
+	width: 550px;
+	/* display: flex; */
+	position: relative;
+}
+
+.news .right .top {
+	display: flex;
+}
+
+.news .right .top .you {
+	position: absolute;
+	right: 0;
+	color: #999;
+}
+
+.news .right .top h3 {
+	font-size: 20px;
+	font-weight: 400;
+
+}
+
+.news .right .top span {
+	font-size: 14px;
+	color: #83754e;
+}
+
+.news .right .xiahuax {
+	border: 2px solid #ddd;
+	margin-top: 6px;
+	margin-bottom: 10px;
+}
+
+.news .right .xinwen {
+	width: 550px;
+	height: 30px;
+	display: flex;
+	position: relative;
+}
+
+.news .right .xinwen span {
+	font-size: 14px;
+	line-height: 30px;
+	color: #999;
+}
+
+.news .right .xinwen .kaoyou {
+	position: absolute;
+	right: 0;
+}
+
+.news .right .xiahuaxian {
+	border: 1px dashed #ddd;
+}
+
+/* 5楼公司业务的css */
+/* 标题部分 */
+.yw .center h3 {
+	margin-top: 50px;
+	font-size: 20px;
+	font-weight: 400;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 6px;
+	margin-bottom: 30px;
+}
+
+.yw .center h3 span {
+	font-size: 14px;
+	color: #83754e;
+}
+
+/* 业务中的列表部分 */
+.yw .center ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+.yw .center ul li {
+	width: 196px;
+	height: 240px;
+	position: relative;
+	/* 给卡片的悬停效果加一点过度 */
+	transition: 0.5 s;
+}
+
+/* 分别选中不同的li插入背景图片 */
+.yw ul li:nth-child(1) {
+	background-image: url(img/btn1.jpg);
+}
+
+.yw ul li:nth-child(2) {
+	background-image: url(img/btn2.jpg);
+}
+
+.yw ul li:nth-child(3) {
+	background-image: url(img/btn3.jpg);
+}
+
+.yw ul li:nth-child(4) {
+	background-image: url(img/btn4.jpg);
+}
+
+.yw ul li:nth-child(5) {
+	background-image: url(img/btn5.jpg);
+}
+
+/* 处理卡片的遮罩层 */
+.yw ul li .mask {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .4);
+}
+
+/* 处理卡片中的白色圆形 */
+.yw ul li .circle {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background-color: #fff;
+	/* 一个明确宽高的子元素，四个方向都为0，可以使用margin：auto实现在父元素中的水平垂直居中 */
+	/* 子元素使用绝对定位 脱离文档流 */
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	/* 把白色圆看做父容器，让子元素小房子到白色圆的正中 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 处理卡片上的文字 */
+.yw ul li p {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	/* 相对定位的参照物是元素自己原来的位置 */
+	position: relative;
+	bottom: 50px;
+}
+
+/* 给卡片悬停时，加一点美化效果 */
+.yw li:hover {
+	/* 加一点阴影效果 */
+	box-shadow: 0 20px 20px 0 #ddd;
+	/* 悬停时让元素向上一点 */
+	transform: translateY(-10px);
+}
+
+/* 6楼 合作伙伴partner的css */
+/* 标题部分 */
+.partner .center h3 {
+	margin-top: 50px;
+	font-size: 20px;
+	font-weight: 400;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 6px;
+	margin-bottom: 34px;
+}
+
+.partner .center h3 span {
+	font-size: 14px;
+	color: #83754e;
+}
+
+.partner .center .box {
+	/* 表示可显示的内容区域宽度与版心同宽 */
+	width: 1000px;
+	overflow: hidden;
+}
+
+.partner .center .box ul {
+	display: flex;
+	width: 3000px;
+	/* 留相等的间距 滚动起步不突兀 */
+	justify-content: space-evenly;
+	animation: move 20s infinite linear;
+
+}
+
+.partner .box ul:hover {
+	/* 当鼠标悬停在ul时暂停 */
+	animation-play-state: paused;
+}
+
+.partner .center .box ul li {
+	width: 200px;
+}
+
+.partner .center .box ul li img {
+	/* 不沾满li，留点空白 */
+	width: 80%;
+	/* 让图片在li中居中 */
+	text-align: center;
+}
+
+@keyframes move {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-2000px);
+	}
+}
+
+/* 明确：展示区域大小-版心-1000px
+明确：在本区域展示几个li-5个 
+得出：每个li的宽度是1000/5等于200px 
+已知：一共需要展示10张不同的图片，我们需要位移2000px
+发现10个li不够，因为展示区域需要5个li，至少需要5个替补li
+所以最终：li 10+5=15个 ul宽度是3000px
+注意：前10张图，也就是位移2000px后， 动画回到初始位置*/

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//准备一个数组，存放所有要获取随机的值
+			var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+				'v', 'w', 'x', 'y', 'z'
+			]
+			//准备一个新数组，用于存放获取到的随机
+			var arr2 = []
+			//循环4次 每次获取一个随机值
+			for (var i = 0; i < 4; i++) {
+				//产生随机下标,在通过随机下标获取元素
+				//0~1 * 26 0~25.x 向下取整 0~25
+				var n = Math.floor(Math.random() * arr.length)
+				console.log(n, arr[n])
+				//获取的随机放入到新数组
+				arr2.push(arr[n])
+				// 把获取的元素从原数组中删除
+				arr.splice(n, 1)
+			}
+			console.log(arr2)
+			console.log(arr)
+		</script>
+	</body>
+</html>

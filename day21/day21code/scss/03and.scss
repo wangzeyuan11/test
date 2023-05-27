@@ -1,0 +1,20 @@
+//.box>ul>li>a
+.box{
+	border: 1px solid #000;
+	ul {
+		list-style: none;
+		li{
+			height: 30px;
+			a{
+				text-decoration: none;
+				color: #999;
+			}
+			&:hover {
+				background-color: red;
+			}
+		}
+		// li:hover {
+		// 	background-color: red;
+		// }
+	}
+}

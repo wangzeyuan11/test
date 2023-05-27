@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>逻辑运算符</title>
+	</head>
+	<body>
+		<script>
+			//全真才真
+			console.log('测试与：')
+			console.log(true && false) //false
+			console.log(false & true) //false 会短路
+			console.log(false && false) //false 会短路
+			console.log(true && true) //true
+
+			//全假才假
+			console.log('测试或：')
+			console.log(true || false) //true 会短路
+			console.log(false || true) //true
+			console.log(false || false) //false
+			console.log(true || true) //true 会短路
+
+			//练习：定义变量保存用户的年龄，判断是否为60以上或12一下 输出结果
+			var age = 27
+			console.log(age > 60 || age < 12)
+
+			//练习：判断一个人的工资salary是否在8000-10000之间
+			var salary = 8500
+			console.log(salary >= 8000 || salary <= 10000)
+
+			// 练习：声明两个变量，保存用户名uname和密码upwd
+			//如果用户输入的值是admin 123456
+			//则输出true 其余情况输出false
+
+			var uname = 'admin'
+			var upwd = 123456
+			console.log(uname === 'admin' && upwd === 123456)
+
+			//练习：声明变量保存用户输入的值。如果是用户名xin888
+			//或是邮箱xin888@qq.com或者是手机号18312345678
+			//输出true 否则输出false
+
+			var input = 18312345678
+			console.log(input === 'xin888' || input === 'xin888@qq.com' || input === 18312345678)
+
+			var n = 5
+			// n > 3 && a 
+			//报错，前面为true,没有短路，会执行后面的内容，a没定义，报错
+			n < 8 || a
+		</script>
+	</body>
+</html>

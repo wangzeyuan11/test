@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX 15:15</title>
+</head>
+
+<body>
+  <ul id="box"></ul>
+
+  <script>
+    // AJAX: 在JS中通过网络请求 从服务器获取数据
+    // api.xin88.top : 提供一些练习的接口
+    var url = 'https://api.xin88.top/car/news.json'
+
+    const xhr = new XMLHttpRequest()
+    xhr.open('get', url)
+    xhr.onload = function () {
+      var data = JSON.parse(xhr.response)
+      console.log(data)
+
+      // 把请求到的数组 list, 转为 li 元素;  <li>标题...<li>
+      var res = data.data.list.map(value => {
+        return `<li>${value.title}</li>`
+      })
+      console.log(res)
+
+      box.innerHTML = res.join('')
+    }
+    xhr.send()
+  </script>
+</body>
+
+</html>

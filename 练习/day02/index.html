@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common/css/reset.css">
+    <link rel="stylesheet" href="common/css/base.css">
+
+</head>
+<body>
+    <div id="header"></div>
+    <div id="body"></div>
+    <div id="footer"></div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script>
+        $('#header').load('./components/header/header.html')
+        $('#footer').load('./components/footer/footer.html')
+
+        const params = new URLSearchParams(location.search)
+        const p = params.get('p') || 'home'
+        const c = `./pages/${p}/${p}.html`
+        console.log('当前页面：',c);
+
+        $('#body').load(c,function(){
+            //加载页面的css
+            $('head').append(`<link rel="stylesheet" href="./pages/${p}/${p}.css">`)
+            //加载页面对应的js
+            //不能像css的方式，因为会误认是脚本结束标签
+            //解决：用dom的方案创建脚本标签
+            const s = document.createElement('script')
+            s.src = `./pages/${p}/${p}.js`
+            $('body').append(s)
+        })
+    </script>
+</body>
+</html>

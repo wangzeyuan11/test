@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS修改CSS样式</title>
+		<style>
+			div {
+				width: 300px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn1">红</button>
+		<button id="btn2">绿</button>
+		<button id="btn3">蓝</button>
+
+		<script>
+			//给按钮绑定点击事件
+			btn1.onclick = function() {
+				box.style.backgroundColor = 'red'
+			}
+			btn2.onclick = function() {
+				box.style.backgroundColor = 'green'
+			}
+			btn3.onclick = function() {
+				box.style.backgroundColor = 'blue'
+			}
+		</script>
+	</body>
+</html>

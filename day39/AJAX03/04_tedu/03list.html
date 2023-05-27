@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			table {
+				width: 1000px;
+				/* margin-top: 20px; */
+				border: 1px solid #ccc;
+				border-collapse: collapse;
+			}
+
+			td,
+			th {
+				border: 1px solid #ccc;
+				line-height: 40px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		当前的页码<input type="text" id="pno"> <br>
+		每页数据量<input type="text" id="count"> <br>
+		<button id="btn">提交</button> <br>
+		<table>
+			<thead>
+				<tr>
+					<td>编号</td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>生日</td>
+					<td>工资/td>
+					<td>部门</td>
+				</tr>
+			</thead>
+			<tbody id="cont">
+				<!-- 				<tr>
+					<td>1</td>
+					<td>tom</td>
+					<td>男</td>
+					<td>1996-4-5</td>
+					<td>5000</td>
+					<td>30</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>tom</td>
+					<td>男</td>
+					<td>1996-4-5</td>
+					<td>5000</td>
+					<td>30</td>
+				</tr> -->
+			</tbody>
+		</table>
+		<script>
+			btn.onclick = function() {
+				var a = pno.value
+				var b = count.value
+				//发送AJAX请求
+				//1.创建HTTP请求对象
+				var xhr = new XMLHttpRequest();
+				//2.打开服务器的连接，设置要求的端口
+				xhr.open("GET", `http://127.0.0.1:3000/emp/list?pno=${a}&count=${b}`, true);
+				//3.响应请求
+				xhr.send()
+				//4.绑定事件，监听服务器请求
+				xhr.onload = function() {
+					//将响应的JSON转为JS
+					var obj = JSON.parse(xhr.responseText)
+					console.log(obj)
+					//获取数组
+					var arr = obj.data
+					//遍历数组，获取每条数据
+					//声明变量，用于拼接多组模板数据
+					for (var i = 0, str = ''; i < arr.length; i++) {
+						// console.log(arr[i])
+						//单独处理生日
+						var d = new Date(arr[i].birthday)
+						var year = d.getFullYear()
+						var month = d.getMonth() + 1
+						var data = d.getDate()
+						var s = `${year}-${month}-${data}`
+						//拼接每一组模板
+						str += `
+								<tr>
+									<td>${arr[i].eid}</td>
+									<td>${arr[i].ename}</td>
+									<td>${arr[i].sex ? '男':'女'}</td>
+									<td>${s}</td>
+									<td>${arr[i].salary}</td>
+									<td>${arr[i].deptId}</td>
+								</tr>`
+
+					}
+					//循环结束后，渲染整个一组数据
+					cont.innerHTML = str
+				}
+			}
+		</script>
+	</body>
+</html>

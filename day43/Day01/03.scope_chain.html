@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域链 10:21</title>
+</head>
+
+<body>
+  <!-- 作用域链: 多层作用域嵌套时, 当在某个作用域中使用一个变量, 按照作用域链的原则 向上层就近查找 -->
+
+  <script>
+    // var a = 10
+
+    function x() {
+      // var a = 20
+
+      function y() {
+        // var a = 30
+
+        function z() {
+          // var a = 40
+          console.log('a:', a)
+        }
+        z()
+      }
+      y()
+    }
+    x()
+  </script>
+</body>
+
+</html>

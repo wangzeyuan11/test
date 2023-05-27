@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        li{
+            background-color: #eee;
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        li.active{
+            background-image: linear-gradient(to right, orange,red);
+            color: white;
+            box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">阶段1:晓宇</li>
+        <li>阶段2:亮亮</li>
+        <li>阶段3:小新</li>
+        <li>阶段4:铭铭</li>
+        <li>阶段5:文化</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('li').click(function(){
+            //把之前激活的删除样式
+            // $('li.active').removeClass('active')
+
+            //siblings():兄弟元素们
+            //当前项.添加样式().兄弟项目们.删除样式()
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+</html>

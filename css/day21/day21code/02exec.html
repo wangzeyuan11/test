@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局污染引入</title>
+	</head>
+	<body>
+		<!-- 1.hmel部分 -->
+		<button id="btn1">按钮1</button><span id="cont1">1</span>
+		<hr>
+		<button id="btn2">按钮2</button><span id="cont2">2</span>
+		<hr>
+		<button id="btn3">按钮3</button><span id="cont3">4</span>
+		<hr>
+		<!-- 2.JS部分 -->
+		<script>
+			//2.定义变量保存区域1的图片序号
+			//如果后面的代码以括号开头，上下两行默认会连到一起执行
+			//为了防止和上一行代码连接到一起
+			//要在匿名函数自调用前加分号结束上一行
+			;
+			(function() {
+				var a = 1
+				//1.给按钮1绑定点击事件
+				btn1.onclick = function() {
+					//3.每点击一次按钮 变量a的值+1并且显示在span中
+					cont1.innerHTML = ++a
+				}
+			})();
+			(function() {
+				var a = 2
+				btn2.onclick = function() {
+					//3.每点击一次按钮 变量a的值+1并且显示在span中
+					cont2.innerHTML = ++a
+				}
+			})();
+			(function() {
+				var a = 4
+				btn3.onclick = function() {
+					//3.每点击一次按钮 变量a的值+1并且显示在span中
+					cont3.innerHTML = ++a
+				}
+			})()
+
+			//1.普通函数也可以自调用--少用
+			//2.自调用这个区域相当于把内部的函数变成了局部函数
+			(function fn() {
+					console.log(666)
+				}
+			})()
+			//fn（） 局部函数只能在局部使用，此处调用会报错
+		</script>
+	</body>
+</html>

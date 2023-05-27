@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .small{
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .small>img{
+            width: 100px;
+            /* flex: 1; */
+            /* margin: 5px; */
+            border: 4px solid #eee;
+        }
+        /* .large{
+            display: flex;
+        } */
+        .large>img{
+            width: 500px;
+        }
+        .small>img.active{
+            border-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="small">
+        <img class="active" src="imgs/smallskin-1.jpg" alt="">
+        <img src="imgs/smallskin-2.jpg" alt="">
+        <img src="imgs/smallskin-3.jpg" alt="">
+        <img src="imgs/smallskin-4.jpg" alt="">
+        <img src="imgs/smallskin-5.jpg" alt="">
+    </div>
+
+    <div class="large">
+        <img src="imgs/bigskin-1.jpg" alt="">
+        <img src="imgs/bigskin-2.jpg" alt="">
+        <img src="imgs/bigskin-3.jpg" alt="">
+        <img src="imgs/bigskin-4.jpg" alt="">
+        <img src="imgs/bigskin-5.jpg" alt="">
+    </div>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('.small>img').mouseover(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+
+            const i = $(this).index()
+            $('.large>img').eq(i).show().siblings().hide()
+        })
+        $('.small>img').eq(0).mouseover()
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 回调函数 -->
+    <!-- 回调地狱：如果多个异步操作，需要同步执行，则需要多个回调函数层层嵌套，导致阅读难度增加 -->
+
+    <script>
+        // 假设点击注册按钮之后，需要依次验证
+        //1.邮箱是否注册过
+        //2.手机号是否注册过
+        //3.验证码是否正确
+        //4.完成注册操作
+        //有任何一个步骤错误，则终止执行
+
+        $.post('验证邮箱',data=>{
+            if(data=='正确'){
+                $.post('验证手机号',data=>{
+                    if(data=='正确'){
+                        $.post('验证验证码',data=>{
+                            if(data=='正确'){
+                                $.post('注册',data=>{
+                                    if(data){
+                                        alert('注册成功')
+                                    }else{
+                                        alert('注册失败')
+                                    }
+                                })
+                            }else{
+                                alert('验证码错误')
+                            }
+                        })
+                    }else{
+                        alert('手机号错误')
+                    }
+                })
+            }else{
+                alert('验证失败')
+            }
+        })
+    </script>
+</body>
+</html>

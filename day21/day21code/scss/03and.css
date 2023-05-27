@@ -1,0 +1,16 @@
+.box {
+  border: 1px solid #000;
+}
+.box ul {
+  list-style: none;
+}
+.box ul li {
+  height: 30px;
+}
+.box ul li a {
+  text-decoration: none;
+  color: #999;
+}
+.box ul li:hover {
+  background-color: red;
+}/*# sourceMappingURL=03and.css.map */

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			span {
+				color: transparent;
+			}
+
+			input:focus {
+				background-color: yellow;
+			}
+
+			/* 当input获得焦点时修改span的文字颜色 */
+			input:focus+span {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		用户名<input type="text">
+		<span>请验证自己的用户名是否正确</span>
+	</body>
+</html>

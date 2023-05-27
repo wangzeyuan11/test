@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增子元素</title>
+</head>
+<body>
+    <button>新增</button>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>SASS</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('button').click(function(){
+            //append:新增
+            $('ul').append('<li>新元素</li>')
+        })
+
+        //委托模式：
+        //前提：事件的冒泡机制 - 子元素上触发一个事件后，会传递给父元素触发相同事件
+        //委托：让父元素帮子元素完成事件的相关任务
+
+        //委托模式下，需要分辨当事元素
+
+        //提供on方法，特别适合委托场景：
+        //参数1：事件名
+        //参数2：可以书写css选择器，来过滤出要操作的当事元素
+        $('ul').on('click','>li',function(){
+            console.log('this:',this); //this代表触发事件的 当事元素
+            $(this).css('color','red')
+        })
+
+        $('li').click(function(){
+            $(this).css('color','red')
+        })
+    </script>
+</body>
+</html>

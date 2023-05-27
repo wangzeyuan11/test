@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图！！！</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .banner{
+            width: 600px;
+            overflow: hidden;
+            border: 2px solid green;
+            position: relative;
+        }
+        .banner>.btns{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        .banner>.imgs{
+            display: flex;
+            transition: 0.3s;
+        }
+        .banner>.imgs>img{
+            width: 100%;
+        }
+        .banner>ul{
+            display: flex;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .banner>ul>li{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 4px;
+        }
+        .banner>ul>li.active{
+            background-color: #0aa1ed;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="imgs">
+            <img src="imgs/banner1.png" alt="">
+            <img src="imgs/banner2.png" alt="">
+            <img src="imgs/banner3.png" alt="">
+            <img src="imgs/banner4.png" alt="">
+        </div>
+        <!-- 页数指示点 -->
+        <ul>
+            <li data-x="0" class="active"></li>
+            <li data-x="-100%"></li>
+            <li data-x="-200%"></li>
+            <li data-x="-300%"></li>
+        </ul>
+
+        <div class="btns">
+            <button class="prev">上一页</button>
+            <button class="next">下一页</button>
+        </div>
+    </div>
+    <script>
+        const lis = document.querySelectorAll('.banner>ul>li')
+        lis.forEach(li=>{
+            li.onmouseover = function(){
+                lis.forEach(li=>{
+                    li.classList.remove('active')
+                })
+                li.classList.add('active')
+
+                const x = li.dataset.x
+                const tp = document.querySelector('.banner>.imgs')
+                tp.style.transform = `translateX(${x})`;
+            }
+        })
+
+        ///////////////////////
+        //下一页：
+        const btn_next = document.querySelector('button.next')
+        btn_next.onclick = function(){
+            //当前激活小圆点的 下一个点
+            const li_active = document.querySelector('.banner li.active')
+            //下一个兄弟元素
+            //next:下一个 element:元素 sibling:兄弟
+            const li_next = li_active.nextElementSibling || document.querySelector('.banner li:first-child')
+
+            console.log(li_next);
+            //通过代码方式，触发元素的onmouseover事件
+            li_next.onmouseover()
+        }
+        //上一页:
+        //上一个兄弟元素：previousElementSibling
+        const btn_prev = document.querySelector('.banner button.prev')
+        btn_prev.onclick = function(){
+            const li_active = document.querySelector('.banner li.active')
+            const li_prev = li_active.previousElementSibling  || document.querySelector('.banner li:last-child')
+            li_prev.onmouseover()
+        }
+
+        //定时器：每隔四秒 自动触发下一页按钮的点击事件
+        setInterval(() => {
+            btn_next.onclick()
+        }, 4000);
+    </script>
+</body>
+</html>

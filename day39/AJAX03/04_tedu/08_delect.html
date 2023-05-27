@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		部门编号<input type="text" id="did"><button id="btn">删除</button>
+		<script>
+			btn.onclick = function() {
+				var a = did.value
+				console.log(a)
+				var xhr = new XMLHttpRequest();
+				xhr.open('DELETE', 'http://127.0.0.1:3000/dept/del?did=' + {
+					a
+				}, true);
+				xhr.send()
+				xhr.onload = function() {
+					//将响应的文本由JSON转JS
+					var obj = JSON.parse(xhr.responseText)
+					console.log(obj)
+				}
+			}
+		</script>
+	</body>
+</html>

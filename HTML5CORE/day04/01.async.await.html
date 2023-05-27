@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        await和async 是 ES7中提供的新特性 解决异步操作的语法问题 
+        
+        在ES6的范围内 有三种方案解决异步操作问题
+        1.回调函数：  问题-回调地狱
+        2.Promise:   问题- then的链式语法导致代码比较长
+        3.Generatir:    Es6提供的新语法，但是由于格式复杂 使用较少
+    -->
+    <script>
+        //封装：
+      //封装：
+      function get(url) {
+        return new Promise((resolve, reject) => {
+          var xhr = new XMLHttpRequest();
+          xhr.open("get", url);
+          xhr.send();
+          xhr.onload = function () {
+            var data = JSON.parse(xhr.response);
+            resolve({ data }); //触发then
+          };
+          xhr.onerror = function () {
+            reject(xhr.response);
+          };
+        });
+      }
+
+      var url1 = "https://serverms.xin88.top/mall?page=1";
+      var url2 = "https://serverms.xin88.top/mall?page=2";
+      var url3 = "https://serverms.xin88.top/mall?page=3";
+      var url4 = "https://serverms.xin88.top/mall?page=4";
+      var url5 = "https://serverms.xin88.top/mall?page=5";
+
+      //固定规范：把异步操作放到一个函数中，函数必须用async来修饰
+      //async:异步 await：带灯
+      async function getData(){
+        //await智能书写在 用 async修饰的函数中
+        //代表等待后方Promise的then结果,触发resolve
+        const res1 = await get(url1)
+        console.log({res1});
+
+        const res2 = await get(url2)
+        console.log({res2});
+
+        const res3 = await get(url3)
+        console.log({res3});
+
+        const res4 = await get(url4)
+        console.log({res4});
+
+        const res5 = await get(url5)
+        console.log({res5});
+      }
+
+      getData()
+
+      //利用try...catch 抓取报错信息
+      async function fetchData(){
+        try {
+            const res1 = await get(url1)
+            const res2 = await get(url2)
+            console.log({res1,res2});
+        }catch(error){
+            console.log({error});
+        }
+      }
+
+      fetchData()
+    </script>
+</body>
+</html>

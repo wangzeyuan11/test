@@ -1,0 +1,50 @@
+#body {
+  background-color: #f7f7f7;
+}
+#body > .live {
+  margin: 0 auto;
+  width: var(--width-main);
+}
+#body > .live > .live-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+#body > .live > .live-content > li {
+  width: calc((100% - 20px) / 3);
+  background-color: white;
+  margin: 0 10px 10px 0;
+  cursor: pointer;
+}
+#body > .live > .live-content > li:nth-child(3n) {
+  margin-right: 0;
+}
+#body > .live > .live-content > li > div {
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+#body > .live > .live-content > li > div > .hn {
+  position: absolute;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  color: white;
+  font-size: 13px;
+  top: 0;
+  right: 0;
+  width: 50%;
+  padding: 4px;
+  text-align: end;
+}
+#body > .live > .live-content > li > div > .nickname {
+  position: absolute;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  color: white;
+  font-size: 13px;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  padding: 4px;
+  text-align: start;
+}
+#body > .live > .live-content > li > div > img {
+  width: 100%;
+}/*# sourceMappingURL=live.css.map */

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- set ：赋值监听 -->
+    <script>
+        var emp = {
+            ename:"凯凯",
+            //_不是必备的 属于习惯 代表_age 和 age是一对
+            _age:30, //初始值
+
+            //在调用emp.age时 会触发计算属性 返回_age的值
+            get age(){return this._age},
+
+            //set:修改为监听器函数 监听=赋的值
+            
+            set age(value){
+                console.log('age赋值为:',value);
+                //对赋值进行判定：假设 1-150 属于合理范围
+                if(value >=1 && value <=150){
+                    //如果正确，则存储
+                    //age属性：利用set修饰之后 不在负责存储 只负责检查值的合理性
+                    //需要辅助的仓库属性 赋值存储age的值 习惯用_开头
+                    this._age = value
+                }else{
+                    throw Error("年龄赋值不合理："+value)
+                }
+            }
+        }
+        //=赋值符号,需要对赋值进行检查
+        emp.age = 40
+
+        console.log(emp);
+        //读取age属性的值:实际上age的值存储在_age属性里
+        //但从外表来看：40就赋值给age属性的 所以就应该从age读取
+        console.log(emp.age);
+    </script>
+</body>
+</html>

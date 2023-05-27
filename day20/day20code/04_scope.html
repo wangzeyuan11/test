@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变量的作用域</title>
+	</head>
+	<body>
+		<script>
+			//全局作用域：除函数作用域以外的区域，只有一个
+			//全局变量：在全局作用域下声明的变量，可以在任意作用域使用
+			var b = '北京市城管'
+
+			function shiJS() { //函数作用域:在函数以内的区域
+				//局部变量：在函数作用域下生命的变量
+				//只能在所处的函数作用域下使用
+				var a = '石景山城管'
+				console.log(a)
+				console.log(b)
+			}
+			shiJS()
+			//console.log(a)
+			console.log(b)
+
+			function haiD() {
+				var c = '海淀城管'
+				console.log(c)
+				console.log(b)
+			}
+			haiD()
+			console.log(b)
+			//console.log(c) //因为c是局部变量 所以报错
+			var n1 = 2
+
+			function fn() {
+				n1 = 4
+				var n2 = 6
+				n3 = 6
+			}
+			fn()
+			console.log(n1) //4 全局变量2被覆盖成了4
+			//console.log(n2) //局部变量不能在外部使用
+			console.log(n3) //6 不加var声明的是全局变量 外部是可以用的
+
+			//思考一下程序的输出结果是？
+			function fun() {
+				m3 = 5
+				m2 = m3
+				var m1 = m2
+			}
+			fun()
+			console.log(m3) //5
+			console.log(m2) //5
+			//console.log(m1) //报错 局部变量
+		</script>
+	</body>
+</html>

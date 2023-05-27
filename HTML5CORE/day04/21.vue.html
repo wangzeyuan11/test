@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 前端中非常有名 Vue框架,其中包括一个 数据驱动DOM元素更新的功能 -->
+    <div id="app">
+        <div v-text="num"></div>
+        <div v-text="name"></div>
+        <p v-text="phone"></p>
+        <button>num+14</button>
+    </div>
+    <script>
+        var data = {
+            num:20,
+            name:"徐明老师",
+            phone:"10086"
+        }
+
+        for(const key in data){
+            //假设当前 key="num"
+            Object.defineProperties(data,{
+                //vr key = "num" 如何拼接成 _num
+                //属性名用[]代表其中是js代码
+                ['_'+key]:{writable:true,value:data[key]},
+                [key]: {
+                    get(){return this['_'+key]},
+                    set(value){
+                        this['_'+key] = value
+                        updataDOM() //重点:当赋值操作检查到后，更新DOM
+                    }
+                }
+            })
+        }
+
+        //遍历data对象 把其中的值填写设置到DOM元素里
+        function updataDOM(){
+           for(const key in data){
+            var value = data[key]
+
+            //把key拼接成选择器,来选中对应的元素
+            const sel = `#app [v-text=${key}]` //属性选择器
+            console.log('选择器:',sel);
+
+            const els = document.querySelectorAll(sel)
+            els.forEach(el => el.innerText = value)
+         } 
+        }
+
+        updataDOM()
+    </script>
+</body>
+</html>

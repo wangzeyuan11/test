@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录框作业答案</title>
+		<style>
+			/* 清空所有自带的内间距 */
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.login {
+				width: 300px;
+				border: 2px solid #3c545c;
+				margin: 100px auto 0;
+				/* 上 左右 下*/
+			}
+
+			/* 3.设置头像区域 */
+			.login .header {
+				width: 80px;
+				/* 外层的div设置像素值，明确大小*/
+				/* 图片所处div在登录框水平居中，且向上出去半个头像 */
+				margin: -40px auto 0;
+			}
+
+			.login .header img {
+				width: 100%;
+				/* 设置图片为父级div宽度的100%，撑满父级 */
+			}
+
+			/* 4.设置输入区域 */
+			.login .enter input {
+				width: 80%;
+				height: 30px;
+				display: block;
+				margin: 0 auto 20px;
+				padding-left: 5px;
+				padding-right: 5px;
+				/* 切换成边框盒子模型的计算方案，这样即使加了内间距也不会影响总宽度 */
+				box-sizing: border-box;
+			}
+
+			.login .enter button {
+				width: 80%;
+				margin: 0 auto 20px;
+				/* 块级子元素才能使用marging auto;实现在父元素中的水平居中 */
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 表示整个登录框 -->
+		<div class="login">
+			<!-- 头像区域 -->
+			<div class="header">
+				<img src="./head.jpeg" alt="">
+			</div>
+			<!-- 用户输入区域 -->
+			<div class="enter">
+				<input type="text" placeholder="请输入用户名">
+				<input type="password" placeholder="请输入密码">
+				<button>登录</button>
+			</div>
+		</div>
+	</body>
+</html>

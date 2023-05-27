@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		用户名<input type="text" id="user"> <br>
+		密码<input type="text" id="pwd"> <br>
+		<button id="btn">登录</button>
+
+		<script>
+			//给按钮绑定点击事件
+			btn.onclick = function() {
+				//获取用户名和密码
+				var a = user.value
+				var b = pwd.value
+				console.log(a, b)
+				//发送AJAX请求
+				//1.创建HTTP请求对象
+				var xhr = new XMLHttpRequest();
+				//2.打开服务器的连接，设置请求的接口		
+				//参数1：请求方式,标准写法为大写
+				//参数2：接口的地址
+				//参数3：可选，是否为异步 true是异步 false是同步
+				xhr.open("GET", `http://127.0.0.1:3000/login?user=${a}&pwd=${b}`, true);
+				//3.发送求情
+				xhr.send()
+				//4.绑定事件，监听服务器端的响应
+				xhr.onload = function() {
+					//获取响应的文本
+					console.log(xhr.responseText)
+				}
+			}
+		</script>
+	</body>
+</html>

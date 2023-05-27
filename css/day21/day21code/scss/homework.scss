@@ -1,0 +1,35 @@
+$a:100px;
+$b:30px;
+$c:10px;
+$d:5px 10px;
+$f:5px;
+$g:#0aa1ed;
+$h:5px 3px 6px 0 #ccc;
+$j:center;
+.btn1{
+	width: $a;
+	height: $b;
+	background-color: $g;
+	box-shadow: $h;
+	margin: $c;
+	padding: $d;
+	text-align: $j;
+}
+.btn2{
+	text-align: $j;
+	width: 70px;
+	height: 20px;
+	background-color: $g;
+	box-shadow: $h;
+	margin: $c;
+	padding: $d;
+}
+.btn3{
+	width: 60px;
+	height: 40px;
+	background-color: $g;
+	box-shadow: $h;
+	margin: $c;
+	padding: $d;
+	text-align: $j;
+}

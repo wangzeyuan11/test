@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明提升</title>
+</head>
+<body>
+    <script>
+        //JS引擎的机制：会先阅读一次代码，把代码按照规范改为规范的代码 然后执行
+
+        //整体是数学表达式：
+        //理论上 参与数学表达式的值 都应该是数字类型
+        //隐式类型转换：类型不规范，按照规则转换后，在执行
+        console.log(30 - true + null * '12');
+
+        //声明提升
+        //正常的规范：先声明 在使用
+        //隐式的声明提升操作：会先阅读一次代码，把所有的声明操作移动到代码的最上方，然后在执行
+
+        //声明提升 广受诟病：导致代码的运行结果和所见到的不一样
+        function show(){
+            console.log(11);
+        }
+        show()
+
+        function show(){
+            console.log(22);
+        }
+        show()
+
+        //ES6:提供的let/const对声明提升有新的处理
+        console.log(x);
+        var x =10
+
+        console.log(y);
+        let y = 10
+
+        //let:拥有暂存死区的设定；
+        //首先：let/const存在声明提升
+        //但是：暂存死区的状态要求：在执行声明代码行之前，不允许使用此变量，否则报错
+        //总结：声明提升是JS引擎的基本设定，无法推翻；作者利用报错，强制用户先声明在提升
+    </script>
+</body>
+</html>

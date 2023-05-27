@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .danger{
+            padding: 10px;
+            border-radius: 3px;
+            background-color: red;
+            color: white;
+            box-shadow: 0 0 2px 2px rgba(0, 0, b0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>DOM</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('li').click(function(){
+            $(this).addClass('danger')
+        })
+    </script>
+</body>
+</html>

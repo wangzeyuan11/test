@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数 09:24</title>
+</head>
+
+<body>
+  <script>
+    // ES6 提供的 匿名函数语法
+
+    // 之前的匿名函数
+    // function() { }
+    // 箭头函数
+    // () => { }
+
+    // 官方提供语法糖:
+    var show = (x) => {
+      return 2 * x
+    }
+    // 糖1: 形参有且只有1个时, 可以省略()
+    var show = x => {
+      return 2 * x
+    }
+    // 糖2: 函数体仅有一行时,可以省略 {return }
+    var show = x => 2 * x
+
+    console.log(show(10))
+
+    //////////////////////////
+    //练习: 尝试用语法糖 简化下方代码
+    var a = (y) => { return y * y }
+    var a = y => y * y
+
+    var b = (x, y) => { return x + y }
+    var b = (x, y) => x + y
+
+    var c = (m, n) => {
+      return { m: m, n: n }
+    }
+    // 问题: 对象的{} 被误认为是 函数的{}, 产生歧义
+    // 解决: 用()括起来, 从格式上避免歧义
+
+    // { 属性名: 值 }.  巧合: 值是变量, 变量名和属性名相同
+    var c = (m, n) => ({ m: m, n: n })
+    // 语法糖: 属性名和变量名一样, 则可以合写
+    var c = (m, n) => ({ m, n })
+
+    console.log(
+      c(10, 20)
+    )
+
+    // 糖:
+    var emp = {
+      // 可以省略 : function
+      // show: function () { alert("Hello!") }
+      show() { alert("Hello!") }
+    }
+
+    emp.show()
+  </script>
+</body>
+
+</html>

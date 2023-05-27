@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内间距测试</title>
+		<style>
+			.box {
+				width: 300px;
+				height: 300px;
+				border: 1px solid #f00;
+				background-color: #0ff;
+				/* padding: 10px 20px 30px 40px; */
+				/* 上右下左 内间距 顺时针*/
+				/* padding: 10px 20px; */
+				/* 上下 左右*/
+				padding: 10px 20px 30px;
+				/* 上 左右 下*/
+			}
+
+			span {
+				background-color: rgba(255, 0, 0, .3);
+				border: 1px solid #f00;
+				padding: 20px 40px;
+				/* 行内元素的上下内间距"视觉生效"，不推荐使用
+				 但是左右内间距是可以生效的 */
+			}
+
+			/* 行内块元素的四个方向的内间距正常生效 */
+			input,
+			button {
+				padding: 10px 20px 30px 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			我是一个div元素
+		</div>
+		<span>span1</span><span>span2</span><span>span3</span>
+	</body>
+	<div class="box">
+		我是一个div元素
+	</div>
+	<hr>
+	<input type="text">
+	<button>你好</button>
+</html>

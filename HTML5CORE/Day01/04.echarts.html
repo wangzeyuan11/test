@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态排序柱状图</title>
+  </head>
+  <body>
+    <div id="main" style="width: 800px; height: 600px"></div>
+
+    <script src="echarts.min.js"></script>
+    <script>
+      //1.初始化
+      var myChart = echarts.init(document.getElementById("main"));
+      //2.配置项的书写(难)
+      var data = [];
+      for (let i = 0; i < 5; ++i) {
+        data.push(Math.round(Math.random() * 200));
+      }
+      var option = {
+        xAxis: {
+          max: "dataMax",
+        },
+        yAxis: {
+          type: "category",
+          data: ["北京", "上海", "广州", "深圳", "杭州"],
+          inverse: true,
+          animationDuration: 300,
+          animationDurationUpdate: 300,
+          max: 5, // only the largest 3 bars will be displayed
+        },
+        series: [
+          {
+            realtimeSort: true,
+            name: "GDP总量",
+            type: "bar",
+            data: data,
+            label: {
+              show: true,
+              position: "right",
+              valueAnimation: true,
+            },
+          },
+        ],
+        legend: {
+          show: true,
+        },
+        animationDuration: 3000,
+        animationDurationUpdate: 3000,
+        animationEasing: "linear",
+        animationEasingUpdate: "linear",
+      };
+      function update() {
+        var data = option.series[0].data;
+        for (var i = 0; i < data.length; ++i) {
+          if (Math.random() > 0.9) {
+            data[i] += Math.round(Math.random() * 2000);
+          } else {
+            data[i] += Math.round(Math.random() * 200);
+          }
+        }
+        myChart.setOption(option);
+      }
+
+      setInterval(function () {
+        update();
+      }, 3000);
+
+      //配置项的常见解决方案：
+      //2.1.在官方提供的示例代码中，找和你需求相似的，粘贴修改使用
+      //2.2阅读官方提供的配置项文档 -- 适合高手
+      //2.3直接用AI解决
+
+      //3.把配置项传递到 echarts对象中
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

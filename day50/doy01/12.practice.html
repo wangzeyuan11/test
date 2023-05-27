@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #banner{
+            width: 700px;
+            overflow: hidden;
+        }
+        #banner>div{
+            display: flex;
+            position: relative;
+            /* left: -200%; */
+        }
+        #banner>div>img{
+            width: 100%;
+            flex: none;
+        }
+        #banner>ul{
+            display: flex;
+            background-color: #000;
+            /* padding-left: 20px; */
+        }
+        #banner>ul>li{
+            flex: 1;
+            line-height: 44px;
+            text-align: center;
+            color: #AFAFBC;
+            cursor: pointer;
+        }
+        #banner>ul>li.active{
+            background-color: #262626;
+            color: #e2af4f;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <div>
+            <img src="wzry_imgs/1.jpeg" alt="">
+            <img src="wzry_imgs/2.jpeg" alt="">
+            <img src="wzry_imgs/3.jpeg" alt="">
+            <img src="wzry_imgs/4.jpeg" alt="">
+            <img src="wzry_imgs/5.jpeg" alt="">
+        </div>
+        <ul>
+            <li class="active">夏洛特语音爆料</li>
+            <li>合金弹头4月上线</li>
+            <li>城市主理人招募</li>
+            <li>王者炸麦了</li>
+            <li>荣耀大话王</li>
+        </ul>
+        <div>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+    </div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#banner>ul>li').mouseover(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+            //index():获取元素在兄弟元素中的序号是多少
+            const i = $(this).index()
+            console.log('i:',i);  
+
+            
+            $('#banner>div').stop().animate({left:`-${i}00%`})
+        })
+    </script>
+</body>
+</html>

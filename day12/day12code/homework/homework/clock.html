@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变换切换基点练习</title>
+		<style>
+			.clock {
+				width: 200px;
+				height: 200px;
+				border: 5px solid #000;
+				border-radius: 50%;
+				margin: 0 auto;
+			}
+
+			.pointer {
+				width: 5px;
+				height: 100px;
+				background-color: #f00;
+				margin: 0 auto;
+				transition: 1s;
+				/* 切换基点到底部，不然指针会围绕自己的中心点为基点旋转 */
+				transform-origin: bottom;
+			}
+
+			/* 当悬停在表盘时，让指针旋转 */
+			.clock:hover>.pointer {
+				transform: rotate(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 代表表盘 -->
+		<div class="clock">
+			<!-- 代表指针 -->
+			<div class="pointer"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>do-while练习</title>
+	</head>
+	<body>
+		<script>
+			//var i = 1 //1-10
+			var i = 18 //只有18
+			do {
+				console.log(i)
+				i++
+			} while (i <= 10)
+			//用do while打印20-30之间所有的整数
+			var i = 30
+			do {
+				console.log(i)
+				i--
+			} while (i >= 20)
+
+			//50 55 60 65 70
+			var i = 50
+			do {
+				console.log(i)
+				i += 5
+			} while (i <= 70)
+			// 计算出1-100之间所有奇数的合
+			var i = 1
+			var a = 0
+			do {
+				if (i % 2 !== 0) {
+					console.log(i)
+					a += i
+				}
+				i++
+			} while (i <= 100)
+			console.log(a)
+
+			//统计1-100之间有多少个能被3整除的个数
+			var i = 1
+			var a = 0
+			do {
+				if (i % 3 === 0) {
+
+					console.log(i)
+					a++ //统计的个数+1
+				}
+
+				i++
+			} while (i <= 100)
+			console.log(a)
+
+			//假设有一张纸，厚度为0.001米
+			//这张嘴折叠多少次能够达到珠穆朗玛峰的高度（8848）
+			//循环的初始值，代表纸张的厚度
+			var i = 0.001
+			//定义变量保存折叠的次数
+			var c = 0
+			do {
+				//增量：折叠：厚度是原来的二倍
+				i *= 2
+				console.log(i) //每次折叠后，可以打印查看折叠的厚度
+				//折叠一次，次数加+
+				c++
+			} while (i < 8848) //循环条件只要没有达到8848就继续循环
+			console.log(c)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        const boy = {
+            name:"凯凯",
+            girl:"倩倩"
+        }
+
+        Object.defineProperty(boy,'girl',{
+            writable:false,
+            //可配置的：可以重新配置权限，可以删除元素
+            configurable:false, //false代表不可以
+        })
+
+        //两种方案可以突破不可写的限制
+        //1.改成可写
+        //2.删除属性，在新增
+        // Object.defineProperty(boy,'girl',{writable:true})
+
+        delete boy.girl //删除属性
+        boy.girl = '翠花' //这里是新增操作
+
+
+        console.log(boy);
+    </script>
+</body>
+</html>

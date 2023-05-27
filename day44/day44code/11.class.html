@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        //JS原型的这套写法并不受欢迎，在java语言中存在相同功能的语法--class语法.比JS的语法更容易让人接受
+        //2015年6月 出品的ES6即JS的第六个版本中，集成了JAVA的语法
+
+        //class:类
+
+        //本质上是一种语法糖，自动完成原型的相关操作，不需要程序员自己操作prototype属性
+        class Rect {
+            //固定名称的方法，省略function关键词，通过new触发
+            constructor(length,width){
+                this.length = length
+                this.width = width
+            }
+            area(){
+            return this.width*this.length
+        }
+            perimeter(){
+                return 2*(this.width+this.length)
+            }
+        }
+        //ChatGPT网站！！！！！！！！！！！！！
+
+        console.dir(Rect);
+        var r1 = new Rect(10,20)
+        console.log(r1);
+        console.log(r1.area());
+        console.log(r1.perimeter());
+    </script>
+</body>
+</html>

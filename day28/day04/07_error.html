@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>错误处理</title>
+	</head>
+	<body>
+		<script>
+			console.log(1)
+			// 常见的错误
+			// 1语法错误
+			/* 
+			var a = 3
+			if(a > 3){
+				console.log(true)
+			
+			// 2.引用错误
+			var num1 = 5
+			console.log(num + 2)
+			
+			// 3.类型错误
+			// var d = new Date()
+			// // d.setDay //undefined
+			// d.setDay(6)
+			var arr = [1,2,3]
+			arr.revese()
+			
+			// 4.范围错误
+			// var arr = new Array(-3)
+			// 5.自定义错误
+			var age = 80
+			// 如果不在18~60之间，抛出自定义错误
+			if(age < 18 || age > 60) {
+				throw '非法的年龄'
+			}
+			 */
+			
+			// 错误处理
+			try{
+				// 尝试执行，可能会出现错误
+				// var arr = new Array(-3)
+				var arr = [1,2,3]
+				arr.revese()
+			}catch(err){
+				//一旦try中出现错误，就会被捕获到err中
+				 console.log(err)
+				// 即使出现错误也不会阻止后续代码执行
+				// 解决错误
+				arr.reverse()
+			}
+			console.log(arr)
+			
+			
+			console.log(2)
+		</script>
+	</body>
+</html>

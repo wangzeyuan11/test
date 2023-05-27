@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>窗口的滚动事件</title>
+    <style>
+        #nav{
+            padding: 20px;
+            background-color: orange;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+        }
+        /* 当带有show时 显示 */
+        #nav.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">这是一个导航栏</div>
+    <!-- 监听页面的滚动，调整某些内容的显示和隐藏 -->
+    <ul id="box">
+
+    </ul>
+    <script>
+        const box = document.getElementById('box')
+        for(let i = 0;i<200;i++){
+            box.innerHTML += `<li>${i}</li>`
+        }
+        //隐藏前缀：window窗口
+        addEventListener('scroll',function(){
+            console.log('滚动中...');
+            //读取竖向滚动距离
+            console.log(pageYOffset);
+            //如果滚动距离 超出100像素 就显示导航栏
+            const nav = document.getElementById('nav')
+            if(pageYOffset>100){
+                nav.classList.add('show')
+            }else{
+                nav.classList.remove('show')
+
+            }
+        })
+    </script>
+</body>
+</html>

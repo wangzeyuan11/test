@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>accordion</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="accordion" id="sfq">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" data-bs-toggle="collapse"
+							data-bs-target="#collapseOne">
+							第一项
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#sfq">
+						<div class="accordion-body">第一项的内容</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">商品列表</li>
+							<li class="list-group-item">多条件搜错</li>
+							<li class="list-group-item">添加商品</li>
+						</ul>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" data-bs-toggle="collapse"
+							data-bs-target="#collapseTwo">
+							第二项
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#sfq">
+						<div class="accordion-body">第二项的内容</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" data-bs-toggle="collapse"
+							data-bs-target="#collapseThree">
+							第三项
+						</button>
+					</h2>
+					<div id="flush-collapseThree" class="accordion-collapse collapse show" data-bs-parent="#sfq">
+						<div class="accordion-body">第三项的内容</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

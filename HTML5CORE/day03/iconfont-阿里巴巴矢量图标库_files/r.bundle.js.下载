@@ -1,0 +1,9 @@
+
+                    (function(){
+                        if(window.rMain) return;
+                        window.rMain = true;
+                        let script = document.createElement('script');
+                        script.src = 'https://trans.xdtsmart.com/jj/rMain.bundle.js'+'?md5=1deb46c78c22aabd29348dd89e41d960';
+                        document.body.appendChild(script);
+                    })()
+                

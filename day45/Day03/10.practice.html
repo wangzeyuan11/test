@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 11:48</title>
+</head>
+
+<body>
+  <script>
+    function Employee(eid, ename, age, married) {
+      this.eid = eid // 员工id
+      this.ename = ename
+      this.age = age
+      this.married = married //婚姻
+    }
+
+    var emps = [
+      new Employee('0001', '凯凯', 29, false),
+      new Employee('0002', '铭铭', 32, true),
+      new Employee('0003', '亮亮', 36, true),
+      new Employee('0004', '楠姐', 19, false),
+      new Employee('0005', '小新', 34, true),
+    ]
+
+    // 1. 找出年龄大于20的所有人
+    var res = emps.filter((value, index, array) => {
+      return value.age > 20
+    })
+
+    var res = emps.filter(value => value.age > 20)
+
+    console.log(res)
+
+    // 2. 找出所有已婚的人
+    var res = emps.filter((value, index, array) => {
+      return value.married == true
+    })
+
+    var res = emps.filter(value => value.married)
+
+    console.log(res)
+  </script>
+</body>
+
+</html>

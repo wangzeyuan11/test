@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="referrer" content="no-referrer">
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            /* width: 00px; */
+            display: flex;
+            margin-bottom: 20px;
+            
+        }
+        li>div{
+            margin-left: 20px;
+        }
+        img{
+            width: 200px;
+            height: 100px;
+        }
+        .lr{
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+        b{
+            display: block;
+            margin-bottom: 40px;
+        }
+        span{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <div>
+                <img src="" alt=""></div>
+            <div>
+                <b></b>
+                <span></span>
+                <div class="lr">
+                <span></span>
+                <span></span>
+                </div>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/bilibili/recommend.json'
+        get(url,data=>{
+            console.log(data);
+            var res = data.data.season.map(value=>{
+                return `<li>
+            <div><img src="${value.cover}" alt=""></div>
+                <div>
+                    <b>${value.title}</b>
+                    <span>${value.new_ep.index_show}</span>
+                    <div class='lr'>
+                    <span>${value.stat.view/10000}万播放</span>
+                    <span>${value.stat.danmaku}万弹幕</span>
+                </div>
+            </div>
+        </li>`
+            })
+            box.innerHTML = res.join('')
+        })
+    </script>
+</body>
+</html>

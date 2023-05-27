@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        //严格模式下，禁用 静默失败
+        //失败的操作 提供报错 辅助程序员排查bug
+
+        var emp = {enmae:'晓宇',age:19}
+        //freeze:冻结
+        Object.freeze(emp)
+        emp.age = 30
+        console.log(emp);
+    </script>
+</body>
+</html>

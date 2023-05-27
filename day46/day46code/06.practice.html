@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li></li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://douyu.xin88.top/api/cate/recList'
+        get(url,data=>{
+            console.log(data);
+            var res = data.data.reduce((box,value)=>{
+                return box+`<li>${value.name}</li>`
+            },'')
+        box.innerHTML = res
+        })
+
+    </script>
+</body>
+</html>

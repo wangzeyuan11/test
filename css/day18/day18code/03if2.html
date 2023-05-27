@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>if结构2</title>
+	</head>
+	<body>
+		关键字<input type="text" id="kw">
+		<script>
+			//0 NaN '' undefined null 转为布尔类型都是false
+			if (!false) {
+				console.log('ok')
+			}
+			if (!'') { //等价于！flase 也就是true
+				console.log('ok2')
+			}
+			//要求给输入框绑定失去光标事件
+			//获取用户在输入框中输入的值。如果用户输入的值为空
+			//弹出警示框提示用户 ‘关键字不能为空’
+			kw.onblur = function() {
+				//定义变量v保存用户在输入框中输入的值
+				var v = kw.value
+				console.log(v)
+				//如果用户输入的值是空‘’
+				if (!v) { //取反变为true才能进到if的大括号里面
+					alert('关键字不能为空')
+				}
+			}
+		</script>
+	</body>
+</html>

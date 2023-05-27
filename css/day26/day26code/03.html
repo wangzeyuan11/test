@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1 <input type="text" id="num1"><br>
+		2 <input type="text" id="num2"><br>
+		<button id="btn1">+</button><br>
+		<button id="btn2">-</button><br>
+		<button id="btn3">*</button><br>
+		总和 <span id="cont"></span>
+		<script>
+			var calc = {
+				plus: function(a, b) {
+					//a,b接收传递进来的两个数字
+					//把连个值转成数字
+					//求和后，把结果渲染到cont标签之间
+					cont.innerHTML = Number(a) + Number(b)
+				},
+				subtract: function(a, b) {
+					cont.innerHTML = a - b
+				},
+				c: function(a, b) {
+					cont.innerHTML = a * b
+				}
+			}
+			//给按钮绑定点击事件
+			btn1.onclick = function() {
+				//获取两个值
+				calc.plus(num1.value, num2.value)
+			}
+			btn2.onclick = function() {
+				calc.subtract(num1.value, num2.value)
+			}
+			btn3.onclick = function() {
+				calc.c(num1.value, num2.value)
+			}
+		</script>
+	</body>
+</html>

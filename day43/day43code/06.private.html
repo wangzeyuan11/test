@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私有属性</title>
+</head>
+<body>
+    <script>
+        //私有属性：只给某个函数使用的属性，其他函数无法使用
+        //案例：记录某个函数调用的次数
+
+        //利用匿名函数自调用语法 快速生成函数作用域/局部作用
+        var show = (function(){
+            //这里的count是函数作用域中的，不在全局中，所以非公有
+            var count = 0 //alt + 上下键 可以调整代码位置
+        function show() {
+            count++
+            console.log('调用次数：',count);
+        }
+        //show函数发动被动技能 -- 闭包，把当前的匿名函数作用域保存在自身的闭包中，属于show函数私有的财产
+        console.dir(show);
+        //需要通过return的方式，把show暴露到全局中
+        return show
+        })()
+        //在全局中使用show函数
+        show()
+        show()
+        show()
+
+        //////////////////////////
+        //标准的私有属性声明方式：
+        var suibian = (function(){
+            //命名规范：以_作为私有属性的开头，可以达到见名知意的效果
+            var _x = 10
+            var _y = 20
+
+            return function (){
+                console.log(_y,_x);
+            }
+        })()
+        suibian()
+        suibian()
+        ;var a = (function(){
+            var _a = 15
+            var _b = 20
+
+            return function(){
+                console.log(_a,_b);
+            }
+        })()
+        a()
+        var c =(function(){
+            var _c = 10
+            var _d = 11
+            return function(){
+                console.log(_c,_d)
+            }
+        })()
+        c()
+        c()
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <!-- 表单元素 和用户之间存在交互操作的元素 按钮 输入框 下拉框 勾选框 -->
+    <div id="box">
+       <input type="text" value="111"> 
+       <input type="checkbox">
+       <!-- 范围1-100 -->
+       <input type="range" min="1" max="100">
+    </div>
+    
+    <script>
+        const inp1 = document.querySelector('#box>input:first-child')
+
+        //1.获得焦点 focus
+        inp1.onfocus=function(){
+            console.log('获得焦点focus');
+        }
+        //2.失去焦点 blur
+        inp1.onblur = function(){
+            console.log('失去焦点 blur');
+        }
+        //3.内容变化 change
+        //内容变更后，按回车或失去焦点时触发
+        inp1.onchange = function(){
+            //单标签的值存储在value属性
+            console.log('内容变化 change',this.value);
+        }
+        //4.内容输入 input
+        inp1.oninput =function(){
+            console.log('内容输入 input',this.value);
+        }
+        //5.键盘事件 keyup
+        //事件参数：由系统触发的事件，会默认把本次事件相关的信息 作为参数传递到事件方法中
+        //形参名：event事件.习惯上会缩写为e
+        inp1.onkeyup = function(e){
+            console.log(arguments);
+            console.log('按键抬起 keyup',e);
+            //可以通过keyCode 属性，来分辨具体的按键
+            //回车的keyCode:13
+            if(e.keyCode == 13)alert("回车按钮被点击!")
+        }
+
+        //勾选框的勾选状态
+        const inp2 = document.querySelector('#box>input:nth-child(2)')
+        inp2.onchange = function(){
+            //checked:此属性用于保存当前的勾选状态
+            console.log('勾选框:',this.checked);
+        }
+        //change:划块松手后，才会触发
+        const inp3 = document.querySelector('#box>input:nth-child(3)')
+        inp3.onchange = function(){
+            console.log('change:',this.value);
+        }
+        //input：实时的
+        inp3.oninput = function(){
+            console.log('input:',this.value);
+        }
+    </script>
+</body>
+</html>

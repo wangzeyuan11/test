@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画引入案例</title>
+		http://web.chacuo.net/css3transition
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+
+			/* 2.将选好的代码粘贴过来 */
+			@keyframes transform-11 {
+				from {
+					transform: rotate(0deg)
+				}
+
+				to {
+					transform: rotate(360deg)
+				}
+			}
+
+			#box:hover {
+				animation: transform-11 1s infinite alternate;
+				transform: rotate(0deg)
+			}
+
+			/* 一下是box2的相关内容 */
+			/* 1.给box2做一些基础样式设置 */
+			.box2 {
+				height: 100px;
+				width: 100px;
+				background-color: #00f;
+				/* 给box2使用go脚本 */
+				/* 动画不像过渡效果那样需要伪类才能触发，动画直接刷新页面就会执行 */
+				/* 动画效果：关键帧名称 执行时间 */
+				animation: go 3s;
+			}
+
+			/* 2.关键帧规则 */
+			@keyframes go {
+				0% {
+					transform: translateX(0);
+				}
+
+				100% {
+					transform: translateX(300px);
+					background-color: #0f0;
+					border-radius: 50%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+
+		</div>
+		<hr>
+		<div class="box2">
+
+		</div>
+	</body>
+</html>

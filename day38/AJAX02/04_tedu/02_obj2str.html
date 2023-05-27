@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对象转字符串</title>
+	</head>
+	<body>
+		<script>
+			var obj = {
+				a: 1, //a=1
+				b: 2, //b=2
+				c: 3 //c=2
+			}
+			//准备一个空数组
+			var arr = []
+			//遍历对象的属性
+			for (var k in obj) {
+				//k代表属性名 obj[k]代表属性值
+				// console.log(k + '=' + obj[k])
+				arr.push(k + '=' + obj[k])
+			}
+			console.log(arr.join('&'))
+		</script>
+	</body>
+</html>

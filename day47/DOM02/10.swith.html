@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .switch{
+            border: 2px solid #aaa;
+            background-color: #f6f6f6;
+            display: inline-block;
+            width: 100px;
+            display: flex;
+            cursor: pointer;
+            padding: 2px;
+
+            transition: 0.3s;
+        }
+        .switch>span{
+            transition: 0.3s;
+            /* display: inline-block; */
+            width: 50px;
+            height: 40px;
+            background-color: #666;
+        }
+        .switch.open{
+            background-color: #18832c;
+        }
+        .switch.open>span{
+            transform: translateX(50px);
+            background-color: orange;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="switch">
+        <span></span>
+    </div>
+    <script>
+        //querySelector:直接查询到元素本身
+        //使用场景：我们明确知晓要查询的元素只有一个时，采用此方案更合理
+        var my_switch = document.querySelector('.switch')
+        console.log('my_switch:',my_switch);
+        // const switchs = document.querySelectorAll('.switch')
+        // console.log(switchs);
+        // switchs.forEach(div=>{
+            my_switch.onclick = function(){
+                console.dir(this); //classList
+
+                //classList是通过构造函数创建出的对象，属于对原始的className的封装
+                //提供强大的辅助功能
+                //toggle:开关，切换
+                //自动判断目标样式是否存在，实现切换效果
+                this.classList.toggle('open') //官方封装的解决常见问题的函数
+                //     if(this.className == 'switch'){
+                //         this.className = 'switch open'
+                //     }else{
+                //         this.className = 'switch'
+                //     }
+                }
+            // })
+    </script>
+</body>
+</html>

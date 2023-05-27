@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 28px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button id="btn">变长</button>
+			<button id="btn1">变短</button>
+		</div>
+		<script>
+			//2.定义全局变量，保存宽度，这样两个点击事件共享一个值
+			var a = 100
+			btn.onclick = function() {
+				//3.每次点击增加宽度
+				a += 5
+				//将自增后的宽度值赋值给div的css 注意拼接单位像素
+				box.style.width = a + 'px'
+			}
+			btn1.onclick = function() {
+				a -= 5
+				box.style.width = a + 'px'
+			}
+		</script>
+	</body>
+</html>

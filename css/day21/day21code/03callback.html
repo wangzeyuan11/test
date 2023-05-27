@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>回调函数callback</title>
+	</head>
+	<body>
+		<script>
+			function xinRun(madai) {
+				console.log('新歌开始跑')
+				madai() //调用传进来的函数
+				console.log('新歌跑完了')
+			}
+
+			function mingRun() {
+				console.log('名歌开始跑')
+				console.log('名歌跑完了')
+			}
+
+			function liangRun() {
+				console.log('亮歌开始跑')
+				console.log('亮歌跑完了')
+			}
+			//xinRun(mingRun)
+			//xinRun(liangRun)
+			//如果调用函数时，传入的实参是匿名函数
+			//匿名函数没有名字，需要传入自己的所有内容
+			xinRun(function() {
+				console.log('陌生人被新歌装在麻袋里跑')
+			})
+		</script>
+	</body>
+</html>

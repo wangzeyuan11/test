@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id='btn1'>拨打电话</button>
+		<button id="btn2">发送短信</button>
+		<br>
+		1 <input type="text" id="box"><br>
+		2 <input type="text" id="box2"><br>
+		<button id="btn3">+</button><br>
+		<button id="btn4">-</button><br>
+		总和 <span></span>
+		<script>
+			var a = {
+
+			}
+
+
+
+
+
+
+
+
+
+			var circle = {
+				radius: 4,
+				pi: 3.14,
+				area: function() {
+					console.log(this.pi * this.radius * this.radius)
+				},
+				len: function() {
+					console.log(2 * this.pi * this.radius)
+				}
+			}
+			console.log(circle)
+			circle.area()
+			circle.len()
+
+
+
+
+
+
+			var phone = {
+				brand: '华为Mate50',
+				color: '黑色',
+				//方法：对应的是一个函数
+				call: function() {
+					//this 指向调用方法的对象
+					console.log(this)
+					console.log(`正在使用${this.brand}拨打电话...`)
+				},
+				sendMsg: function() {
+					console.log('发送短信中...')
+				}
+			}
+			//console.log(phone)
+			//给按钮绑定事件
+			btn1.onclick = function() {
+				//调用方法
+				phone.call()
+			}
+			btn2.onclick = function() {
+				phone.sendMsg()
+			}
+		</script>
+	</body>
+</html>

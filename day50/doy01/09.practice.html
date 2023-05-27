@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #box{
+            border: 2px solid gray;
+            width: 400px;
+        }
+        #box>h3{
+            background-color: #eee;
+            padding: 6px;
+            cursor: pointer;
+        }
+        ul{
+            display: none;
+        }
+        ul>li{
+            padding: 5px;
+            border-bottom: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>点击查看一阶段内容</h3>
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>js</li>
+            <li>sass</li>
+        </ul>
+
+        <h3>点击查看二阶段内容</h3>
+        <ul>
+            <li>node.js</li>
+            <li>express</li>
+            <li>云服务器</li>
+            <li>mysql</li>
+        </ul>
+
+        <h3>点击查看三阶段内容</h3>
+        <ul>
+            <li>JSCORE</li>
+            <li>DOM</li>
+            <li>jQuery</li>
+            <li>美食广场项目</li>
+        </ul>
+    </div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#box>h3').click(function(){
+            //next():下一个兄弟元素
+            // $(this).next().toggle()
+
+            //带有滑动动画的过渡效果，实现显示切换
+            //slideToggle
+            //参数1：动画时长，两种写法：'fast'或'slow' 或写 毫秒数
+
+            //BUG的解决：先停止当前动画，在开始新的动画，防止动画队列的产生
+            $(this).next().stop().slideToggle('1000') //1000毫秒 = 1秒
+        })
+    </script>
+</body>
+</html>

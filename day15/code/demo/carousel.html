@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+	</head>
+	<body>
+		<!-- 最外层功能块 -->
+		<div class="ht-carousel">
+			<!-- 响应式版心：要有定宽容器 -->
+			<div class="container">
+				<!-- 轮播图的代码 -->
+				<div id="lbt" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+					<!-- 最底部的控制区 -->
+					<div class="carousel-indicators">
+						<button data-bs-target="#lbt" data-bs-slide-to="0" class="active"></button>
+						<button data-bs-target="#lbt" data-bs-slide-to="1""></button>
+						<button data-bs-target=" #lbt" data-bs-slide-to="2"></button>
+						<button data-bs-target="#lbt" data-bs-slide-to="3"></button>
+					</div>
+					<!-- 图片区 -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="./img/banner1.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="./img/banner2.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="./img/banner3.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="./img/banner4.jpg" class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<!-- 上一张控制区 -->
+					<button class="carousel-control-prev" data-bs-target="#lbt" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</button>
+					<!-- 下一张控制区 -->
+					<button class="carousel-control-next" data-bs-target="#lbt" data-bs-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

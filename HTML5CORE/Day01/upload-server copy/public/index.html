@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件拖拽</title>
+
+  <style>
+    #box {
+      width: 300px;
+      height: 200px;
+      background-color: #eee;
+      overflow-y: scroll;
+    }
+
+    #box>p {
+      padding: 10px;
+      border-bottom: 1px dashed #888;
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <button>上传文件</button>
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    // 把变量全局共享, 就能共享使用
+
+    $('button').click(function () {
+      // 1. 把文件信息 存储在 FormData 对象中
+      console.log(files)
+      var fd = new FormData()
+      // 多文件上传, 需要遍历后, 挨个添加到 fd 对象里
+      for (const file of files) {
+        fd.append('avatars', file)
+      }
+
+      // 2. 用 jQuery 的 ajax 方法实现上传操作
+      $.ajax({
+        url: "http://localhost:3000/avatars",
+        type: "post",
+        processData: false,
+        contentType: false,
+        data: fd,
+        success(data) {
+          console.log('上传结果:', data)
+        }
+      })
+    })
+
+    $('#box')
+      .on('dragover', function (e) {
+        // 默认操作: 直接在新标签中打开, 而不会触发自定义的 drop 事件
+        e.preventDefault()
+      })
+      .on('drop', function (e) {
+        // 默认操作: 直接在新标签打开
+        e.preventDefault()
+        // 系统会在拖拽文件时, 自动在数据传输者中保存文件信息
+        // console.log(e.originalEvent.dataTransfer);
+
+        // 把files 存储在全局, 就可以全局使用
+        window.files = e.originalEvent.dataTransfer.files
+        console.log('files:', files);
+
+        $('#box').empty()
+
+        // 遍历 把文件信息转 html代码展示出来
+        for (const file of files) {
+          let { name, size } = file
+          // Byte -> KB
+          size = (size / 1024).toFixed(1) + 'KB'
+
+          $('#box').append(
+            `<p>
+              <span>${name}</span>  
+              <span>${size}</span> 
+            </p>`
+          )
+        }
+      })
+  </script>
+</body>
+
+</html>

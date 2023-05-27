@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文字测试1</title>
+		<style>
+			.font1 {
+				font-family: '宋体', '华文彩云';
+			}
+
+			.f1 {
+				font-weight: normal;
+				/* 正常体*/
+			}
+
+			.f2 {
+				font-weight: bold;
+				/* 加粗体*/
+			}
+
+			.f3 {
+				font-weight: lighter;
+				/* 细体*/
+			}
+
+			.f4 {
+				font-weight: 400;
+				/* 正常体*/
+				font-weight: 300;
+				/* 细体*/
+				font-weight: 600;
+				/* 粗体*/
+			}
+
+			.s1 {
+				width: 100px;
+				text-indent: 2em;
+			}
+
+			/* 注意！前提是要设置宽度，否则不会溢出 */
+			.o1 {
+				width: 100px;
+				background-color: yellow;
+				/* 强制内容不换行 */
+				white-space: nowrap;
+				/* 溢出隐藏 */
+				overflow: hidden;
+				/* 文字溢出替换成省略号 */
+				text-overflow: ellipsis;
+			}
+
+			.o2 {
+				width: 100px;
+				background-color: #0ff;
+			}
+
+			.o3 {
+				width: 100px;
+				background-color: pink;
+			}
+
+			.o1,
+			.o2,
+			.o3 {
+				width: 100px;
+				background-color: #0ff;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="font1">我是测试文字123 abc</p>
+		对照文字
+		<hr>
+		<p class="f1">我来测试字体字重</p>
+		<p class="f2">我来测试字体字重</p>
+		<p class="f3">我来测试字体字重</p>
+		<p class="f4">我来测试字体字重</p>
+		<hr>
+		<p class="s1">我是一段中文，标准格式的我是需要首行缩进两个中文字符的</p>
+		<hr>
+		<div class="o1" title="如果有一段文字比较长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长会出现溢出情况">
+			如果有一段文字比较长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长会出现溢出情况</div>
+		<div class="o2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et architecto modi molestiae
+			reprehenderit recusandae ipsam, dolorem aut dolores? Quibusdam inventore aperiam magnam nam. Fuga dolor,
+			praesentium cum maiores amet pariatur?</div>
+		<div class="o3">hahahhahahahahahahahahahhhhahhahaha</div>
+	</body>
+</html>

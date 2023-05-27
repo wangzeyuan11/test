@@ -1,0 +1,23 @@
+//$创建变量，冒号赋值
+$a:400px;
+$b:center;
+$c:#fff;
+$shadow:5px 7px 5px rgba(0,0,0,.5);
+$red:#DB221D;
+$red:#0aa1ed;
+.box {
+	width: $a;
+	height: $a;
+	text-align: $b;
+	color: $c;
+	background-color: $red;
+	box-shadow: $shadow;
+	$hello:green;
+	border-radius: $hello;
+}
+h2{
+	background-color: $red;
+}
+button{
+	background-color: $red;
+}

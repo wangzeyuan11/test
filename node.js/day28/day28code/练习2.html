@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//计算出距离周末 2023/3/4 还有X天X时X分X秒
+			var a = new Date
+			var b = new Date('2023 / 3 / 4')
+			//获取当前时间戳
+			console.log(Date.now(), a.getTime())
+
+			//console.log(a.getTime())
+			//console.log(b.getTime())
+			var c = new Date(a.getTime())
+			var d = new Date(b.getTime())
+			var f = d - c
+			//计算相差的毫秒数
+			f = parseInt(f / 1000)
+			//计算相差的秒钟部分：去除含有的分钟（60秒）总的相差的秒钟%60
+			//console.log(f)
+			var second = f % 60
+			// 计算相差的分钟部分：去除总的秒数中含有的小时(3600秒)
+			var minute = parseInt(f % 3600 / 60)
+			// 计算相差的小时部分：去除总的秒数中含有的天(24*3600秒)
+			var hour = parseInt(f % (24 * 3600) / 3600)
+			// 计算相差的天部分：直接将总秒数单位转为天(24*3600秒)
+			var day = parseInt(f / (24 * 3600))
+
+			console.log(`距离周末还有${day}天${hour}时${minute}分${second}秒`)
+		</script>
+	</body>
+</html>

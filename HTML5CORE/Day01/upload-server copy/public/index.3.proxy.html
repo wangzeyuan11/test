@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+</head>
+
+<body>
+  <!-- index.html 这个文件名有说法: 所有网页服务器默认都会访问此文件作为首页 -->
+  <h1>Welcome To Express!</h1>
+
+  <ul id="emps"></ul>
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    // var url = 'https://m.douyu.com/api/room/list?page=1&type=yz'
+
+    // 到 express 服务器提供的  http://localhost:3000/dy 中要数据
+    // express 会代为转发到  https://m.douyu.com 网站
+    var url = 'http://localhost:3000/dy/api/room/list?page=1&type=yz'
+
+    // 问题: 接口存在跨域 但是 服务器无法修改代码
+    // - 导致 cors 和 jsonp 方案无法使用
+    $.get(url, data => {
+      console.log('斗鱼数据:', data);
+    })
+  </script>
+</body>
+
+</html>

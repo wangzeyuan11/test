@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域相关 09:22</title>
+</head>
+
+<body>
+  <!-- 
+    什么是作用域?
+    答: 代码运行时的生效范围.   有作用的领域
+
+    有哪些作用域?
+    - 全局作用域: 这里的代码在哪里都能用, 公共的
+    - 局部作用域: 函数运行时产生的, 函数私有的
+    - 块级作用域: ES6提供的
+   -->
+
+  <script src="./01.a.js"></script>
+  <script src="./01.b.js"></script>
+  <script>
+    // 直接在脚本中书写的代码, 都属于全局作用域
+    // 全局中 声明的变量 存储在 顶级对象 -- window
+    // window是浏览器提供的, 存储了 浏览器提供的所有 API 
+    // JS在浏览器中运行, 就可以操作 window 对象中提供的功能
+
+    // 宿主环境: JS代码运行时所在的平台
+    // 1. node.js  -- 2阶段
+    // 2. 浏览器  -- 3阶段 - 研究运行在浏览器上的JS 有什么特点.
+
+    var a = 10
+
+    function b() { }
+
+    // clg : 快速生成打印的脚本代码
+    console.log(window)
+    // 运行方式:  右键当前页面内容 -> open with live server
+    // 会自动在 默认浏览器 开启当前页面, 自带热更新功能
+
+    // alert: 浏览器提供的 弹窗功能 函数
+    // window.alert("Hello Window!")
+
+    // 使用全局对象 window 中的属性时, 可以省略 window 前缀
+    alert('Hello Window!')
+
+    // 全局(对象)污染:
+    // 全局对象指的是 window 对象, 本质功能是存储系统级的内容
+    // 我们声明的变量默认也会存储在 window 对象里,  这并非window的主要职责, 所以说:  自定义变量 污染了 全局对象
+
+    // 造成的问题:
+    // 1. 属性名和系统属性重复, 会导致覆盖
+    // 2. 多个外部脚本中的变量 都存放在全局, 会导致冲突覆盖!
+
+    // 利用函数作用域来解决全局污染!
+  </script>
+</body>
+
+</html>

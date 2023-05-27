@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            display: flex;
+            background-color: #002c69;
+            padding: 0 30px;
+        }
+        li{
+            padding:10px 30px;
+            color: white;
+            /* margin-right: 20px; */
+            /* margin-left: 20px; */
+            cursor: pointer;
+        }
+        li.active{
+            background-color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">首页</li>
+        <li>关于精美社</li>
+        <li>公司动态</li>
+        <li>产品中心</li>
+        <li>联系我们</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+</html>

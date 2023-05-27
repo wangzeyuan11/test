@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型 半径10
+        var c1 = {
+            radius:10,
+            get area(){
+            return 3.14*this.radius*this.radius
+            },
+            get perimeter(){
+                return 3.14*2*this.radius
+            }
+        }
+
+        
+
+
+        Object.defineProperty(c1,'dia',{
+            get(){
+                return this.radius*2
+            }
+        }),
+
+        console.log(
+            c1.dia,
+            c1.area,
+            c1.perimeter,
+        );
+    </script>
+</body>
+</html>

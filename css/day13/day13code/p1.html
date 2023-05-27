@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>媒体查询练习</title>
+		<!-- meta:vp 补全即可提示下面这个代码 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style>
+			/* 设备宽度大于900px时，body的背景颜色是红色 */
+			@media (min-width:900px) {
+				body {
+					background-color: #f00;
+				}
+			}
+
+			/* 设备宽度小于400px时，body的背景颜色是黄色 */
+			/* 设备宽度在400-900之间时，背景颜色是绿色 */
+			@media (max-width:400px) {
+				body {
+					background-color: yellow;
+				}
+			}
+
+
+			@media (min-width:400px) and (max-width:900px) {
+				body {
+					background-color: green;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		body颜色变化
+	</body>
+</html>

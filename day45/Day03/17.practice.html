@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 16:47</title>
+
+  <style>
+    #box {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li {
+      list-style: none;
+      margin: 0 10px 10px 0;
+      box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      background-color: #14151A;
+      padding: 10px;
+      border-radius: 4px;
+      align-items: center;
+    }
+
+    li>b {
+      color: white;
+      padding: 10px 0;
+    }
+
+    li>img {
+      width: 100px;
+      height: 100px;
+    }
+
+    li>span {
+      color: #AB934D;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="box">
+    <!-- <li>
+      <img src="" alt="">
+      <b></b>
+      <span></span>
+    </li> -->
+  </ul>
+
+  <script src="common.js"></script>
+  <script>
+    // https://api.xin88.top/game/items.json
+
+    get('https://api.xin88.top/game/items.json', data => {
+      console.log(data)
+
+      var res = data.items.map(value => {
+        return `<li>
+          <img src="${value.iconPath}" alt="">
+          <b>${value.name}</b>
+          <span>${value.price}</span>
+        </li>`
+      })
+
+      box.innerHTML = res.join('')
+    })
+
+    // 1. 利用 common.js 中封装的 get 方法获取数据
+    // 2. 在html中书写 ul#box 标签 和 li标签模板
+    // 3. 在 js 中, 把请求到的数据 转为 li 代码
+    // 4. 把 li 代码显示到 box 标签里
+    // 5. 利用CSS进行美化
+
+    // 此接口的图没有防盗链问题
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1个页面元素的样式，由哪些因素决定 -->
+    <!-- 1.原本本身的样式：w3c的标准规定 -->
+    <!-- 2.浏览器品牌的个性美化 -->
+    <!-- 3.class:用户通过class方案 -->
+    <!-- 4.style：内联样式的个性化 -->
+    <button id="btn1">Click Me!</button>
+
+    <div id="box" style="width: 100px;height: 100px;background-color: gray;"></div>
+
+
+    
+    <script>
+        const box = document.getElementById('box')
+        box.onclick = function(){
+            //JS规范：属性名不允许带有-,所以默认会以小驼峰的形式出现
+            this.style.backgroundColor='red'
+        }
+
+
+
+        //1.从dom中找到按钮元素
+        const btn1 = document.getElementById('btn1')
+        console.dir(btn1);
+        //内联样式的优先级是最高的，当这里赋值时，会覆盖前三种因素
+        btn1.style.color = 'green'
+
+        //与实践操作结合：点击后，让按钮的文字变红
+        btn1.onclick = function(){
+            //onclick属性 属于btn1 触发时 是btn1触发的 所以this是btn1
+            this.style.color = 'red'
+        }
+    </script>
+</body>
+</html>

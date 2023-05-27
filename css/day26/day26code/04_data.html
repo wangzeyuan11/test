@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// //原始类型
+			// var a = 1
+			// // 拷贝一份a的值赋值给b a,b两者之间都是独立的
+			// var b = a
+			// a = 2
+			// console.log(b)
+			//引用类型
+			var yu = {
+				color: '绿色',
+				size: 'L'
+			}
+			var xin = yu
+			xin.size = 'xxxl'
+			console.log(yu.size)
+			yu.color = '红色'
+			console.log(xin)
+			console.log(yu)
+			//如果两个对象比较，比较的是地址
+			console.log(xin === yu)
+
+			// var p1 = {a:1} //生成一个地址保存到p1
+			// var p2 = {a:1} //生成一个地址保存到p2
+			// console.log(p1 === p2) //false
+			// var n = 3
+
+			// function fn(n) {
+			// 	//var n = 3
+			// 	//查找n的值，找当前函数作用域下的n，不会网上一级作用域下查找
+			// 	n = n + 5
+			// }
+			// // 拷贝一份n的值，把拷贝后的值作为参数
+			// fn(n)
+			// console.log(n) //3
+			var obj = {
+				n: 2
+			}
+
+			function foo(o) {
+				// o接收是一个地址
+				o.n = 5
+			}
+			//址传递
+			foo(obj) //foo(地址)
+			console.log(obj.n)
+		</script>
+	</body>
+</html>

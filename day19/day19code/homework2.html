@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 1.html部分 -->
+		单价<input type="text" id="price"> <br>
+		数量<input type="text" id="num"> <br>
+		<button id="btn">支付</button>
+
+		<script>
+			//2.给支付按钮绑定点击事件
+			btn.onclick = function() {
+				//3.从输入框中获取单价与数量 ，计算出总价total
+				var total = price.value * num.value
+				//console.log(total)
+				//4.如果总价满1000打9折
+				if (total >= 1000) {
+					total *= 0.9
+				}
+				//5.声明变量 保存会员卡的余额
+				var card = 1500
+				//6.计算卡内余额是否足够支付
+				var rest = card - total
+				//7.输出结果
+				if (rest >= 0) {
+					alert('支付成功，余额剩余' + rest + '元')
+				} else {
+					alert('支付失败，会员卡还剩余' + card + '充值')
+				}
+			}
+		</script>
+	</body>
+</html>

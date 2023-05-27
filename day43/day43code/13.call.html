@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call:短暂拜访
+        //函数具有一个短暂拜访对象的方法 -- call
+        function area(){
+            return this.length*this.width
+        }
+        var r1 = {length:10,width:20}
+
+        //任务：把area函数临时放到r1对象中执行
+        console.log(
+            area.call(r1) //area函数短暂拜访r1
+        );
+
+        console.dir(area); //dir:直接输出函数对象
+
+        //练习：立方体
+        var c1 = {length:10,width:20,height:30}
+        function volume(){
+            return ((this.length*this.width)+(this.length*this.height)+(this.width*this.height))*2
+        }
+        console.log(
+            volume.call(c1)
+        );
+        function area1(){
+            return this.length*this.width*this.height
+        }
+        console.log(
+            area1.call(c1)
+        );
+    </script>
+</body>
+</html>

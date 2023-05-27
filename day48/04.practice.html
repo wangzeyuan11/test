@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+                #box{
+            width: 400px;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+        #box>img{
+            width: 100%;
+        }
+        #box>div{
+            display: flex;
+        }
+        #box>div>img{
+            flex: 1;
+            border: 2px solid transparent;
+        }
+        #box>div>img.active{
+            border-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <img class="active" data-bigimg="./imgs/bigskin-1.jpg" src="imgs/smallskin-1.jpg" alt="">
+            <img data-bigimg="./imgs/bigskin-2.jpg"  src="imgs/smallskin-2.jpg" alt="">
+            <img data-bigimg="./imgs/bigskin-3.jpg"  src="imgs/smallskin-3.jpg" alt="">
+            <img data-bigimg="./imgs/bigskin-4.jpg"  src="imgs/smallskin-4.jpg" alt="">
+            <img data-bigimg="./imgs/bigskin-5.jpg"  src="imgs/smallskin-5.jpg" alt="">
+        </div>
+        <img src="./imgs/bigskin-1.jpg" alt="">
+    </div>
+    <script>
+        const imgs = document.querySelectorAll('#box>div>img')
+        imgs.forEach(img=>{
+            img.onmouseover = function(){
+                // imgs.forEach(img=>{
+                    img.classList.remove('active')
+                // })
+                     img.classList.add('active')
+                     const big_src = img.dataset.bigimg
+                    const img_big = document.querySelector('#box>img')
+                    img_big.src = big_src
+            }
+
+        })
+    </script>
+</body>
+</html>

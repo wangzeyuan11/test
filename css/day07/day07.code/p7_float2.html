@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>初识浮动</title>
+		<style>
+			.fu {
+				width: 400px;
+				border: 5px solid #000;
+			}
+
+			.fu>div {
+				width: 100px;
+				height: 100px;
+				border: 1px solid #000;
+			}
+
+			.z1 {
+				background-color: #f00;
+				float: left;
+				/* 第一个子元素左浮动，脱离文档流，释放布局空间，到父元素的最左面*/
+			}
+
+			.z2 {
+				background-color: #0f0;
+				float: right;
+				/* 第2个子元素左浮动，脱离文档流，释放布局空间，到父元素的最右面*/
+			}
+
+			.z3 {
+				background-color: #00f;
+				float: right;
+				/* 第3个子元素左浮动，脱离文档流，释放布局空间，紧挨着前面右浮动的.z2*/
+				/* 当所有子元素都浮动，父元素会高度崩塌、失高 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fu">
+			<div class="z1"></div>
+			<div class="z2"></div>
+			<div class="z3"></div>
+		</div>
+	</body>
+</html>

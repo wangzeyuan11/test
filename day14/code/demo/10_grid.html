@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>栅格布局练习</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+		<style>
+			.zdy-h {
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 1.栅格布局先写行！！！ -->
+			<div class="row bg-danger">
+				<div class="zdy-h bg-primary col-1"></div>
+				<div class="zdy-h bg-secondary col-2"></div>
+				<div class="zdy-h bg-success col-3"></div>
+				<div class="zdy-h bg-warning col-4"></div>
+				<!-- 最后一份元素设置5 累计超过12份就会显示换行 -->
+				<!-- <div class="zdy-h bg-dark col-5"></div> -->
+				<div class="zdy-h bg-dark col-2"></div>
+				<!-- 需求2：一行四块的效果 -->
+			</div>
+		</div>
+		<br>
+		<div class="container">
+			<div class="row bg-warning">
+				<div class="zdy-h bg-primary col-3"></div>
+				<div class="zdy-h bg-danger col-3"></div>
+				<div class="zdy-h bg-secondary col-3"></div>
+				<div class="zdy-h bg-success col-3"></div>
+			</div>
+		</div>
+		<br>
+		<div class="container">
+			<div class="row bg-white">
+				<div class="zdy-h col-3">
+					<div class="zdy-h bg-black"></div>
+				</div>
+				<div class="zdy-h col-3">
+					<div class="zdy-h bg-success"></div>
+				</div>
+				<div class="zdy-h col-3">
+					<div class="zdy-h bg-primary"></div>
+				</div>
+				<div class="zdy-h col-3">
+					<div class="zdy-h bg-secondary"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

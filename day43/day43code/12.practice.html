@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //立方体：长宽高
+        var c1 = {length:10,width:20,height:30}
+
+        //制作一个函数volume计算体积 = 长*宽*高
+        //要求：把volue传递到c1对象里执行，返回其体积
+        function volume(){
+            return this.length*this.width*this.height
+        }
+        c1.volume = volume
+        console.log(c1.volume());
+        delete c1.volume
+    </script>
+</body>
+</html>

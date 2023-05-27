@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="menu">
+
+		</ul>
+		<script>
+			//创建数组，包含新闻的类别名称
+			var arr = ['公司动态', '产品资讯', '业界资讯']
+			//遍历数组，获取每个类别名称
+			//声明变量，用于拼接每一个类别，初始值为空字符串
+			for (var i = 0, str = ''; i < arr.length; i++) {
+				//arr[i]
+				console.log(`<li>${arr[i]}</li>`)
+				//把每一组拼接起来
+				str += `<li>${arr[i]}</li>`
+			}
+			//最后把整个渲染
+			menu.innerHTML = str
+		</script>
+	</body>
+</html>

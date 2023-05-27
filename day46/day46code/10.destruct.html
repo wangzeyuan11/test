@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = [
+            {ename:'凯凯',age:'32',phone:'13599898888'},
+            {ename:'南岸',age:'22',phone:'13599898887'},
+            {ename:'铭铭',age:'12',phone:'13599898886'},
+            {ename:'亮亮',age:'42',phone:'13599898885'}
+        ]
+        //可选解构：
+        const [kai1,,,liangliang]=emp
+        console.log(kai1.ename,liangliang.ename);
+
+        //ES6的解析语法
+        const [kaikai,nannan]=emp
+        console.log(kaikai.ename,nannan.ename);
+
+        //缺点无法直观的知道[0][1]
+        // const kai = emps[0],nan = emps[1]
+    </script>
+</body>
+</html>

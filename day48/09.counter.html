@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="price" data-price="99">单价:￥99</div>
+    <div class="counter">
+        <button>-</button>
+        <span>10</span>
+        <button>+</button>
+    </div>
+    <div class="total">总价:????</div>
+    <script>
+        const counter = document.querySelector('.counter')
+        //children:孩子们,获取元素的子元素们
+        console.dir(counter);
+        //解构语法
+        const [btn_minus,span_count,btn_add] = counter.children
+
+        btn_add.onclick = function(){
+            span_count.innerHTML++
+            update()
+        }
+        btn_minus.onclick = function(){
+            span_count.innerHTML--
+            update()
+        }
+        //用于更新页面上元素的状态
+        function update(){
+            //读取单价和数量相乘，结果赋值给总价
+            const div_price = document.querySelector('.price')
+            const price = div_price.dataset.price
+            //与数量相乘：得到总价
+            const total = price * span_count.innerHTML
+            //赋值给总价格
+            const div_total = document.querySelector('.total')
+            div_total.innerHTML = `总价格：￥${total}`
+
+            // span_count.innerHTML == 1? btn_minus.disabled = true : btn_minus.disabled = false
+
+            btn_minus.disabled = (span_count.innerHTML == 1)
+
+            //根据数量的值，来决定减按钮的不可用状态
+            // if(span_count.innerHTML == 1){
+            //     btn_minus.disabled = true
+            // }else{
+            //     btn_minus.disabled = false
+            // }
+        }
+        ///初始化显示时，先更新一次
+        update()
+    </script>
+</body>
+</html>

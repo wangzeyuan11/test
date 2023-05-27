@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				background-color: pink;
+				width: 500px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, natus eius eaque perspiciatis tenetur
+			iste provident sequi tempore minima consectetur quo distinctio esse recusandae asperiores enim possimus?
+			Facere, sed ipsam.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, natus eius eaque
+			perspiciatis tenetur iste provident sequi tempore minima consectetur quo distinctio esse recusandae
+		</div>
+		<button id="btn1">变大</button>
+		<button id="btn2">变小</button>
+		<!-- 写在body后，确保前面的html内容加载完完毕了 -->
+		<script>
+			//声明变量a保存文字的初始大小
+			var a = 20
+			// console.log(btn1) id值就代表着对应的那个html元素
+			//给按钮1绑定点击事件
+			btn1.onclick = function() {
+				// 变量a的值 自增1代表字号+1
+				a++
+				//把自增后的字号赋值给box的css属性，记得加单位
+				box.style.fontSize = a + 'px'
+
+			}
+			//给按钮1绑定点击事件
+			btn2.onclick = function() {
+				a--
+				box.style.fontSize = a + 'px'
+			}
+		</script>
+	</body>
+</html>

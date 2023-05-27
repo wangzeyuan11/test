@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组api</title>
+	</head>
+	<body>
+		<script>
+			// var arr1 = ['a', 'b', 'c']
+			// var arr2 = ['d', 'e', 'f']
+			// var arr3 = ['g', 'h']
+			// //拼接多个数组
+			// console.log(arr1.concat(arr2, arr3))
+			// console.log(arr1)
+			//翻转数组元素
+			// var arr = ['a', 'b', 'c', 'd']
+			// console.log(arr.reverse())
+
+			// //原数组
+			// console.log(arr)
+			// var arr = [80, 76, 88, 50, 94, 100, 66, 72]
+			// //截取数组元素
+			// //console.log(arr.slice(3))
+			// //不包含结束的这一项的
+			// //console.log(arr.slice(3, 6))
+			// console.log(arr.slice(-3, -1))
+			// console.log(arr)
+			// var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+			// var arr1 = arr.slice(1, 3)
+			// var arr2 = arr.slice(-3, -2)
+			// //拼接起来
+			// console.log(arr1.concat(arr2))
+
+			// var arr = [80, 76, 88, 50, 94, 100, 66, 72]
+			// //删除数组元素
+			// //console.log(arr.splice(2))
+			// //console.log(arr.splice(2, 3))
+			// console.log(arr.splice(-3, 0, 'xx'))
+			//原数组会变化
+			// console.log(arr)
+
+			// var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+			// console.log(arr.splice(2, 2))
+			// console.log(arr.splice(-1, 1, 'm'))
+			// console.log(arr.splice(1, 0, 'z'))
+			// console.log(arr)
+			//数组元素排序
+			// var arr = [23, 9, 78, 6, 45]
+			// //默认是按照首个字符Unicode编码排列
+			// //arr.sort()
+			// arr.sort(function(a, b) {
+			// 	//a,b 每次取出两个数字
+			// 	//return a - b //进行从小到大的排列
+			// 	return b - a //从大到小
+			// })
+			// //原数组会发生变化
+			// console.log(arr)
+
+			// var emp = [{
+			// 		enmae: 'yu',
+			// 		salary: 15000
+			// 	},
+			// 	{
+			// 		enmae: 'xin',
+			// 		salary: 50000
+			// 	},
+			// 	{
+			// 		enmae: 'tom',
+			// 		salary: 32000
+			// 	},
+			// 	{
+			// 		enmae: 'king',
+			// 		salary: 80000
+			// 	}
+			// ]
+			// emp.sort(function(a, b) {
+			// 	//按照每条数据中的工资这一项排列
+			// 	return b.salary - a.salary
+			// })
+			// console.log(emp)
+
+			// var arr = ['a', 'b', 'c']
+			// //arr.push('d')
+			// //console.log(arr.push('d', 'e', 'f'))
+			// //删除数组末尾元素
+			// // console.log(arr.pop())
+			// //开头添加
+			// console.log(arr.unshift('z', 'e'))
+			// //删除开头
+			// //console.log(arr.shift())
+			// console.log(arr)
+			// var arr = ['a', 'b', 'c']
+			// //检测数组中是否含有某个元素
+			// console.log(arr.indexOf('d'))
+			// console.log(arr)
+			var arr = ['爱国福', '和谐福']
+			if (arr.indexOf('敬业福') === -1) {
+				arr.push('敬业福')
+			}
+			console.log(arr)
+		</script>
+	</body>
+</html>

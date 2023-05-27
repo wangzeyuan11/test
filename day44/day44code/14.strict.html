@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //严格模式下，函数中this如果是window，则改为undefined；防止全局污染
+        'use strict'
+
+        function Rect(length,width){
+            //上面会变成widow.length=length
+            this.length = length
+            this.width = width
+        }
+        //new:专门搭配构造函数使用，默认会把函数中的this指向构造出来的对象
+        //忘记写new了，则this指向函数运行时所在对象--window
+        var r1 = Rect(10,20)
+        console.log(r1);
+    </script>
+</body>
+</html>

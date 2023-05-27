@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        #menu>li{
+            color: #000;
+            list-style: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #menu>li.active{
+            color: orange;
+            border-bottom: 2px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <!-- <li></li> -->
+    </ul>
+
+    <script>
+        var url = 'https://douyu.xin88.top/api/cate/recList'
+        var ul = document.querySelector('#menu')
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('get',url)
+        xhr.onload = function(){
+            var data = JSON.parse(xhr.response)
+            console.log(data);
+            // const lis = document.querySelectorAll('li')
+            
+            ul.innerHTML = data.data.reduce((box,value,index)=>{
+                //根据序号 给出不同的初始样式
+                return box+`<li class="${index==0 ? 'active':''}">${value.name}</li>`
+            },'')
+        }
+        xhr.send()
+
+        //委托模式：通过父元素 ul标签 帮助子元素li实现点击事件的效果
+        ul.onclick = function(e){
+            if(e.target.localName !='li') return
+            const li_active = document.querySelector('#menu>li.active')
+            li_active.classList.remove('active')
+            e.target.classList.add('active')
+        }
+
+        
+    </script>
+</body>
+</html>

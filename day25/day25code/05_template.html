@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据渲染</title>
+	</head>
+	<body>
+		<div id="cont"></div>
+		<script>
+			// var title = '小米13'
+			// cont.innerHTML = title
+			//练习：假设从后端获取到了1条商品数据，格式为对象，包含的属性有商品的标题和商品的价格，拼接成以下格式
+			// 标题：xxx 价格：xxx
+			//最后把拼接的结果渲染到div之间
+			var sp = {
+				bt: '小米13',
+				jg: 1300
+			}
+			//var str = '标题:' + sp.bt + '价格：' + sp.jg
+			//模板字符串
+			var str = `
+			<h4>标题：${sp.bt}</h4><br>
+			<h4>价格：${sp.jg}</h4><br>
+			`
+			cont.innerHTML = str
+		</script>
+	</body>
+</html>

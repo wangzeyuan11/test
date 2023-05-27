@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="referrer" content="no-referrer">
+    <style>
+        #box{
+            width: 600px;
+        }
+        li{
+            display: flex;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+        li>img{
+            width: 160px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        li>div{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        li>div>div{
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <img src="" alt="">
+            <div>
+                <b></b>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        //万的转换
+        function wan(value){
+            return value>=10000?(value/10000).toFixed(1)+'万':value
+        }
+
+
+        var url = 'https://api.xin88.top/bilibili/recommend.json'
+
+        get(url,data=>{
+            console.log(data);
+
+            var tem = ''
+
+            data.data.season.forEach(value => {
+                //问题点：在模板字符串中书写过多的过长的JS代码，会导致html的结构被打乱，不容易阅读
+                //先把用到的变量都解构出来
+                const { 
+                    title,
+                    new_ep:{cover,index_show},
+                    stat:{view,danmaku} 
+                } = value
+
+                tem += `<li>
+            <img src="${cover}" alt="">
+            <div>
+                <b>${title}</b>
+                <div>
+                    <div>${index_show}</div>
+                    <div>${wan(view)}播放 . ${wan(danmaku)}弹幕</div>
+                </div>
+            </div>
+        </li>`
+            });
+
+            box.innerHTML = tem
+        })
+    </script>
+</body>
+</html>

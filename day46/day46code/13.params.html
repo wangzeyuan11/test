@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var r1 = { length: 10, width: 20 };
+
+      //省略形参名，直接把 实参中的值解构出来使用
+      function area({ length, width }) {
+        // const { length,width } = rect
+        return length * width;
+      }
+      console.log(area(r1));
+
+      ////////////////////
+      //练习：
+      var c1 = { length: 10, width: 20, height: 30 };
+      function area({ length: l, width: w, height: h }) {
+        // return (length*width+length*height+width*height)*2
+        return (l * w + l * h + w * h) * 2;
+      }
+      console.log(area(c1));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IsNaN()</title>
+	</head>
+	<body>
+		<script>
+			//这个函数用于检测数字中是否含有非数字，有返回true，没有返回false
+			console.log(isNaN(666)) //false 没有非数字
+			console.log(isNaN(true)) //false true转换1
+			console.log(isNaN(false)) //false
+			console.log(isNaN(null)) //false
+			console.log(isNaN(undefined)) //true 数字
+			console.log(isNaN(NaN)) //true 非数字
+			console.log(isNaN('1a')) //true 转换成NaN 非数字
+		</script>
+	</body>
+</html>

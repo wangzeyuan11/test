@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            display: flex;
+        }
+        li{
+            margin: 4px;
+            background-color: #eee;
+            padding: 10px 20px;
+        }
+        li.active{
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>点击选择午餐:</h2>
+    <ul>
+        <li>KFC</li>
+        <li>牛肉面</li>
+        <li>麻辣烫</li>
+        <li>黄焖鸡</li>
+        <li>螺蛳粉</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('li').click(function(){
+            // toggleClass:切换样式
+            $(this).toggleClass('active')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 15:34</title>
+</head>
+
+<body>
+  <div id="box"></div>
+
+  <script>
+    // https://mfresh.xin88.top/data/news_select.php
+
+    // 任务:
+    // 1. 利用AJAX 请求接口中的数据
+    // 2. 把数据中的内容, 转为 li 标签, 显示出标题
+    // 3. 把 li 标签显示到页面上
+    var url = 'https://mfresh.xin88.top/data/news_select.php'
+
+    const xhr = new XMLHttpRequest()
+    xhr.open('get', url)
+    xhr.onload = function () {
+      var data = JSON.parse(xhr.response)
+      console.log(data)
+
+      var res = data.data.map(value => {
+        return `<li>${value.title}</li>`
+      })
+      console.log(res)
+
+      box.innerHTML = res.join('')
+    }
+    xhr.send()
+
+    // 步骤跟上一个 几乎一样
+  </script>
+</body>
+
+</html>

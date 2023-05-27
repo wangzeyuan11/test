@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>单飞翼布局</title>
+		<style>
+			.box {
+				background-color: #f00;
+				height: 200px;
+				display: flex;
+			}
+
+			.left {
+				width: 230px;
+				background-color: #0ff;
+				/* 设置项目不允许缩小 */
+				flex-shrink: 0;
+			}
+
+			.right {
+				background-color: #ff0;
+				/* 右侧区域允许放大，且占据父容器的所有剩余空间 */
+				flex-grow: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left">不放大部缩小</div>
+			<div class="right">会放大缩小</div>
+		</div>
+	</body>
+</html>

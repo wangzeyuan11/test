@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = [
+        { year: 2015, gdp: 300 },
+        { year: 2016, gdp: 400 },
+        { year: 2017, gdp: 560 },
+        { year: 2018, gdp: 340 },
+        { year: 2019, gdp: 660 },
+        { year: 2020, gdp: 880 },
+      ];
+      var canvas = document.createElement("canvas");
+      canvas.width = 800;
+      canvas.height = 600;
+      document.body.appendChild(canvas);
+
+      var ctx = canvas.getContext("2d");
+
+      // 排序
+      data.sort(function (a, b) {
+        return a.year - b.year;
+      });
+
+      // 计算柱子宽度和间距
+      var barWidth = (canvas.width - 40) / data.length - 20;
+      var gap = 20;
+
+      // 计算最大值和最小值
+      var max = data.reduce(function (prev, current) {
+        return prev.gdp > current.gdp ? prev : current;
+      }).gdp;
+      var min = data.reduce(function (prev, current) {
+        return prev.gdp < current.gdp ? prev : current;
+      }).gdp;
+
+      // 绘制柱状图
+      data.forEach(function (item, index) {
+        var barHeight = ((item.gdp - min) / (max - min)) * (canvas.height - 40);
+        var barX = index * (barWidth + gap) + 20;
+        var barY = canvas.height - barHeight - 20;
+        var color =
+          "rgb(0, 0, " +
+          Math.floor((255 * (item.gdp - min)) / (max - min)) +
+          ")";
+        ctx.fillStyle = color;
+        ctx.fillRect(barX, barY, barWidth, barHeight);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>列表渲染</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			a {
+				color: #333;
+				text-decoration: none;
+			}
+
+			.box {
+				width: 700px;
+				margin: 100px auto;
+			}
+
+			.box li {
+				display: flex;
+				justify-content: space-between;
+				font-size: 18px;
+				line-height: 40px;
+				border-bottom: 1px dashed #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 假设从后端获取了一组新闻类别，格式为数组 -->
+		<!-- <ul id="cat"> -->
+		<!-- <li>公司动态</li> -->
+		<!-- </ul> -->
+		<ul class="box" id="news">
+			<li>
+				<a href="#">盘点！美国操纵网络霸权的四大罪状</a>
+				<span>2023-03-10</span>
+			</li>
+		</ul>
+
+		<script>
+			var arr = [{
+				title: '盘点！美国操纵网络霸权的四大罪状',
+				ctime: 1591198000333
+			}, {
+				title: 'bu盘点！美国操纵网络霸权的四大罪状',
+				ctime: 1591198000333
+			}, {
+				title: '不盘点！美国操纵网络霸权的四大罪状',
+				ctime: 1591198000333
+			}]
+			//遍历数组获取每条新闻
+			//声明变量用于拼接，初始化为空字符串
+			for (var i = 0, str = ''; i < arr.length; i++) {
+				//arr[i].ctime 每条数据的时间戳
+				// 把时间戳放入到date对象
+				var d = new Date(arr[i].ctime)
+				//获取年月日
+				var year = d.getFullYear()
+				var month = d.getMonth() + 1
+				var date = d.getDate()
+				//把三者拼接
+				var time = `${year}-${month<10?'0'+month:month}-${date<10?'0'+date:date}`
+				console.log(`
+				<li>
+					<a href="#">. ${arr[i].title}</a>
+					<span>${arr[i].ctime}</span>
+				</li>
+				`)
+				str += `
+				<li>
+					<a href="#">. ${arr[i].title}</a>
+					<span>${time}</span>
+				</li>
+				`
+			}
+			//渲染
+			news.innerHTML = str
+
+			// //从后端获取的数据
+			// var arr = ['公司动态', '产品咨询', '业界资讯']
+			// //遍历数组，获取每个元素
+			// //声明变量，用于拼接每一组，初始值为空字符串
+			// for (var i = 0, str = ''; i < arr.length; i++) {
+			// 	// console.log(arr[i])
+			// 	console.log(`<li>${arr[i]}</li>`)
+			// 	//把每一组拼接
+			// 	str += `<li>${arr[i]}</li>`
+			// }
+			// //渲染
+			// cat.innerHTML = str
+		</script>
+	</body>
+</html>

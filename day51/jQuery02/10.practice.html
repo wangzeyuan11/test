@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 模拟百度的 搜索栏内容 页面刷新不丢失的效果 -->
+    <input type="text">
+    <button>百度一下</button>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        //1.页面初始化时，立刻从地址栏中读取参数
+        const wd = new URLSearchParams(location.search).get('wd')
+        //设置到input标签中，作为其默认显示
+        $('input').val(wd)
+
+        //当点击百度一下按钮时，把输入框的值读取 然后放入到url中
+        $('button').click(function(){
+            //输入框的值：value
+            //作者简化成val()方法，用于操作输入框的值
+            const wd = $('input').val()
+            console.log('wd:',wd);
+
+            location.assign('?wd='+wd)
+        })
+    </script>
+</body>
+</html>

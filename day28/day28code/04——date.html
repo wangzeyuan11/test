@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>设置date中存储的值</title>
+	</head>
+	<body>
+		<script>
+			var d = new Date('2023/2/21 14:42:50')
+			//拷贝一份date对象
+			var d2 = new Date(d)
+
+			console.log(d.toLocaleString())
+			//设置年份
+			d.setFullYear(2025)
+			//月份
+			d.setMonth(5)
+			//日期修改为3天后:自动获取日期，然后加3
+			d.setDate(d.getDate() + 3)
+			//两个小时以前
+			d.setHours(d.getHours() - 2)
+			//10分钟以后
+			d.setMinutes(d.getMinutes() + 10)
+			//设置时间戳.会产生具体的时间日期
+			d.setTime(17300000000)
+			//设置星期,没有这个api
+			//d.setDay(6)
+			//如何确认一个api是否存在
+			console.log(d.setTime)
+			console.log(d.toLocaleString())
+		</script>
+	</body>
+</html>

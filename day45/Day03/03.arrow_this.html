@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数中的this 09:48</title>
+</head>
+
+<body>
+  <script>
+    // 关于function的this
+    // 对象.方法名(): this是前方的对象
+    // 方法名(): this是window
+    // new 方法名(): this是构造出的 实例对象
+
+    // 关于箭头函数的this
+    // 箭头函数没有this, 按照作用域链的就近原则到上级作用域查找
+    var emp = {
+      ename: "凯凯",
+      show() {
+        // 箭头函数没有this, 所以使用上级 show 函数中的this
+        // emp.show() :  所以 show的this 就是emp
+        var a = () => {
+          console.log('this:', this)
+          console.log(this == emp)
+        }
+        a()
+      }
+    }
+
+    emp.show()
+  </script>
+</body>
+
+</html>

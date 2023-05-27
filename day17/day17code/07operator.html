@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三目运算符</title>
+	</head>
+	<body>
+		<script>
+			//1真取2 1假取3
+			//通过年龄判断是否为成人
+			var age = 8
+			console.log(age >= 18 ? '成年人' : '未成年人')
+			//声明两个变量a b，比较这两个变量并输出它们间的最大值max
+			var a = 100
+			var b = 200
+			var max = a > b ? a : b
+			console.log(max)
+
+			//声明变量保存用户输入的用户名和密码
+			//如果用户输入的值是root 123456 输出登陆成功 反之失败
+			var uname = 'root'
+			var upwd = '123456'
+			console.log(uname === 'root' && upwd === '123456' ? '登录成功' : '登录失败')
+		</script>
+	</body>
+</html>

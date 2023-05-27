@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {
+            name:'凯凯',age:'32',
+            desc:{
+                home:'黑龙江鹤岗',
+                phone:'1888888888',
+                skills:['html','css','js','vue','react'],
+                wife:{
+                    name:'小倩',age:27,
+                    tags:['宅','时尚']
+                }
+            }
+        }
+        var { name,age,desc:{home:desc_home,phone:desc_phone,skills:[skills1,skills2,skills3],wife:{name:wife_name,tags:[tags1,tags2]}} } = emp
+        console.log(name,age,desc_home,desc_phone,skills1,skills2,skills3,wife_name,tags1,tags2);
+    </script>
+</body>
+</html>

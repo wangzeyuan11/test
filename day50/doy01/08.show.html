@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示与隐藏</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div id="box"></div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        //隐藏
+        console.log($('button'));
+
+        //查询出来的结果中，序号1个的按钮
+        console.log($('button')[1]); //获取的是 原生的元素
+
+        //eq():从查询结果中获取 指定序号的元素，并封装成jQuery对象
+        console.log($('button').eq(1)); //获取的是用jQuery包裹的元素
+
+        $('button').eq(1).click(function(){
+            //hide:隐藏
+            $('#box').hide()
+        })
+
+        $('button').eq(0).click(function(){
+            //show:显示
+            $('#box').show()
+        })
+
+        $('button').eq(2).click(function(){
+            //切换
+            $('#box').toggle()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <ul>
+        <!-- <li>新闻标题...</li> -->
+    </ul>
+    <button>获取更多</button>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        function getData(pagenum){
+        
+        var url = `https://mfresh.xin88.top/data/news_select.php?pageNum=${pagenum}`
+        $.get(url,data=>{
+            console.log(data);
+            $('ul')
+            .append(
+                data.data.map(value=>{
+                    return `<li>${value.title}</li>`
+                })
+            )
+            .data('pagenum',data.pageNum)
+            // $('ul').attr('data-pagenum',data.data.pagenum)
+             })
+         }
+         getData(1)
+
+        $('button').click(function(){
+            //每次点击都要触发相同的代码,考虑封装
+            const page = $('ul').data('pagenum')*1
+            getData(page+1)
+        })
+    </script>
+</body>
+</html>

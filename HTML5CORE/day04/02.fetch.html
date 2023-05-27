@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        关于网络操作浏览器提供了两种方案：
+        1.XHR：XMLhttpRequest . 属于早起方案
+            --利用回调函数 方式实现异步操作
+        2.fetch:ES6提供的新的请求方式
+            --利用 Promise 方式实现的异步操作
+     -->
+    <script>
+
+      var url1 = "https://serverms.xin88.top/mall?page=1";
+
+      fetch(url1).then(res=>{
+        console.log(res);
+        //利用json()获取其中的数据 这也是异步操作 需要用then获取解析的结果
+        res.json().then(data=>{
+            console.log({data});
+        })
+      })
+
+      //链式语法：
+      fetch(url1).then(res=>{
+        return res.json()
+      }).then(data=>{
+        console.log({data});
+      })
+      //利用箭头函数的语法糖进一步简化
+      fetch(url1).then(res=>res.json()).then(data=>{
+        console.log({data});
+      })
+      //总结：关于网络接口中数据的获取
+      //官方提供两种方案：
+      //1.xhr:利用回调
+      //2.fetch:利用Promis
+
+      //非官方的方案：
+      //1.自己封装
+      //2.第三方封装的 例如axios
+    </script>
+</body>
+</html>

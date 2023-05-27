@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <img src="" alt="">
+            <b></b>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://douyu.xin88.top/api/room/list?page=1&;type=ms'
+        get(url,data=>{
+            console.log(data);
+            var res = data.data.list.reduce((box,value)=>{
+                var { roomSrc,roomName } = value
+                return box+`        <li>
+            <img src="${roomSrc}" alt="">
+            <b>${roomName}</b>
+        </li>`
+            },'')
+            box.innerHTML =res
+        })
+    </script>
+</body>
+</html>

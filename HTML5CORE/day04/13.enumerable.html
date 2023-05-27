@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var emp = {
+            ename:'凯凯',
+            age:28,
+            phone:'000454',
+            salary:30000 //薪资保密：不可以被for...in遍历到
+        }
+
+        Object.defineProperty(emp,'salary',{
+            enumerable:false,//是否可以被遍历
+        })
+        //在Chrome中，浅色的属性代表不可遍历 
+        console.log(emp);
+
+        //遍历对象：for in
+        for(const key in emp){
+            console.log(key,emp[key]);
+        }
+    </script>
+</body>
+</html>

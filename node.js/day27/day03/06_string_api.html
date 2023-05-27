@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串API</title>
+	</head>
+	<body>
+		<script>
+			/* 
+			var str = 'WEB2212'
+			// 获取字符串长度
+			// 调用属性或者API时候，会自动将字符串包装为对象，然后再调用
+			console.log( str.length )
+			console.log( new String(str).length )
+			
+			// 获取下标对应的字符
+			var str = 'WEB2212'
+			// console.log( str.charAt(1), str[1] )
+			// 无法修改字符的值
+			// str[0] = 'C'
+			console.log(str)
+			
+			// 练习：遍历字符串javascript，获取每一个字符，统计出字符a出现的次数。
+			var str = 'javascript'
+			// 声明变量保存数量
+			for(var i = 0, count = 0; i < str.length; i++) {
+				// console.log(str[i])
+				// 判断是否为a
+				if(str[i] === 'a') {
+					count++
+				}
+			}
+			console.log(count)
+			// 面试题：统计出一个字符串中哪一个字符出现的次数最多，一共几次
+			
+			
+			// 检测字符串中是否含有某个字符串
+			var str = 'javascript'
+			// 找第一个
+			console.log( str.indexOf('z') )
+			// 找最后一个
+			console.log( str.lastIndexOf('a') )
+			
+			// 练习：声明变量保存用户输入的邮箱，如果邮箱中不含有@，打印'非法的邮箱'
+			var email = 'abc12#tedu.cn'
+			if(email.indexOf('@') === -1) {
+				console.log('非法的邮箱')
+			}
+			
+			
+			// 字符串截取
+			var str = 'javascript'
+			// console.log( str.slice(4) )
+			// console.log( str.slice(4, 7) )
+			console.log( str.slice(-3,-1) )
+			
+			
+			//  练习：截取出一个邮箱的用户名和域名
+			var email = 'xin666@tedu.cn'
+			// 查找@的下标
+			var index = email.indexOf('@')
+			console.log(index)
+			// 截取
+			console.log( email.slice(0, index) )
+			console.log( email.slice(index + 1) )
+			
+			var str = 'AbCd'
+			// 英文字母转大小写
+			console.log( str.toUpperCase() )
+			console.log( str.toLowerCase() )
+			console.log(str)
+			
+			
+			var arr = ['a', 'b', 'c']
+			// 数组转字符串
+			var str = arr.join('-')  // 'a-b-c'
+			// 字符串转数组，指定切割符
+			console.log(str.split('-'))
+			 */
+			// 翻转字符串   
+			// 'abcd'  ->  'dcba'
+			var str = 'abcd'
+			//['a','b','c','d'] -> ['d', 'c', 'b', 'a']
+			console.log( str.split('').reverse().join('') )
+			
+		</script>
+	</body>
+</html>

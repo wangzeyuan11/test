@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="num1" placeholder="请您输入要计算的第1个数"> <br>
+		<input type="text" id="num2" placeholder="请您输入要计算的第2个数"> <br>
+		<input type="text" id="num3" placeholder="请输入运算符：支持 + - * /"> <br>
+		<span id="jg"></span>
+		<button id="btn">显示结果</button> <br>
+		<script>
+			btn.onclick = function() {
+				var a = Number(num1.value)
+				var b = Number(num2.value)
+				var c = num3.value
+				var jg = document.getElementById('jg')
+				switch (c) {
+					case '+':
+						console.log(a + b)
+						jg.innerHTML = a + b
+				}
+			}
+		</script>
+	</body>
+</html>

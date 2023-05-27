@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <u>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>DOM</li>
+    </u>
+    <!-- 使用脚本之前需要引入 -->
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        console.log(window);
+        //JQuery脚本在全局对象中添加了$和jQuery函数
+
+        //查询到所有li元素
+        console.log(
+            //参数是css选择器;等价于docunment.querySelectorAll
+            $('li')
+            ); 
+
+            //利用css方法：可以自动遍历修改所有查询到的元素的style属性
+            $('li').css('color','red')
+            //设置 padding 10px
+            //设置 margin 10px
+            $('li').css('padding',10)
+            $('li').css('margin',10)
+            //简化：与像素单位有关的，如果不写单位 默认是px
+            //边框：
+            $('li').css('border','4px solid gray')
+            //圆角：border-radius修改为10px
+            $('li').css('border-radius',10)
+            //另外一种写法
+            $('li').css('backgroundColor','green')
+
+
+            //支持 函数重载机制 实现多功能函数效果
+            //根据实参的个数或类型不同，完成不同的任务
+            console.log(
+                //只有一个参数：则读取查询到的首个元素的指定样式的值
+                $('li').css('color')
+            );
+
+            //参数只有一个 && 对象类型：可以同时设置多个属性
+            $('li').css({
+                'font-size':25,
+                listStyle:'none',
+                width:200
+            })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>相对于市口尺寸练习 vw vh</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.box {
+				display: flex;
+				flex-wrap: wrap;
+				/* 父级的宽度与视口一样宽 */
+				width: 100vw;
+				justify-content: space-evenly;
+			}
+
+			.box>div {
+				background-color: #f00;
+				color: #fff;
+				font-size: 35px;
+
+			}
+
+			/* 使用媒体查询，手机端尺寸（max-width:767） */
+			/* 手机端一行显示两个正方形 */
+			/* 使用媒体查询，pc端尺寸（max-width:960） */
+			/* pc4个正方形 */
+			@media (max-width:767px) {
+				.box>div {
+					width: 40vw;
+					height: 40vw;
+					margin-bottom: 1vh;
+				}
+			}
+
+			@media (min-width:960px) {
+				.box>div {
+					width: 20vw;
+					height: 20vw;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+</html>

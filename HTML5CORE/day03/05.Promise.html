@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ES6提供的一个构造函数，利用链式语法解决回调地狱的层层嵌套问题，让多个异步操作 同步执行时更加易读 -->
+    <script>
+        console.dir(Promise);
+
+        //Promise有三种状态值,名称：
+        //pending:就绪/待定; new Promise()时
+        //rejected:拒绝，代表失败; 触发reject函数后
+        //fulfilled:满足，代表成功; 触发resolve函数后
+
+        //规定:只允许从pending状态转换成其他状态
+
+        //学习方式:先熟练固定格式
+        new Promise((resolve,reject)=>{
+            // resolve({name:'resolve'})
+            reject({name:'reject'})
+        }).then(res=>{
+            console.log('then:',res);
+        }).catch(err=>{
+            console.log('catch',err);
+        })
+
+        //Promise:承诺
+        //resolve:解决
+        //reject:拒绝
+        //then:然后
+        //catch:抓取
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS格式的注释 */
+.mydiv {
+  width: 250px;
+  background-color: lightpink;
+}
+.mydiv h3 {
+  font-size: 18px;
+}
+.mydiv img {
+  display: block;
+  width: 100%;
+}
+.mydiv p {
+  color: #00f;
+}/*# sourceMappingURL=01.css.map */

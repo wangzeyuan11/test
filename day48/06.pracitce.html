@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .tabs{
+            width: 800px;
+            /* display: flex; */
+            /* justify-content: space-between; */
+        }
+        .tabs>.tab-bar{
+            display: flex;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #e4393c;
+        }
+        .tabs>.tab-bar>li{
+            /* margin: 0; */
+            /* background-color: #eee; */
+            padding: 10px 30px;
+            /* border-radius: 4px; */
+            cursor: pointer;
+        }
+        .tabs>.tab-bar>li:hover{
+            color: #e4393c;
+        }
+        .tabs>.tab-bar>.active{
+            background-color: #e4393c;
+            color: white;
+        }
+        .tab-content>li{
+            height: 400px;
+            display: none;
+        }
+        .tab-content>li.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <ul class="tab-bar">
+            <!-- 利用自定义属性 关联到 对应的内容项 -->
+            <li data-cid="content-1" class="active">商品介绍</li>
+            <li data-cid="content-2">规格与包装</li>
+            <li data-cid="content-3">售后保障</li>
+            <li data-cid="content-4">商品评价(20万+)</li>
+            <li data-cid="content-5">商品问答</li>
+        </ul>
+        <ul class="tab-content">
+            <!-- 利用唯一标识id进行区分 -->
+            <li id="content-1" class="active" style="background-color: orange;"></li>
+            <li  id="content-2" style="background-color: blue;"></li>
+            <li  id="content-3" style="background-color: purple;"></li>
+            <li  id="content-4" style="background-color: palegreen;"></li>
+            <li  id="content-5" style="background-color: brown;"></li>
+        </ul>
+    </div>
+    <script>
+        const lis = document.querySelectorAll('.tab-bar>li')
+        lis.forEach(li=>{
+            li.onclick = function(){
+                lis.forEach(li=>{
+                    li.classList.remove('active')
+                })
+            li.classList.add('active')
+
+
+            //查找到之前激活的内容元素，删除其激活状态
+            const content_active = document.querySelector('.tab-content>li.active')
+            content_active.classList.remove('active')
+
+            //读取自定义属性：内容项的id-cid
+            const cid = li.dataset.cid
+            //通过id查找到对应的内容项元素
+            const content = document.getElementById(cid)
+            content.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>

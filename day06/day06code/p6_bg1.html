@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>背景练习</title>
+		<style>
+			/* 背景色 */
+			.d1 {
+				background-color: #ff0;
+				border: 5px dashed #000;
+			}
+
+			/* 背景图 */
+			.d2 {
+				background-image: url(../img/mr.png);
+				/* 光插入背景图片不会显示，需要给元素设置宽高 */
+				width: 300px;
+				height: 300px;
+				/* 可以同时添加背景图与背景色，没有图的地方就显示背景色 */
+				background-color: #0ff;
+			}
+
+			.d3 {
+				background-image: url(../img/mr.png);
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				/* 设置平铺的方式 */
+				background-repeat: repeat;
+				/* 重复 默认值 */
+				background-repeat: no-repeat;
+				/*  不允许重复 */
+				background-repeat: repeat-x;
+				/* 只允许x轴重复 */
+				background-repeat: repeat-y;
+				/* 只允许y轴重复 */
+			}
+
+			/* 背景图定位 */
+			.d4 {
+				background-image: url(../img/mr.png);
+				background-repeat: no-repeat;
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				background-position: left top;
+				/* 左 上*/
+				background-position: right bottom;
+				background-position: center center;
+				/* 垂直水平居中*/
+				background-position: 150px 50px;
+				/* 向右向下*/
+				background-position: -50px -50px;
+				/* 向左向上*/
+			}
+
+			/* 精灵图练习 */
+			.d5 {
+				border: 1px solid #000;
+				/* 指定图标所在区域的大小 */
+				width: 128px;
+				height: 128px;
+				background-image: url(../img/icon.png);
+				/* 精灵图一定要设置背景图不重复！ */
+				background-repeat: no-repeat;
+			}
+
+			/* 当悬浮时 */
+			.d5:hover {
+				/* 修改背景图的定位 */
+				background-position: -128px 0;
+				/* 向左移动128px 垂直方向不动*/
+			}
+
+			/* 渐变效果 */
+			.d6 {
+				width: 300px;
+				height: 200px;
+				/* 默认的渐变效果是水平的 */
+				background-image: linear-gradient(red, green);
+				background-image: linear-gradient(45deg, red, green);
+			}
+
+			/* 7.法国国旗 */
+			.d7 {
+				width: 300px;
+				height: 200px;
+				background-image: linear-gradient(90deg, blue 0 100px, #fff 100px 200px, red 200px 300px);
+			}
+
+			/* 老版渐变效果 */
+			.d8 {
+				width: 500px;
+				height: 500px;
+				background-image: url(../img/bgold.jpg);
+			}
+
+			.d9 {
+				border: 1px solid #000;
+				/* 指定图标所在区域的大小 */
+				width: 128px;
+				height: 128px;
+				background-image: url(../img/icon.png);
+				background-position-y: -128px;
+			}
+
+			.d9:hover {
+				background-position: -128px -128px;
+			}
+
+			.d10 {
+				background-image: url(../img/icon.png);
+				width: 128px;
+				height: 128px;
+				background-repeat: no-repeat;
+				background-position-y: -256px;
+				border: 1px solid #000;
+			}
+
+			.d10:hover {
+				background-position: -128px -256px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1">
+			我是div里的文字
+		</div>
+		<!-- .d*7 -->
+		<div class="d2"></div>
+		<div class="d3"></div>
+		<div class="d4"></div>
+		<div class="d5"></div>
+		<div class="d6"></div>
+		<div class="d7"></div>
+		<div class="d8"></div>
+		<div class="d9"></div>
+		<div class="d10"></div>
+	</body>
+</html>

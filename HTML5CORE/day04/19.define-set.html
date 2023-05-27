@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {
+            _ename:"凯凯"
+        }
+
+        //三件事：
+        //1._ename:负责存储值 支持随时写入新的值 需要设置默认的初始值
+        //2.需要提供get 计算属性 返回_ename的值
+        //3.需要提供set赋值监听属性,监听赋值操作
+        Object.defineProperties(emp,{
+            _ename:{writable:true,value:emp.ename},
+            ename:{
+                get(){return this._ename},
+                set(value){
+                    if(typeof value == 'string'){
+                        this._ename = value
+                    }else{
+                        throw Error('类型错误')
+                    }
+                }
+            }
+        })
+
+        emp.ename = true
+
+        emp.ename = '孙凯'
+        console.log(emp.ename);
+    </script>
+</body>
+</html>

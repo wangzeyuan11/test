@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>练习</title>
+	</head>
+	<body>
+		<script>
+			//练习：使用循环打印出2000-2100年之间所有的闰年
+			var i = 2000
+			var b = 0
+			while (i <= 2100) {
+				if (i % 4 === 0 && i % 100 !== 0 || i % 400 === 0) {
+					console.log(i)
+					b += i
+				}
+
+				i++
+			}
+			console.log(b)
+
+			//计算出1-100之间所有整数的合，一旦总累加超过4000
+			//强制结束循环，并打印当前的总和与最后加的那个整数
+			var a = 1
+			var c = 0
+			while (a <= 100) {
+
+				c += a
+				if (c >= 4000) {
+					break
+				}
+				a++
+			}
+			console.log(c, a)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 11:31</title>
+</head>
+
+<body>
+  <script>
+    function Employee(eid, ename, age, married) {
+      this.eid = eid // 员工id
+      this.ename = ename
+      this.age = age
+      this.married = married //婚姻
+    }
+
+    var emps = [
+      new Employee('0001', '凯凯', 29, false),
+      new Employee('0002', '铭铭', 32, true),
+      new Employee('0003', '亮亮', 36, true),
+      new Employee('0004', '楠姐', 19, false),
+      new Employee('0005', '小新', 34, true),
+    ]
+
+    // 1. 判断是否有人年龄小于20
+    var res = emps.some((value, index, array) => {
+      return value.age < 20
+    })
+
+    var res = emps.some(value => value.age < 20)
+
+    console.log(res ? '有小于20' : '无小于20');
+
+    // 2. 判断是否有人未婚
+    var res = emps.some((value, index, array) => {
+      return value.married == false
+    })
+    // 婚姻状态为 假, 属于满足条件,  非假为真
+    var res = emps.some(value => !value.married)
+    console.log(res ? '有人未婚' : '都已婚')
+  </script>
+</body>
+
+</html>

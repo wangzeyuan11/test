@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>课后练习</title>
+	</head>
+	<body>
+		<script>
+			/* 
+			//  练习：将一句英文中，每个单词的首字母大写，其余字母小写
+			// ​ 'hOw aRE yOU'    ->   'How Are You'
+			var str = 'hOw aRE yOU'
+			// 按照空格将字符串切割为数组
+			var arr = str.split(' ')
+			// 遍历数组，得到每个元素（单词）
+			for(var i = 0; i < arr.length; i++) {
+				// console.log(arr[i])
+				// 截取首字母转大写
+				var f = arr[i].slice(0, 1).toUpperCase()
+				// 截取其余的字母转小写
+				var o = arr[i].slice(1).toLowerCase()
+				// console.log(f, o)
+				// 把转换后拼接成一个新单词，然后再去覆盖之前元素的内容
+				arr[i] = f + o
+			}
+			// 将数组转为字符串，指定空格为分隔符
+			console.log(arr.join(' '))
+			 */
+			
+			// 练习：创建数组，包含a~z，每个字母是一个元素；随机获取4个字母，放入到一个新数组中。
+			// 准备一个数组，存放所有要获取随机的值
+			var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+			// 准备一个新数组，用于存放获取到的随机
+			var arr2 = []
+			// 循环4次，每次获取一个随机
+			for(var i = 0; i < 4; i++) {
+				// 产生随机下标（0~25），通过随机下标获取元素
+				// 0~1 * 26  0~25.x  向下取整  0~25
+				var n = Math.floor(Math.random()*arr.length) 
+				// console.log(n, arr[n])
+				// 获取的随机放入到新数组
+				arr2.push( arr[n] )
+				// 把获取的元素从原数组中删除
+				arr.splice(n, 1)
+			}
+			console.log(arr2)
+			
+			console.log(arr)
+		</script>
+	</body>
+</html>

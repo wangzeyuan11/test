@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>while循环结构</title>
+	</head>
+	<body>
+		<script>
+			//打印一下数字：1 2 3 4 5 6 7 8 9 10
+			//从哪开始 到哪结束 怎么变化++
+			//i是循环变量，用来控制循环，初始值为1
+			var i = 1
+			while (i <= 10) { //继续循环下去的条件
+				console.log(i)
+				i++ //每轮循环完毕 i的值自增1
+			}
+
+			//这是亮哥转的第一圈钢管舞
+			var i = 1
+			while (i <= 7) {
+				console.log('这是亮哥转的第' + i + '圈钢管舞')
+				i++
+			}
+
+			//练习：循环打印30-20之间所有的整数
+			var i = 30
+			while (i >= 20) {
+				console.log(i)
+				i--
+			}
+
+			//练习：使用循环打印出80 75 70 65 60
+			var i = 80
+			while (i >= 60) {
+				console.log(i)
+				i -= 5
+			}
+
+			//打印1-100之间所有的偶数
+			var i = 2
+			while (i <= 100) {
+				console.log(i)
+				i += 2
+			}
+
+			//计算出1-100之间所有整数的合
+			//循环的初始值
+			var i = 1
+			//声明变量用于保存总和 初始值是0
+			var sum = 0
+			while (i <= 100) { //循环条件
+				sum += i //等价于sum=sum+i
+				//console.log(i)
+				i++ //每次循环i自增1
+			}
+			//console.log(sum) //等循结束以后打印sum的值
+
+
+			//练习：求1-100之间所有偶数的合
+			var i = 1
+			var sum = 0
+			while (i <= 100) {
+				//加条件：判断：是偶数才累加到sum中
+				if (i % 2 === 0) {
+					sum += i
+				}
+				console.log(i)
+				i++
+			}
+			console.log(sum)
+		</script>
+	</body>
+</html>

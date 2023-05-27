@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+<body>
+
+    <ul id="box"></ul>
+
+    <script>
+        
+        var url = 'https://api.xin88.top/car/news.json'
+
+        //利用await和async实现相同效果
+        //注意：用await代替promise的then，接收then的结果
+        async function getData(){
+            const res = await fetch(url)
+            const data = await res.json()
+            console.log(data);
+            const box = document.getElementById('box')
+            const ss = data.data.list.map(value=>{
+                return `<li>${value.title}</li>`
+            })
+            box.innerHTML = ss.join('')
+        }
+        
+        getData()
+    </script>
+</body>
+</html>

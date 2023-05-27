@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>检测属性是否存在</title>
+	</head>
+	<body>
+		<script>
+			var person = {
+				name: 'yu',
+				sex: '女'
+			}
+			//console.log(person.sex === undefined)
+			//console.log(person.hasOwnProperty('name'))
+			console.log('name' in person)
+
+			var shop = {
+				id: 1,
+				biaoti: 'baozi',
+				jiage: 1000
+			}
+			if (!('color' in shop)) {
+				shop.color = '黑色'
+			}
+			if (shop.hasOwnProperty('color')) {
+				shop.jiage *= 0.8
+			}
+			console.log(shop)
+		</script>
+	</body>
+</html>

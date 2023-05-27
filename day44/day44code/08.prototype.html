@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型设计</title>
+</head>
+<body>
+    <script>
+        function Rect(length,width){
+            //new运算符构造对象时，会额外默认完成
+            //为当前构造的对象，关联其父元素 为 构造函数的prototype
+            // this.__proto__ = Rect.prototype
+
+            this.length=length
+            this.width = width
+
+            //新增计算面积的方法
+            // this.area = function(){
+            //     return this.length*this.width
+            // }
+        }
+        //构造函数--相当于母亲角色，能生对象
+        //构造函数必然存在protoype属性，及其丈夫
+        //prototype.constructor:关联到构造函数，及丈夫的妻子
+        console.dir(Rect);
+
+        //把共享的方法，存储在prototype原型中
+        Rect.prototype.area = function(){
+            return this.length*this.width
+        }
+
+        //r1:母亲通过new方案 生下的对象
+        var r1 = new Rect(10,20)
+        console.log(r1);
+
+        //母亲的丈夫 == 孩子的父亲 
+        //原型属性的名称:__proto__是未经美化的原属性名
+        //由于官方的要求，浏览器必须按照固定规则 美化后在显示
+        console.log(Rect.prototype == r1.__proto__); //true
+
+        console.log(
+            //JS引擎子代 原型链机制
+            //白话文：我自己没有的东西，找我爸要去
+            //专业：自身没有的属性，到原型链__protp__去找
+            r1.area()
+        );
+
+        //构造函数能够反复多次调用，每次调用都会执行函数中的代码
+    </script>
+</body>
+</html>

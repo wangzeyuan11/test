@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索员工</title>
+		<style>
+			div {
+				margin-top: 30px;
+			}
+
+			table {
+				border: 1px solid #ccc;
+				border-collapse: collapse;
+				width: 250px;
+			}
+
+			td {
+				border: 1px solid #ccc;
+				line-height: 40px;
+			}
+
+			tr>td:nth-child(1) {
+				text-align: right;
+				padding-right: 15px;
+			}
+
+			tr>td:nth-child(2) {
+				padding-left: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		员工姓名
+		<input type="text" id="user">
+		<button id="btn">搜索</button>
+		<div id="cont">
+			<table>
+				<tr>
+					<td>编号</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>姓名</td>
+					<td>张三</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>男</td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td>1995-9-1</td>
+				</tr>
+				<tr>
+					<td>工资</td>
+					<td>3588</td>
+				</tr>
+				<tr>
+					<td>部门编号</td>
+					<td>30</td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			// 给按钮绑定点击事件
+			btn.onclick = function() {
+				var a = user.value
+				console.log(a)
+				// 发AJAX请求
+				// 1.创建HTTP请求对象
+				var xhr = new XMLHttpRequest()
+				// 2.打开服务器的连接，设置请求的接口
+				xhr.open('GET', 'http://127.0.0.1:3000/emp/search?ename=' + a)
+				// 3.发送请求
+				xhr.send()
+				// 4.绑定事件，监听服务器端响应
+				xhr.onload = function() {
+					// 将响应的JSON转JS
+					var obj = JSON.parse(xhr.responseText)
+					console.log(obj)
+					// 判断是否存在
+					if (obj.code === 200) {
+						// 获取对象
+						var p = obj.data[0]
+						// 单独将日期时间部分进行处理
+						var d = new Date(p.birthday)
+						var year = d.getFullYear()
+						var month = d.getMonth() + 1
+						var date = d.getDate()
+						var s = `${year}-${month}-${date}`
+
+						//把值拼接到模板中最后渲染
+						cont.innerHTML = `
+							<table>
+								<tr>
+									<td>编号</td>
+									<td>${p.eid}</td>
+								</tr>
+								<tr>
+									<td>姓名</td>
+									<td>${p.ename}</td>
+								</tr>
+								<tr>
+									<td>性别</td>
+									<td>${p.sex ? '男' : '女'}</td>
+								</tr>
+								<tr>
+									<td>生日</td>
+									<td>${s}</td>
+								</tr>
+								<tr>
+									<td>工资</td>
+									<td>${p.salary}</td>
+								</tr>
+								<tr>
+									<td>部门编号</td>
+									<td>${p.deptid}</td>
+								</tr>
+							</table>
+						`
+					} else {
+						cont.innerHTML = '该员工不存在'
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //封装：
+      function get(url) {
+        return new Promise((resolve, reject) => {
+          var xhr = new XMLHttpRequest();
+          xhr.open("get", url);
+          xhr.send();
+          xhr.onload = function () {
+            var data = JSON.parse(xhr.response);
+            resolve({ data }); //触发then
+          };
+          xhr.onerror = function () {
+            reject(xhr.response);
+          };
+        });
+      }
+
+      var a = 'https://api.xin88.top/bilibili/news.json';
+    var b = 'https://api.xin88.top/bilibili/recommend.json';
+    var c = 'https://api.xin88.top/bilibili/recommends.json';
+    var d = 'https://api.xin88.top/bilibili/timeline.json';
+
+    //promise 的 all方法：监听多个promise操作完成的时机
+    //参数为数组类型,存放多个Promise
+    Promise.all([
+      get(a),get(b),get(c),get(d)
+    ]).then(res=>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
+
+    //所有promise的状态均敲定
+    //不管成功还是失败，只要所有promise都完毕，就出发then
+    //all:需要所有promise都是fulfilled状态，即都成功请求到数据
+    Promise.allSettled([
+      get(a),get(b),get(c),get(d)
+    ]).then(res=>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box"></ul>
+   <script>
+    //map:映射
+    //把数组中的元素，按照规律进行转换，形成新的数组
+    var nums = [1,2,3,4,5,6]
+    var res = nums.map((value,index,array)=>{
+        return value * 2
+    })
+    var res = nums.map(value=>value*2)
+    console.log(res);
+
+    var skills = ['html','css','js','dom']
+    
+    //把每个元素放在li标签里： <li>html</li>
+    var res = skills.map((value,index,array)=>{
+        return `<li>${value}</li>`
+    })
+    console.log(res);
+    var res = skills.map(value => `<li>${value}</li>`)
+    //如何把数组转化/拼接成字符串? join
+    //join的参数，代表间隔的符号，默认是逗号
+    box.innerHTML = res.join('')
+    console.log(res.join(''));
+
+   </script> 
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组的遍历操作：4中方案
+        var names = ['mike','lucy','lily','john']
+        //1.for
+        for(let i = 0;i<names.length;i++){
+            console.log(i,names[i]);
+        }
+        //2.for...in:用于遍历对象类型，key是属性名，字符串类型
+        //由于数组属于对象类型的一种，所以可以用for...in遍历，但是并不合适
+        for(const key in names){
+            console.log(key,names[key]);
+        }
+        //for...of 来自ES6
+        //特色：之间遍历值
+        //区别for...in 先拿属性名 在通过属性名拿值
+        //for..of更加直接
+        for(const value of names){
+            console.log(value);
+        }
+        //4.forEach 来自ES6
+        //没有返回值，只是纯粹的遍历数组
+        names.forEach((value,index,array)=>{
+            console.log(index,value);
+        })
+        /////////////////////
+        //取舍问题：
+        //通常对数组采用forEach方案
+        //对维数组/类(似)数组采用for..of方案
+        function show(){
+            //伪数组，类数组：内容与数组的结构相同，但是原型不是数组的
+            console.log(arguments);
+            //无法使用forEach
+            // arguments.forEach()
+            // for... of可以遍历
+            for(const value of arguments){
+                console.log(value);
+            }
+
+            //另外一种方案：把其原型替换成数组的prototype
+            Object.setPrototypeOf(arguments,Array.prototype)
+            arguments.forEach((value,index)=>{
+                console.log(index,value);
+            })
+        }
+        show(11,22,33344,55,66)
+        
+    </script>
+</body>
+</html>

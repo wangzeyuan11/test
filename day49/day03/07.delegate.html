@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        ul{
+            display: flex;
+            border: 2px solid green;
+            padding: 10px;
+        }
+        ul>li{
+            list-style: none;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        .active {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- 委托：自己不亲自完成任务 让其他人帮忙 -->
+    <!-- 事件委托：元素自身不处理事件 让父元素帮忙处理 -->
+    <ul id="box">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>DOM</li>
+        <li>Vue</li>
+    </ul>
+    <script>
+        //思想：要操作哪些元素 就要先把他们查询出来 在通过遍历的方式挨个捆绑事件
+        // const lis = document.querySelectorAll('#box>li')
+        // lis.forEach(li=>{
+        //     li.onclick = function(){
+        //         this.classList.add('active')
+        //     }
+        // })
+
+        //代理方案：每个li触发点击事件后，都会传递给父元素，name直接让父元素处理点击事件
+        const box = document.querySelector('#box')
+        box.onclick = function(e){
+            console.log('当事元素',e.target);
+
+            //问题：必须判断 当事元素 是否是 我们要处理的元素
+            //当前场景总：只处理 标签名是li的元素
+            console.dir(e.target); //查看那个属性代表 标签名
+
+            //如果标签名不是li 则终止执行
+            if(e.target.localName!='li') return
+
+            //帮助当事元素添加激活类
+            e.target.classList.add('active')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>体验过度</title>
+		<style>
+			.box1 {
+				background-color: #000;
+				width: 150px;
+				height: 50px;
+				border-radius: 25px;
+				/* 过度最简形式 只有一个过渡时间 */
+				transition: 2s;
+			}
+
+			.box1:hover {
+				background-color: red;
+				/* 过度不要写在hover中，否则鼠标移开还是很突兀 */
+				/* transition: 2s; */
+			}
+
+			.box2 {
+				width: 100px;
+				height: 100px;
+				background-color: #00f;
+				/* transition: 0.5s 2s; /* 过渡时间在前 延迟时间在后*/
+				/* transition: 2s all; 默认值all 过度所有可过度属性*/
+				/* transition: 2s border-radius; */
+				/* 只过度了圆角，颜色没有过度效果*/
+				transition: 2s background-color, 2s 2s border-radius;
+				/* 先过渡2s背景颜色，等颜色过渡湾 在过渡圆角2s */
+			}
+
+			.box2:hover {
+				background-color: red;
+				border-radius: 50%;
+			}
+
+			.box3 {
+				width: 100px;
+				height: 100px;
+				background-color: #0f0;
+				transition: 2s;
+			}
+
+			.box3:hover {
+				/* 并不是所有属性都有过渡效果的 这个就没有 */
+				display: none;
+				transition-property: ;
+				transition-duration: ;
+				transition-delay: ;
+				transition-timing-function: ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<br>
+		<div class="box2"></div>
+		<br>
+		<div class="box3"></div>
+	</body>
+</html>

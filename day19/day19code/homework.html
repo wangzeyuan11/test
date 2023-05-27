@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>作业答案</title>
+	</head>
+	<body>
+		<script>
+			// 计算出10-20之间所有整数的乘积
+			//从哪开始10 从哪结束20 如何变化++
+			//设置循环的初始
+			var a = 10
+			//声明变量，用于保存乘积,初始值为1
+			var s = 1
+			while (true) { //死循环 一定要设置条件
+				//console.log(a)
+				//求乘积，让每次循环到的值累乘到s中
+				s = s * a
+				//如果循环变量i到了20
+				if (a === 20) {
+					break //结束循环
+				}
+				a++ //每循环一次 变量a的值就自增1
+			}
+			console.log(s)
+		</script>
+	</body>
+</html>

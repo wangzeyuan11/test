@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS修改html元素内容</title>
+	</head>
+	<body>
+		第一个数字<input type="text" id="num1"><br>
+		第二个数字<input type="text" id="num2"><br>
+		<button id="btn">=</button>
+		两个数字相加的和：<span id="he"></span>
+
+		<script>
+			//给按钮绑定一个点击事件
+			btn.onclick = function() {
+				var n1 = num1.value
+				var n2 = num2.value
+				var sum = Number(n1) + Number(n2)
+				console.log(n1)
+				console.log(n2)
+				//计算这两个数值的合 打印到控制台
+				// console.log(sum)
+				// alert(sum)
+				//修改html标签的内容
+				he.innerHTML = sum
+			}
+		</script>
+	</body>
+</html>

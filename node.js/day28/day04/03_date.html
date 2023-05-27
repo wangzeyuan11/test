@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date对象</title>
+	</head>
+	<body>
+		<script>
+			// 练习：计算出当前时间距离周末（2023/3/4）还有x天x时x分x秒
+			// 创建对象，保存当前时间
+			var d1 = new Date()
+			// 获取当前时间的时间戳
+			// console.log(Date.now(),d1.getTime())
+			// 创建对象，保存周末时间
+			var d2 = new Date('2023/3/4')
+			// 计算相差的毫秒数
+			var d = d2.getTime() - d1.getTime()
+			// 把相差的单位改为秒
+			d = parseInt(d/1000)
+			// 计算相差的秒钟部分：去除含有的分钟（60秒），总的相差的秒钟%60
+			var second = d%60
+			// 计算相差的分钟部分：去除总的秒数中含有的小时(3600秒)，单位要求是分钟
+			var minute = parseInt(d%3600/60) 
+			// 计算相差的小时部分：去除总的秒数中含有的天(24*3600)，单位要求是小时
+			var hour = parseInt(d%(24*3600)/3600) 
+			// 计算相差的天部分：直接将总的秒数单位转为天(24*3600)
+			var day = parseInt(d/(24*3600)) 
+			console.log(`距离周末还有${day}天${hour}时${minute}分${second}秒`)
+			
+		</script>
+	</body>
+</html>

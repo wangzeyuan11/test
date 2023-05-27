@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./client-dist/socket.io.min.js"></script>
+  <style>
+    #main{
+      width: 1000px;
+      margin: 0 auto;
+      display: flex;
+    }
+    #main>.users{
+      width: 200px;
+      height: 800px;
+      background-color: #eee;
+      overflow-y: scroll;
+    }
+    .users>div{
+      border-bottom: 1px solid #333;
+      padding: 5px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+    }
+    .users>div>span{
+      color: #999;
+    }
+
+    .chat>div{
+      height: 700px;
+      background-color: #f7f7f7;
+      width: 700px;
+      overflow-y: scroll;
+    }
+    .chat>div>div{
+      margin: 10px;
+      background-color: white;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body> 
+  <div id="main">
+    <div class="users">
+      <!-- <div>
+        <b>名字</b>
+        <span>来自哪里</span>
+      </div> -->
+    </div>
+    <div class="chat">
+      <div>
+        <!-- <div>
+          <b></b>
+          <p></p>
+        </div> -->
+      </div>
+      <input type="text">
+      <button>发送</button>
+    </div>
+  </div>
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  
+  <script>
+    //socket脚本 自动在全局中添加了 io属性 用于与服务器建立关联
+    const server = io('http://chathome.xin88.top')
+    console.log('服务器',server);
+
+    server.on('welcome',data=>{
+      console.log(data);
+    })
+
+    //发送个人信息到服务器
+    server.emit('user',{name:'鲨鱼辣椒',address:'铁甲小宝之家'})
+
+    //收听新用户加入的信息
+    server.on('new_user',data=>{
+      // console.log('新用户已加入',data);
+      const {name,address} = data
+
+      //添加到.user的子元素中，新加入的元素在最上方
+      //append:新元素在末尾添加；prepend:在开头添加
+      $('.users').prepend(`<div>
+        <b>${name}</b>
+        <span>${address}</span>
+      </div>`)
+    })
+
+    //点击发送按钮，读取输入框的值，发送到服务器，服务器在转发给所有人
+    $('.chat>button').click(function(){
+      var msg = $('.chat>input').val()
+
+      server.emit('user_msg',{msg,name:'小源'})
+      //清空输入框内容
+      $('.chat>input').val('')
+    })
+
+    //收听用户发送的消息
+    server.on('msg',data=>{
+      console.log('消息：',data);
+      const {msg,name} = data
+
+      $('.chat>div').prepend(` <div>
+          <b>${name}</b>
+          <p>${msg}</p>
+        </div>`)
+    })
+  </script>
+</body>
+</html>

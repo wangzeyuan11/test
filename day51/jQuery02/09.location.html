@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="location.reload()">reload 刷新</button>
+    <!-- replace:无法返回上一页 -->
+    <button onclick="location.replace('http://www.baidu.com')">替换</button>
+    <!-- assign:指派;带有历史操作，能够返回上一页 -->
+    <button onclick="location.assign('http://www.baidu.com')">指派新页面</button>
+    
+    <!-- 路径的格式：路径？参数=值&参数=值... -->
+    <a href="?name=kaikai&age=18&phone=18873734444">路径参数</a>
+
+
+
+    <script>
+        console.log(location);
+        //URLSearchParams:专门用于读取路径中参数的构造函数
+        const params = new URLSearchParams(location.search)
+        console.log('name:',params.get('name'));
+    </script>
+</body>
+</html>

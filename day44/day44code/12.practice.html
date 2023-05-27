@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Cube{
+            constructor(length,width,height){
+                this.length = length
+                this.width = width
+                this.height = height
+            }
+            area(){
+                return this.length*this.width+this.length*this.height+this.width*this.height*2
+            }
+            perimeter(){
+                return (this.length+this.width+this.height)*4
+            }
+            volume(){
+                return this.length*this.width*this.height
+            }
+        }
+
+
+                var c1 = new Cube(10,20,30)
+                var c2 = new Cube(20,30,40)
+        console.log(c1.area());
+        console.log(c1.perimeter());
+        console.log(c1.volume());
+        console.log(c1);
+
+        /////////////////////
+        class Circle{
+            constructor(length){
+                this.length = length
+            }
+            diameter(){
+                return this.length*2
+            }
+            area(){
+                return 3.14*this.length*this.length
+            }
+            perimeter(){
+                return 2*3.14*this.length
+            }
+        }
+
+
+
+        var c2 = new Circle(10)
+        console.log(c2.diameter());
+        console.log(c2.area());
+        console.log(c2.perimeter());
+        console.log(c2);
+        ///////////////////////////////
+
+
+        class Ball{
+            constructor(radius){
+                this.radius = radius
+            }
+            area(){
+               return 4*3.14*this.radius*this.radius
+            }
+            volume(){
+                return 4/3*3.14*this.radius*this.radius*this.radius
+            }
+        }
+
+        var b1 = new Ball(20)
+        console.log(b1.area());
+        console.log(b1.volume());
+    </script>
+</body>
+</html>

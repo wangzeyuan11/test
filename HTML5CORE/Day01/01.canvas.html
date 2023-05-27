@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 显示宽度: 利用css设置的是显示宽高 */
+        /* 实际宽高: 元素上的width和height 是指图片的实际宽高 */
+        #c1{
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas：此标签中提供一个绘制图形的属性，可以利用js画图 -->
+    <!-- canvas:画布 -->
+    <canvas id="c1" width="300" height="300" style="background-color: gray;"></canvas>
+
+    <script>
+        //可以利用标准化注释语法，告知vscode c1的原型是什么 vscode才能给出准确的提示
+        /** @type {HTMLCanvasElement} */
+        const c1 = document.getElementById('c1')
+        console.dir(c1);
+
+        //获取c1画布上携带的绘制图形的工具箱
+        const ctx = c1.getContext('2d')
+        console.log(ctx);
+        //1.设置填充的颜色
+        ctx.fillStyle="red"
+        //2.用绘制填充矩形的方法
+        //4个参数分别是：x,y,宽,高
+        ctx.fillRect(0,0,150,150)
+        ctx.fillStyle="green"
+        ctx.fillRect(150,0,150,150)
+        ctx.fillStyle="blue"
+        ctx.fillRect(0,150,150,150)
+        ctx.fillStyle="orange"
+        ctx.fillRect(150,150,150,150)
+
+        //对比此文档，了解ctx中的各个属性的作用
+        //https://www.runoob.com/tags/ref-canvas.html
+    </script>
+</body>
+</html>

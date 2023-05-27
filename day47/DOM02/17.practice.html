@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广告弹窗</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #ad{
+            padding: 10px;
+            background-color: #eee;
+            width: 200px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            transform: translateY(100%);
+            transition: 0.4s;
+        }
+
+        #ad.active{
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="ad">
+        <button>关闭</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat at nihil, alias ipsum dolor eveniet debitis obcaecati adipisci consectetur et ea sequi asperiores accusamus veritatis quas ducimus autem corporis nemo.</p>
+    </div>
+    <script>
+        setTimeout(()=>{
+            const ad = document.getElementById('ad')
+            ad.classList.add('active')
+        },3000)
+        const btn1 = document.querySelector('#ad>button')
+        btn1.onclick = function(){
+            const ad = document.getElementById('ad')
+            ad.classList.remove('active')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作用域-局部 09:53</title>
+</head>
+
+<body>
+  <script>
+    // 函数运行时产生的作用域, 其中的变量使用范围仅限函数内部!
+    // 函数分两种状态:
+    // 1. 静态 -- 声明时
+    // 2. 动态 -- 触发函数/调用函数, 例如 函数名()
+    function show() {
+      // 这里的 x 属于 函数的私有财产, 外部无法使用
+      var x = 10
+
+      // 函数中声明的变量, 存储在函数的作用域对象中
+      // 没有存储在全局window里, 不会造成污染!
+    }
+
+    show() //动态
+
+    console.log('x:', x) // 能打印出10吗?
+
+      // 快速生成函数作用域的语法:  匿名函数自调用
+      // var z = function () { }
+      // z()
+
+      ; (function () {
+        var a = 10 // 属于函数作用域, 不会造成污染!
+        var b = 20
+      })()
+  </script>
+</body>
+
+</html>

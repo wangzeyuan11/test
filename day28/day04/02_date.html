@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date对象</title>
+	</head>
+	<body>
+		<script>
+			/* 
+			// 创建Date对象，存储日期时间
+			var d1 = new Date('2023/2/27 10:20:30')
+			// 第2个参数，月份值范围0~11  代表1~12月
+			var d2 = new Date(2023,1,27,10,20,30)
+			// 存储了系统时间
+			var d3 = new Date()
+			// 一个数字，表示时间戳：距离计算机元年的毫秒数
+			// 1970-1-1 0:0:0
+			// 1000毫秒 = 1秒
+			var d4 = new Date(1000)
+			
+			// console.log(d1)
+			// 转为本地字符串，存在兼容性问题，只能用于调试
+			console.log( d4.toLocaleString() )
+			
+			var d = new Date('2023/2/26 11:1:2')
+			// 获取存储的值
+			console.log( d.getFullYear() )
+			console.log( d.getMonth()+1 )
+			console.log( d.getDate() )
+			console.log( d.getHours() )
+			console.log( d.getMinutes() )
+			console.log( d.getSeconds() )
+			// 毫秒
+			console.log( d.getMilliseconds() )
+			// 星期    0~6  对应日~六
+			console.log( d.getDay() )
+			// 获取时间戳格式
+			console.log( d.getTime() )
+			 */
+			// 练习：创建Date对象，保存当前系统的日期时间，最后打印以下格式
+			// '今天是xxxx年xx月xx日  xx时xx分xx秒  星期x'
+			var d = new Date()
+			var year = d.getFullYear()
+			var month = d.getMonth() + 1
+			var date = d.getDate()
+			var hour = d.getHours()
+			var minute = d.getMinutes()
+			var second = d.getSeconds()
+			var day = d.getDay()  //范围0~6
+			// 如果秒钟小于10，在前拼接0，否则正常显示
+			second = second<10 ? '0'+second : second
+			// 创建数组，包含日~六，下标范围0~6
+			var arr = ['日', '一', '二', '三', '四', '五', '六']
+			// console.log(arr[day])
+			console.log(`今天是${year}年${month}月${date}日  ${hour}时${minute}分${second}秒  星期${arr[day]}`)
+		</script>
+	</body>
+</html>

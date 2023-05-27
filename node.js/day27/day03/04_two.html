@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>二维数组</title>
+	</head>
+	<body>
+		<script>
+			// 保存省份
+			var arr1 = ['河南', '江苏', '广东']
+			// 保存城市
+			var arr2 = ['郑州', '商丘', '洛阳', '开封', '南京', '苏州', '无锡', '广州', '深圳', '珠海']
+			// 二维数组：数组中的元素还是数组
+			var arr3 = [
+				['郑州', '商丘', '洛阳', '开封'],
+				['南京', '苏州', '无锡'],
+				['广州', '深圳', '珠海']
+			]
+			// console.log( arr3[0][2] )
+			// 练习：遍历二维数组，打印输出每一个城市名称
+			for(var i = 0; i < arr3.length; i++) {
+				// console.log(arr3[i])
+				// 继续遍历数组，获取每个城市
+				for(var j = 0; j < arr3[i].length; j++) {
+					console.log(arr3[i][j])
+				}
+			}
+		</script>
+	</body>
+</html>

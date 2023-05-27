@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板字符串</title>
+</head>
+<body>
+    <script>
+        //1.传统字符串'' "" 不允许换行
+        //2.字符串拼接方案繁琐用+拼接
+        //ES6中出现了模板字符串
+        //符号：``
+        //支持换行和${}拼接
+        var skills = ['js','html','css']
+        var words = `
+        <ul>
+            <li>${skills[0]}</li>
+            <li>${skills[1]}</li>
+            <li>${skills[2]}</li>
+            </ul>
+        `
+        console.log(words);
+    </script>
+</body>
+</html>

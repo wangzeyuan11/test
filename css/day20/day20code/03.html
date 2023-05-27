@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function isRun(i) {
+				//方案一
+				// 	if (i % 4 === 0 && i % 100 !== 0 || i % 400 === 0) {
+				// 		return true
+				// 	}
+				// 	return false
+				//方案二
+				return i % 4 === 0 && i % 100 !== 0 || i % 400 === 0
+			}
+
+			//console.log(isRun(2001))
+
+			function getCountry(a) {
+				switch (a) {
+					case 1:
+						return '泰国'
+					case 2:
+						return '印度'
+					case 3:
+						return '美国'
+					case 4:
+						return '八宝山'
+					default:
+						return '泰sad国'
+				}
+
+			}
+			console.log(getCountry(5))
+			console.log(getCountry(1))
+			console.log(getCountry(2))
+		</script>
+	</body>
+</html>

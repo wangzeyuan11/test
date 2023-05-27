@@ -1,0 +1,21 @@
+//根据按钮的大小，加不同的阴影
+@mixin btn($w,$h){
+	width: $w;
+	height: $h;
+	background-color: #f00;
+	border-radius: 5px;
+	// @if($w>100px){
+	// 	color: #f00
+	// }
+	@if($w>100px and $h>50px){
+		box-shadow: 5px 5px 5px #666;
+	}else{
+		box-shadow: 2px 2px 2px #666;
+	}
+}
+.btn1 {
+	@include btn(120px, 60px);
+}
+.btn2 {
+	@include btn(80px, 30px);
+}

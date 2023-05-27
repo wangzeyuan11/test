@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>媒体查询响应式练习</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.box {
+				background-color: orange;
+				border-radius: 50%;
+				display: flex;
+				/* flex-grow: 1; */
+				width: 100px;
+				height: 100px;
+				margin: 50px auto;
+			}
+
+			@media (max-width:576px) {
+				body {
+					background-color: lightblue;
+				}
+
+				.box {
+					width: 150px;
+					height: 150px;
+				}
+			}
+
+			@media (min-width:576px) and (max-width:768px) {
+				body {
+					background-color: lightpink;
+				}
+
+				.box {
+					width: 200px;
+					height: 200px;
+				}
+			}
+
+			@media (min-width:768px) and (max-width:992px) {
+				body {
+					background-color: lightgoldenrodyellow;
+				}
+
+				.box {
+					width: 250px;
+					height: 250px;
+				}
+			}
+
+			@media (min-width:1200px) {
+				body {
+					background-color: lightgreen;
+				}
+
+				.box {
+					width: 300px;
+					height: 300px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 要求：100*100的橙色圆，随着视口尺寸的变大而变大（每次半径+50px）
+		 <576px时 浅蓝色背景 150*150
+		 576px~768px时 浅粉色背景 200*200
+		 768px~992px时 浅黄色背景 250*250
+		 >1200时 浅青色背景 300*300 -->
+		<div class="box">body的变化</div>
+	</body>
+</html>

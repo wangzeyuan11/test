@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+</head>
+
+<body>
+  <!-- index.html 这个文件名有说法: 所有网页服务器默认都会访问此文件作为首页 -->
+  <h1>Welcome To Express!</h1>
+
+  <ul id="emps"></ul>
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    var url = 'http://localhost:3000/emps'
+
+    $.get(url, data => {
+      console.log(data)
+
+      $('#emps').html(
+        data.emps.map(value => {
+          const { ename, age } = value
+          return `<li>${ename} - ${age}</li>`
+        })
+      )
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <style>
+      #box {
+        width: 700px;
+        overflow: hidden;
+      }
+
+      #box > ul {
+        display: flex;
+        background-color: #000;
+      }
+
+      #box > ul > li {
+        flex: 1;
+        padding: 10px 0;
+        color: #b1b2be;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #box > ul > li.active {
+        color: #f3c258;
+        background-color: #262626;
+      }
+
+      #box > div > img {
+        width: 100%;
+        /* 关闭图片的压缩属性 */
+        flex: none;
+      }
+
+      #box > div {
+        display: flex;
+        transition: 0.3;
+
+        /* transform: translateX(-100%); */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <div>
+        <img src="wzry_imgs/1.jpeg" alt="" />
+        <img src="wzry_imgs/2.jpeg" alt="" />
+        <img src="wzry_imgs/3.jpeg" alt="" />
+        <img src="wzry_imgs/4.jpeg" alt="" />
+        <img src="wzry_imgs/5.jpeg" alt="" />
+      </div>
+
+      <ul>
+        <li data-x="0" class="active">夏洛特语音爆料</li>
+        <li data-x="-100%">合金弹头四月上线</li>
+        <li data-x="-200%">城市助力人招募</li>
+        <li data-x="-300%">王者炸麦了</li>
+        <li data-x="-400%">荣耀大话王</li>
+      </ul>
+    </div>
+
+    <script>
+      const lis = document.querySelectorAll("#box>ul>li");
+      lis.forEach(
+        (li) =>
+          (li.onmouseover = function () {
+            lis.forEach((li) => li.classList.remove("active"));
+
+            li.classList.add("active");
+
+            const x = li.dataset.x;
+            console.log(li);
+            const div = document.querySelector("#box>div");
+           div.style.transform = `translateX(${x})`;
+          })
+      );
+    </script>
+  </body>
+</html>

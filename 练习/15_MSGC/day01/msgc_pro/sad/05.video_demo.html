@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .videos{
+            display: flex;
+            width: 1000px;
+            border: 3px solid green;
+            justify-content: space-between;
+        }
+        .videos>video{
+            width: calc((100% - 3 * 10px )/4);
+            height: 400px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        /* 激活：宽度大 */
+        .videos>video.active{
+            width: calc((100% - 3 * 10px) / 4 + 3 * 20px);
+        }
+        /* 非激活：宽度小 */
+        .videos>video.noactive{
+            width: calc((100% - 3 * 10px) / 4 - 20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="videos">
+        <video src="../assets/video/11.mp4"></video>
+        <video src="../assets/video/22.mp4"></video>
+        <video src="../assets/video/33.mp4"></video>
+        <video src="../assets/video/44.mp4"></video>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $('.video>video').click(function(){
+            if($('this').hasClass('active')){
+
+            }else if($(this).hasClass('noactive')){
+
+            }else{
+                
+            }
+            $(this).addClass('active').siblings().addClass('active')
+        })
+    </script>
+</body>
+</html>

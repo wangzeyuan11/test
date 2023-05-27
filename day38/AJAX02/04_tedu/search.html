@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+
+			tr,
+			td {
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		姓名<input type="text" id="ename"><button id="btn">搜索</button><span id="box"></span>
+		<table id="ygb">
+
+		</table>
+
+		<script>
+			// for (var i = 0, str = ''; i < arr.length; i++) {
+			// 	str += `			
+			// 	<tr>
+			// 	<td>编号</td>
+			// 	<td>${arr[i].sj}</td>
+			// </tr>`
+			// }
+			btn.onclick = function() {
+				var a = ename.value
+				console.log(a)
+				var xhr = new XMLHttpRequest();
+
+				xhr.open("GET", `http://127.0.0.1:3000/emp/search?ename=${a}`, true);
+
+				xhr.send()
+				xhr.onload = function() {
+					var obj = JSON.parse(xhr.responseText)
+					console.log(obj)
+					if (obj.code === 200) {
+						ygb.innerHTML = `			
+							<tr>
+							<td>编号</td>
+							<td>${obj.data[i].eid}</td>
+						</tr>
+						<tr>
+							<td>姓名</td>
+							<td>${obj.data[i].ename}</td>
+						</tr>
+						<tr>
+							<td>性别</td>
+							<td>${obj.data[i].sex}</td>
+						</tr>
+						<tr>
+							<td>生日</td>
+							<td>${obj.data[i].birthday}</td>
+						</tr>
+						<tr>
+							<td>姓名</td>
+							<td>${obj.data[i].salary}</td>
+						</tr>
+						<tr>
+							<td>部门编号</td>
+							<td>${obj.data[i].deptId}</td>
+						</tr>
+						
+						`
+					} else {
+						box.innerHTML = '该员工不存在'
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

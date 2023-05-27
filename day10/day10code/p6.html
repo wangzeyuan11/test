@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				background-color: #ff0;
+				display: flex;
+			}
+
+			.item,
+			.example {
+				width: 200px;
+				height: 200px;
+				border: 2px solid #f00;
+				font-size: 35px;
+			}
+
+			/* 1-会 0-不会 */
+			.item:nth-child(2) {
+				flex-grow: 1;
+				/* 父容器有剩余空间，本项目会增长*/
+			}
+
+			.item:nth-child(3) {
+				flex-grow: 2;
+				/* 父容器有剩余空间，本项目会增长*/
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="example">参考大小200px</div>
+		<div class="box">
+			<div class="item">01</div>
+			<div class="item">02</div>
+			<div class="item">03</div>
+			<div class="item">04</div>
+			<div class="item">05</div>
+			<div class="item">06</div>
+			<div class="item">07</div>
+		</div>
+	</body>
+</html>

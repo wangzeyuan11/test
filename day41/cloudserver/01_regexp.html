@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<p id="cont">
+
+		</p>
+		<script>
+			// var str = `
+			// 有一天，晓宇来到了新歌家：
+			// 说到：我草，你家真大！
+			// 新歌听了，说了一句：卧槽，这还不算大
+			// 晓宇听到：Wocao，还有地下室。
+			// `
+			//g = global 全局匹配
+			//i = ignore 忽略大小写
+			// console.log(str.replace(/卧槽|我草|wocao/ig, '**'))
+
+			//去除空格
+			// var str = '   北京    '
+			// console.log(str)
+			// //去除两端的空格
+			// console.log(str.trim())
+
+			// //多个空格 只保留一个空格
+			// var str = '北            京'
+			// //查找一个以上空格
+			// console.log(str.replace(/\s+/, ' '))
+
+			// var str = 'how are you?i am fine,and you?'
+			// //replace 高级用法
+			// console.log(str.replace(/\b[a-z]/g, function(s) {
+			// 	//s查找到的字符
+			// 	console.log(s)
+			// 	//return 后的值表示要替换的字符
+			// 	return s.toUpperCase()
+			// }))
+
+			//假设获取到了一段内容，内容中含有手机号码，把手机号码的颜色变成红色，显示到网页中
+			var str = `
+			新歌：18111111111
+			晓宇：18222222222
+			楠姐：15333333333
+			铭哥：17728888888
+			`
+			cont.innerHTML = str.replace(/1[3-9]\d{9}/g, function(s) {
+				return `<span style="color:red">${s}</span>`
+			})
+		</script>
+	</body>
+</html>

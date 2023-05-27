@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this 16:13</title>
+</head>
+
+<body>
+  <!-- 
+    this关键词: 代表函数运行时所在的对象
+    从格式上分辨:  对象.方法名()  方法中的this 就是 前面的对象
+   -->
+
+  <script>
+    function show() {
+      console.log('this:', this) // window
+    }
+
+    show() // 简写
+    window.show() // 全局的show函数, 在window对象里
+
+    var emp = {
+      ename: "亮亮",
+      show: function () {
+        console.log('this:', this)
+      }
+    }
+
+    emp.show()
+  </script>
+</body>
+
+</html>

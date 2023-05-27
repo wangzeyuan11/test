@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>if结构</title>
+	</head>
+	<body>
+		<script>
+			//声明变量保存商品的总价
+			//判断总价是否满30 满30减5
+			//输出实际支付的价格
+
+			var zj = 30 //定义商品变量保存原价
+			if (zj >= 30) { //如果符合满30的条件
+				zj -= 5 //价格-5
+			}
+			console.log(zj) //输出处理完的价格
+
+			//声明变量 保存商品的总价 如果总价在1000-2000之间
+			//对总价执行打9折，并输出‘恭喜你获得赠品洗发水’
+			//输出最终支付的价格
+
+			var sp = 1000
+			if (sp >= 1000 && sp <= 2000) {
+				sp *= 0.9
+				console.log('恭喜您，获得赠品洗发水')
+			}
+			console.log(sp)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Red</td>
+                <td><input type="range" min="0" max="255" value="0"></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td><input type="range" min="0" max="255" value="0"></td>
+                <td>0</td>
+            </tr> <tr>
+                <td>Blue</td>
+                <td><input type="range" min="0" max="255" value="0"></td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="box"></div>
+
+    <script>
+        const trs = document.querySelectorAll('tbody>tr')
+        //查询三个range
+        const ranges = document.querySelectorAll('[type=range]')
+
+        //给每个划块都要添加 实时变更事件，来更新页面内容
+        ranges.forEach(range=>{
+            range.oninput = function(){
+                update()
+            }
+        })
+
+        //更新页面
+        function update(){
+            ranges.forEach(range=>{
+                //值所在的td，是range标签的父元素的下一个兄弟
+                //parentElement:父元素
+                const td_value = range.parentElement.nextElementSibling
+                td_value.innerHTML = range.value
+            })
+
+            //获取 rgb三个值
+            const red = ranges[0].value
+            const green = ranges[1].value
+            const blue = ranges[2].value
+
+            const box = document.getElementById('box')
+            box.style.backgroundColor = `rgb(${red},${green},${blue})`
+        }
+        update()
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>兄弟 相邻兄弟选择器</title>
+		<style>
+			/* 兄弟选择器:选中p后面的所有兄弟元素 */
+			p~span {
+				background-color: red;
+			}
+
+			/* 相邻兄弟选择器:选择p后面紧挨着的哪一个弟弟span*/
+			p+span {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<span>1</span>
+		<p>0</p>
+		<span>2</span>
+		<div>
+			<span>3</span>
+		</div>
+		<span>4</span>
+	</body>
+</html>

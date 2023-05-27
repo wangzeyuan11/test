@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		<style>
+			/* 给div做基础样式设置 */
+			.box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+
+			/* hover选中元素悬停时的状态,鼠标停在上面不动 */
+			.box:hover {
+				background-color: yellow;
+			}
+
+			/* :active选中元素激活时的状态 鼠标点击 */
+			.box:active {
+				background-color: blue;
+			}
+
+			/* :link 选中超链接未被访问过的颜色 */
+			a:link {
+				color: gray;
+			}
+
+			/* :visited 选中超链接已被访问过的状态  */
+			a:visited {
+				color: green;
+			}
+
+			a:hover {
+				color: aqua;
+			}
+
+			a:active {
+				color: pink;
+			}
+
+			input:focus {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<hr>
+		<a href="gsd564">网址1</a>
+		<a href="http://www.tmooc.cn/">网址2</a>
+		<hr>
+		用户名<input type="text">
+	</body>
+</html>

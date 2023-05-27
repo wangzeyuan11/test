@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.center {
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			/* 开始写自定义样式 */
+			.main {
+				background-color: #e8e8e8;
+			}
+
+			/* 由于一会所有的孩子 li都要浮动走，提前设置bfc防止父元素失高 */
+			.main ul {
+				overflow: hidden;
+			}
+
+			/* 商品卡片 */
+			.main ul li {
+				width: 190px;
+				background-color: #fff;
+				/* 浮动让所有商品卡片横置 */
+				float: left;
+				/* 元素宽度+内间距+边框都包含在190中 */
+				box-sizing: border-box;
+				/* 外间距，上 左右 下 不包含在190中 会增大元素在页面占得空间 */
+				margin: 0 5px 10px;
+				/* 内间距  */
+				padding: 20px 10px;
+
+			}
+
+			.main ul li img {
+				/* 卡片内部的图片宽度推荐使用百分比值 */
+				width: 80%;
+				/* 独占一行 去除幽灵空白节点 还可以使用margin 0 auto居中 */
+				display: block;
+				margin: 0 auto;
+			}
+
+			.main ul li a {
+				color: #000;
+				display: block;
+				font-size: 12px;
+				margin: 10px 0;
+			}
+
+			.main ul li h4 {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.最外层功能块 -->
+		<div class="main">
+			<!-- 2.版心 -->
+			<div class="center">
+				<ul>
+					<li><img src="1.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="2.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="3.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="4.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="5.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="6.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="7.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="8.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="9.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+					<li><img src="10.jpg" alt="">
+						<a href="#">荣耀（HONOR） 荣耀笔记本电脑MagicBook X14 高清</a>
+						<h4>3099.00</h4>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1个元素上，自带很多属性 -->
+    <!-- 系统属性，官方默认提供的，每个属性都有自己的作用 -->
+    <!-- 自定义属性：添加一些自己的属性,有两种添加方式 -->
+    <!-- 1.旧方案，不规范：随便写 -->
+    <!-- 2.新方案：用data-做开头,存储在dataset属性中 -->
+    
+    <a data_x="11" data_nanNAN-NANNAN="楠楠" suibian="随便" v-text="自定义格式" href="http://wwwbaiducom" target="_blank" title="百度一下，你就知道" id="a1"></a>
+    <script>
+        const a1 = document.getElementById('a1')
+        console.dir(a1); //展开查看，寻找上面书写的各个属性
+
+        //自定义属性：用使用专业的方法操作
+        //读：
+        console.log(
+            //Attribute:属性
+            //getAttribute:读取元素上的自定义属性
+            a1.getAttribute('suibian'),
+            a1.getAttribute('v-text'),
+        );
+        //写入操作
+        a1.setAttribute('suibian','换一个内容')
+
+        //读取使用data--声明的属性，从dataset中读取
+        //多个单词是小驼峰命名法
+        console.log(
+            a1.dataset.x,
+            ad.dataset.nannanNannan
+        );
+    </script>
+</body>
+</html>

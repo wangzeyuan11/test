@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var url1 = "https://douyu.xin88.top/api/room/list?page=1&;type=ms";
+
+        new Promise((resolve,reject)=>{
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url1)
+            xhr.send()
+            xhr.onload = function(){
+                var data = JSON.parse(xhr.response)
+                resolve({data}) //触发then
+            }
+            xhr.onerror = function(){
+                reject(xhr.response)
+            }
+
+        })
+        .then(res=>{
+            console.log('res:',res);
+        })
+        .catch(err=>{
+            console.log('err:',err);
+        })
+
+        //封装：
+        function get(url){
+            return new Promise((resolve,reject)=>{
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url)
+            xhr.send()
+            xhr.onload = function(){
+                var data = JSON.parse(xhr.response)
+                resolve({data}) //触发then
+            }
+            xhr.onerror = function(){
+                reject(xhr.response)
+            }
+
+        })
+        }
+
+
+      var url2 = "https://douyu.xin88.top/api/room/list?page=2&;type=ms";
+        new Promise((resolve,reject)=>{
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url2)
+            xhr.send()
+            xhr.onload = function(){
+                var data = JSON.parse(xhr.response)
+                resolve({data})
+            }
+            xhr.onerror = function(){
+                reject(xhr.response)
+            }
+        })
+        .then(res=>{
+            console.log('res:',res);
+        })
+        .catch(err=>{
+            console.log('err:',err);
+        })
+
+      var url3 = "https://douyu.xin88.top/api/room/list?page=3&;type=ms";
+      var url4 = "https://douyu.xin88.top/api/room/list?page=4&;type=ms";
+      var url5 = "https://douyu.xin88.top/api/room/list?page=5&;type=ms";
+
+
+        new Promise((resolve,reject)=>{
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url3)
+            xhr.send()
+            xhr.onload = function(){
+                var data = JSON.parse(xhr.response)
+                resolve(data)
+            }
+            xhr.onerror = function(){
+                reject(xhr.response)
+            }
+        })
+        .then(res=>{
+            console.log('res:',res);
+        })
+        .catch(err=>{
+            console.log('err:',err);
+
+        })
+
+        get(url4).then(res=>{
+            console.log("res:",res);
+        }).catch(err=>{
+            console.log('err',err);
+        })
+
+        get(url5).then(res=>{
+            console.log('res:',res);
+        }).catch(err=>{
+            console.log('err:',err);
+        })
+    </script>
+</body>
+</html>

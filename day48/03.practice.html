@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+        #box>img{
+            width: 100%;
+        }
+        #box>div{
+            display: flex;
+        }
+        #box>div>img{
+            flex: 1;
+            border: 2px solid transparent;
+        }
+        #box>div>img.active{
+            border-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="imgs/1_lg.jpg" alt="">
+        <div class="small">
+            <!-- 自定义属性：在小图上存放其对应的大图地址 -->
+            <img  data-big="imgs/1_lg.jpg" src="imgs/1_sm.jpg" alt="">
+            <img  data-big="imgs/2_lg.jpg" src="imgs/2_sm.jpg" alt="">
+            <img  data-big="imgs/3_lg.jpg" src="imgs/3_sm.jpg" alt="">
+            <img  data-big="imgs/4_lg.jpg" src="imgs/4_sm.jpg" alt="">
+            <img  data-big="imgs/5_lg.jpg" src="imgs/5_sm.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        const imgs = document.querySelectorAll('#box>div>img')
+        imgs.forEach(img=>{
+            img.onmouseover = function(){
+                imgs.forEach(img=>{
+                    img.classList.remove('active')
+                })
+                img.classList.add('active')
+                //读取大图地址：
+                const big_src = img.dataset.big //大图地址
+                const img_big = document.querySelector('#box>img')
+                //修改大图元素 显示的图片地址 src
+                img_big.src = big_src
+            }
+        })
+    </script>
+</body>
+</html>

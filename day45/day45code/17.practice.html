@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            list-style: none;
+            margin: 0 10px 10px 0;
+            background-color: #000;
+            width: 100px;
+            text-align: center;
+        }
+        li p {
+            color: orange;
+        }
+        li p:first-child{
+            color: #fff;
+        }
+        li>div{
+            text-align: center;
+        }
+        li img {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <img src="" alt="">
+            <div>
+                <b></b>
+                <span></span>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/game/items.json'
+        get(url,data=>{
+            console.log(data);
+            var res = data.items.map(value=>{
+                return `        <li>
+            <img src="${value.iconPath}" alt="">
+            <div>
+                <p>${value.name}</p>
+                <p>${value.price}</p>
+            </div>
+        </li>`
+            })
+            box.innerHTML = res.join('')
+        })
+
+    </script>
+</body>
+</html>

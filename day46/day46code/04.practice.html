@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        li{
+            width: 300px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            box-shadow: 0 0 2px  2px rgba(0, 0, 0, 0.1);
+
+            /* justify-content: space-between; */
+        }
+        .qh{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        img{
+            width: 100px;
+            margin-right: 10px;
+        }
+        .sx{
+            display: flex;
+        }
+        li>div>div{
+            color: #888;
+        }
+        .sx div{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <div>
+                <img src="" alt="">
+            </div>
+            <div>
+                <b></b>
+                <div></div>
+                <div></div>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/bilibili/timeline.json'
+        get(url,data=>{
+            console.log(data);
+            var tem = ''
+            data.result.forEach(value => {
+
+                var { title,bgmcount,square_cover:cover } =value
+
+                tem += `        <li>
+            <div>
+                <img src="${cover}" alt="">
+            </div>
+            <div class='qh'>
+                <b>${title}</b>
+                <div class='sx'>              
+                <div>更新至</div>
+                <div>${bgmcount}话</div>
+                </div>
+            </div>
+        </li>`
+            });
+            box.innerHTML = tem
+        })
+    </script>
+</body>
+</html>

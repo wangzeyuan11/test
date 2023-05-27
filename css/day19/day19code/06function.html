@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义函数练习</title>
+	</head>
+	<body>
+		<script>
+			// console.log('快来买煎饼')
+			// console.log('又香又脆的煎饼')
+			// console.log('所有煎饼一律八折')
+
+			//创建函数
+			function laba() {
+				//函数体
+				console.log('快来买煎饼')
+				console.log('又香又脆的煎饼')
+				console.log('所有煎饼一律八折')
+			}
+			//使用函数
+			laba()
+			laba()
+
+			//练习：创建函数getSum（），功能计算1-100之间所有整数的合
+			//最后使用（调用）多次
+			function getSum() {
+				//函数体
+				for (var i = 1, b = 0; i <= 100; i++) {
+					b += i
+				}
+				console.log(b)
+			}
+			//调用函数
+			getSum()
+			getSum()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+//选择器的继承extend
+.box1 {
+	width: 200px;
+	height: 200px;
+	background-color: #f00;
+}
+.box2 {
+	//表示.box2想要使用.box1的全部样式
+	//注意：这里写的是选择器，别忘了加点.
+	@extend .box1;
+	border-radius: 5px;
+}
+.box3{
+	//如果继承多个，用逗号隔开多个选择器的名字
+	@extend .box2,.box4
+}
+.box4 {
+	font-size: 12px;
+}
+
+%juxing{
+	width: 120px;
+	height: 40px;
+}
+.box5 {
+	@extend %juxing
+}

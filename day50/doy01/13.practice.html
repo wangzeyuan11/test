@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .tabs{
+            width: 800px;
+        }
+        .tabs>ul{
+            display: flex;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #e4393c;
+        }
+        .tabs>ul>li{
+            flex: 1;
+            padding: 15px;
+            color: #000;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tabs>ul>li.active{
+            background-color: #e4393c;
+            color: white;
+        }
+        .tabs>div>div{
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <ul>
+            <li class="active">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价(20万+)</li>
+            <li>商品问答</li>
+        </ul>
+
+        <div class="tab-content">
+            <div style="background-color: green;"></div>
+            <div style="background-color: red;"></div>
+            <div style="background-color: blue;"></div>
+            <div style="background-color: yellow;"></div>
+            <div style="background-color: brown;"></div>
+
+        </div>
+    </div>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('.tabs>ul>li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+
+            //根据当前点击项的序号，找到对应序号的内容元素，让其显示
+            const i = $(this).index()
+
+            //eq():从以查询的元素中找到对应序号的
+            $('.tabs>div>div').eq(i).show().siblings().hide()
+
+        })
+        
+            //初始化状态：就应该触发第一个标签的点击事件
+            //click():两种用途
+            //1.不传递参数：就是触发事件
+            //2.传递函数：就是给元素绑定事件
+            $('.tabs>ul>li').eq(0).click()
+    </script>
+</body>
+</html>

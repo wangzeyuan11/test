@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串api</title>
+	</head>
+	<body>
+		<script>
+			// var str = 'WEB2212'
+			// //获取字符串长度
+			// //调用属性或API的时候， 会自动将字符串包装为对象， 然后在调用
+			// console.log(str.length)
+			// console.log(new String(str).length)
+			// //获取下标对应的字符
+			var str = 'WEB2212'
+			console.log(str.charAt(0))
+			//无法修改字符的值
+			// str[0] = 'c'
+			// console.log(str)
+			//遍历字符串javascript
+			// var arr = 'javascript'
+			// //声明一个变量保存数量
+			// for (var i = 0, j = 0; i < arr.length; i++) {
+			// 	//console.log(arr[i])
+			// 	//判断是否为a
+			// 	if (arr[i] === 'a') {
+			// 		j++
+			// 	}
+			// }
+			// console.log(j)
+
+			//检测字符串中是否含有某个字符串
+			// var str = 'javascript'
+			// //找第一个
+			// console.log(str.indexOf('a'))
+			// //最后一个
+			// console.log(str.lastIndexOf('a'))
+
+			// var arr = 'abc23#tedu.cn'
+			// if (arr.indexOf('@') === -1) {
+			// 	console.log('非法邮箱')
+			// }
+
+			//字符串截取
+			// var str = 'javascript'
+			// console.log(str.slice(4))
+			// console.log(str.slice(4, 7))
+
+			// var str = 'abc123@tedu.cn'
+			// console.log(str.indexOf('@'))
+			// console.log(str.slice(str.indexOf('@')))
+			// console.log(str.slice(0, str.indexOf('@')))
+
+			//英文字母转大小写
+			var str = 'AbCd'
+			//英文字母转大小写
+			console.log(str.toUpperCase())
+			// console.log(str.toLowerCase())
+
+			// var arr = ['a', 'b', 'c']
+			// //数组转字符串
+			// var str = arr.join('-') //a-b-c
+			// //字符串转数组,指定切割符
+			// console.log(str.split('-'))
+
+			//翻转字符串
+			//'abcd' -> 'dcba'
+			var arr = 'abcd'
+			//得到'a','b','c','d'
+			console.log(arr.split('').reverse().join(''))
+		</script>
+	</body>
+</html>

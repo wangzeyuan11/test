@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./client-dist/socket.io.min.js"></script>
+  <style>
+    #guang_gao{
+      width: 400px;
+      height: 300px;
+      background-color: #bbb;
+      overflow-y: scroll;
+    }
+    #welcome{
+      margin-top: 10px;
+      width: 400px;
+      height: 300px;
+      background-color: #bbb;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div id="guang_gao"></div>
+  <div id="welcome"></div>
+  <button>询问服务器当前时间</button>
+  <div id="now"></div>
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    //socket脚本 自动在全局中添加了 io属性 用于与服务器建立关联
+    const server = io('http://localhost:3000')
+    console.log('服务器',server);
+
+    $('button').click(function(){
+      //发消息给服务器，询问时间
+      server.emit('ask_time') //不提供值
+    })
+
+    server.on('now',data=>{
+      $('#now').text(data)
+    })
+
+    //监听服务器发送的消息：名字是guang_gao
+    server.on('guang_gao',data=>{
+      //data:服务器发送的消息
+      console.log('来自服务器的广告',data);
+
+      $('#guang_gao').append(`<div>${data}</div>`)
+    })
+    server.on('welcome',data=>{
+      $('#welcome').append(`<div>${data}</div>`)
+    })
+  </script>
+</body>
+</html>

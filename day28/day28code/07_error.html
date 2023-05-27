@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>错误处理</title>
+	</head>
+	<body>
+		<script>
+			console.log(1)
+			//常见的错误有哪些
+			//1.语法错误 SyntaxError 代码不符合语法规范 缺少括号或中文符号
+			// var a = 3
+			// if(a>3){
+			// 	console.log(true)
+			// }
+			// //2.引用错误 ReferenceError 使用了未声明的变量
+			// var num1 = 5
+			// console.log(num = 2)
+			// console.log(2)
+			//3.类型错误 当前调用的不是一个函数类型
+			// var d = new Date()
+			// //d.setDay //undefined
+			// d.setDay(6)
+			// var arr = [1,2,3]
+			// arr.revese()
+
+			// console.log(2)
+			//4.范围错误       Uncaught RangeError 当前使用的值超出了JS的规定范围
+			// var arr = new Array(-3)
+			// console.log(2)
+			//5.自定义错误 用户自己指定的错误，用于调试
+			// var age = 80
+			// //如果不在18-60之间 抛出自定义错误
+			// if (age < 18 || age > 60) {
+			// 	throw '非法的年龄'
+			// }
+
+			//错误处理
+			try {
+				//尝试执行，可能会出现错误
+				//var arr = new Array(-3)
+				var arr = [1, 2, 3]
+				arr.revese()
+			} catch (err) {
+				//一旦try中出现错误，就会被捕获到err中
+				console.log(err)
+				//即使出现错误，也不会阻止后续代码执行了
+				arr.reverse()
+			}
+
+
+
+			console.log(2)
+		</script>
+	</body>
+</html>

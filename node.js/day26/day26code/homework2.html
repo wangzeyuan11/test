@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+
+		</div>
+		<script>
+			var xw = [
+				'公司动态',
+				'产品咨询',
+				'业界咨询'
+			]
+			for (var i = 0; i < xw.length; i++) {
+				box.innerHTML += `
+				<ul>
+					<li>${xw[i]}</li> 	<hr>
+				</ul>`
+				console.log(xw[i])
+			}
+		</script>
+	</body>
+</html>

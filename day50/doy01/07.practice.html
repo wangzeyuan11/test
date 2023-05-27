@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            display: flex;
+            background-color: #f5f5f6;
+            padding: 0 30px;
+        }
+        li{
+            background-color: white;
+            color: #4E6Ef2;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        li.active{
+            background-color: #4E6Ef2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+</html>

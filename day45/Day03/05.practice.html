@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 10:36</title>
+</head>
+
+<body>
+  <script>
+    var nums = [12, 43, 54, 6, 65, 23, 54, 33]
+    // 1. 判断元素是否都大于10
+    var res = nums.every((value, index, array) => {
+      return value > 10
+    })
+
+    // 形参: 未使用到的可以不写
+    var res = nums.every((value) => {
+      return value > 10
+    })
+
+    // 糖1: 形参只有1个 可以省略()
+    var res = nums.every(value => {
+      return value > 10
+    })
+    // 糖2: 方法体只有一行,省略{return }
+    var res = nums.every(value => value > 10)
+
+    console.log(res ? '都大于10' : "非都大于10")
+
+    // 2. 判断元素是否都是偶数  对2取余是0
+    var res = nums.every((value, index, array) => {
+      return value % 2 == 0
+    })
+
+    var res = nums.every(value => value % 2 == 0)
+    console.log(res ? '都是偶数' : '非都是偶数');
+  </script>
+</body>
+
+</html>

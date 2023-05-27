@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function show(x,y){
+        //     console.log(x,y);
+        //     //函数内部子代arguments变量。存储收到的所有实参
+        //     console.log('arguments:',arguments);
+        // }
+        // show(11,12,'mike','lucy','lily')
+
+        // //来自 Math的max函数，求多个实参中的最大值
+        // console.log(
+        //     Math.max(11,2,3,56,78),
+        //     Math.max(11,2,3,56,78,89,74)
+        // );
+        // //仿写Max函数
+        // function max(){
+        //     //利用arguments 来查看收到的所有实参，进行进一步处理
+        //     console.log('max',arguments);
+        //     //思路：
+        //     //1.先假设数组的第一个值是最大的
+        //     //2.然后从第二个值开始比较，是不是有更大的
+        //     //3.如果有更大的，就换掉它
+        //     var tmp_max = arguments[0]
+        //     for(var i = 1;i<arguments.length;i++){
+        //         //如果临时最大值比遍历出来的数小
+        //         if(tmp_max < arguments[i]){
+        //             //替换临时最大值
+        //             tmp_max = arguments[i]
+        //         }
+        //     }
+        //     //遍历结束后，返回最终的值
+        //     return tmp_max
+
+        // }
+        // console.log(
+        //     max(11,2,3,56,78),
+        //     max(11,2,3,56,78,89,74)
+        // );
+        //什么事编程
+        //把人类解决问题的思维，转换成代码的方式表达出来
+
+        //练习1：
+        console.log(
+            min(10,20,30),
+            min(50,60,70,80,888,666,555)
+        );
+        function min(){
+            var tmp_min = arguments[0]
+            for(var i = 1;i<arguments.length;i++){
+                if(tmp_min>arguments[i]){
+                    tmp_min = arguments[i]
+                }
+            }
+            return tmp_min
+        }
+        //练习2:制造一个sunm函数，求出实参的总和
+        console.log(
+            sum(11,232,43,56),
+            sum(54,54,23,3,5,4,10)
+        );
+        function sum(){
+            for(var i = 0,total = 0;i<arguments.length;i++){
+                total += arguments[i]
+            }
+            return total
+        }
+    </script>
+</body>
+</html>

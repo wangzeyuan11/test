@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				/* 给div做统一样式处理 */
+				width: 128px;
+				height: 128px;
+				border: 1px solid #000;
+				background-image: url(./icon.png);
+				background-repeat: no-repeat;
+				/* 精灵图记得设置背景图不重复 */
+			}
+
+			.d1 {
+				/* 默认位置就是原点 */
+				background-position: 0px 0px;
+			}
+
+			.d1:hover {
+				background-position: -128px 0px;
+			}
+
+			.d2 {
+				background-position: 0px -128px;
+			}
+
+			.d2:hover {
+				background-position: -128px -128px;
+			}
+
+			.d3 {
+				background-position: 0 -256px;
+			}
+
+			.d3:hover {
+				background-position: -128px -256px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>CSS精灵图</h3>
+		<div class="d1"></div>
+		<div class="d2"></div>
+		<div class="d3"></div>
+	</body>
+</html>

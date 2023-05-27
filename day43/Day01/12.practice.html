@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 16:45</title>
+</head>
+
+<body>
+  <script>
+    // 立方体: 长 宽 高
+    var c1 = { length: 10, width: 20, height: 30 }
+
+    // 制作一个函数 volume 计算体积 = 长 * 宽 * 高
+    function volume() {
+      // 在制作包含this变量的函数时, 要提前预判 这个函数运行时的环境, 才能知道 this 是什么
+      return this.length * this.width * this.height
+    }
+
+    // 要求: 把 volume 传递到 c1 对象里执行, 返回其体积
+    // 1. 函数上门服务: 到c1对象里
+    c1.volume = volume
+    // 2. 调用
+    console.log(c1.volume())
+    // 3. 删除
+    delete c1.volume
+  </script>
+</body>
+
+</html>

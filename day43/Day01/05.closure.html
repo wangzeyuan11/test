@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包 10:55</title>
+</head>
+
+<body>
+  <script>
+    // 闭包的原则: 只存储用的到的值, 杜绝内存的浪费
+    // 存储顺序是 就近原则
+    // 只存储外部作用域
+    function x() {
+      var a = 10, b = 20
+
+      function y() {
+        var b = 30, c = 40
+
+        function z() {
+          var d = 50
+          // 使用了 a b c d 4个变量
+          // 这些变量都属于哪些作用域?
+          console.log(a, b, c, d);
+        }
+        // cdi:  direct直接输出. 以对象的方式打印函数
+        // log: 按照一定的规则对输出内容进行美化, 函数会以字符串模式打印
+        console.dir(z)
+      }
+      y()
+    }
+    x()
+  </script>
+</body>
+
+</html>

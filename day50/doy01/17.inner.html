@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- innerHTML 和 innerText -->
+    <div id="box1">Hello World!</div>
+
+    <div id="box2">
+        <a href="">Hello World!</a>
+    </div>
+
+    <ul></ul>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        console.log('box1 html:',$('#box1').html());
+        console.log('box1 text:',$('#box1').text());
+
+        console.log('box2 html:',$('#box2').html());
+        console.log('box2 text:',$('#box2').text());
+
+        //赋值语法：
+        var kw = '<h1>Hello</h1>'
+
+        $('#box1').html(kw)
+        $('#box2').text(kw)
+
+        //数组：
+        var data = [
+            '<li>HTML</li>',
+            '<li>CSS</li>',
+            '<li>JS</li>',
+            '<li>DOM</li>',         
+        ]
+
+        //如果 参数是数组类型 会自动利用 join('')完成拼接后 再赋值
+        $('ul').html(data)
+    </script>
+</body>
+</html>

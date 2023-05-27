@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建DOM元素</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        DOM:文档对象模型
+        - 书写HTML代码，浏览器帮我们转化成document对象，最终渲染到页面上
+
+        HTML代码相当于 语法糖，比纯粹的document代码 更加易读
+        但是转化过程 需要消耗额外的系统资源
+
+        对于性能的极致追求：抛开HTML代码，直接用document方式来创建页面元素
+        -浏览器的解析操作 由 程序员来完成
+
+        目前世界排行第一的前端框架 React，就是利用这种思想实现 . 0 HTML代码
+
+     -->
+    <script>
+        //创建一个div元素
+        const box = document.createElement('div')
+        box.id = 'box'
+        console.log(box);
+        //body:代表body标签
+        //appendChild:添加子元素
+        document.body.appendChild(box)
+
+        //在box中新增超链接：
+        const a_baidu = document.createElement('a')
+        a_baidu.innerHTML = '百度一下'
+        a_baidu.title = '百度一下，你就知道'
+        a_baidu.href = 'https://www.baidu.com'
+        box.appendChild(a_baidu)
+        const btn = document.createElement('button')
+        btn.id='btn'
+        box.appendChild(btn)
+        btn.innerHTML = 'Click Me'
+        btn.addEventListener('click',function(){
+            alert('Hello')
+        })
+    </script>
+</body>
+</html>

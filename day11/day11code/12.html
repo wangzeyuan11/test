@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.yuan {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				border: 5px solid #000;
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+			}
+
+			.yuan:hover>.zhizhen {
+				transform: rotate(360deg);
+			}
+
+			.zhizhen {
+				width: 5px;
+				height: 150px;
+				background-color: #f00;
+				transition: 2s;
+				transform-origin: bottom center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="yuan">
+			<div class="zhizhen"></div>
+		</div>
+	</body>
+</html>

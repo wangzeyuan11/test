@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变量的作用域2</title>
+	</head>
+	<body>
+		<script>
+			var a = 1
+			console.log(a)
+
+			//JS的预加载、预解析：
+			//在程序执行之前，会将用var 声明的变量提升到所在作用域的最前面
+			//但注意：只提升声明部分var b，赋值不提升
+			console.log(b)
+			var b = 1
+
+			//console.log(c)
+			//c = 1 //没用var声明 ，不存在提升现象
+
+			function f1() {
+				console.log(d)
+				var d = 3
+				console.log(d)
+			}
+			//f1()
+			var e = 4
+
+			function f2() {
+				//变量的查找原则：就近原则
+				//如果当前作用域下有，就不在向更远的全局作用域下查找
+				//var e-- 这是提升的代码
+				console.log(e) //undefined 变量提升+就近原则
+				var e = 5
+				console.log(e)
+			}
+			f2()
+
+			function f3(x) {
+				//var x = 2 如果这句话没注释，x的值会被覆盖成2
+				//注释掉 x的值就是调用函数时传入的实参666
+				console.log(x)
+			}
+			f3(666)
+			//console.log(x) 报错，形参属于局部变量 只能在函数内访问
+
+			var y = 7 //全局变量
+
+			function f4(y) { //局部变量
+				y += 3
+				console.log(y)
+			}
+			f4(5)
+			console.log(y)
+		</script>
+	</body>
+</html>

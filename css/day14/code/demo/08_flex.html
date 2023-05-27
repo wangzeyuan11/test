@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板文件</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+	</head>
+	<body>
+		<!-- 使用弹性盒布局 父容器黄色 子项目蓝红绿 白色字 各站父级宽度的百分之25 每个子项目有垂直方向最大的内间距 xl以上两段对齐 lg居中对齐 md终点对齐 md及以下起点对齐 -->
+		<div
+			class="container bg-warning d-flex justify-content-xl-between d-flex justify-content-lg-center d-flex justify-content-md-end d-flex justify-content-sm-start">
+			<div class="bg-primary w-25 py-5"></div>
+			<div class="bg-danger w-25 py-5"></div>
+			<div class="bg-success w-25 py-5"></div>
+		</div>
+	</body>
+</html>

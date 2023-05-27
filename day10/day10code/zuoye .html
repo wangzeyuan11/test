@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box1 {
+				display: flex;
+			}
+
+			.box:nth-child(2) {
+				width: 500px;
+				height: 500px;
+				background-color: aqua;
+				flex-shrink: 1;
+			}
+
+			.box:nth-child(1) {
+				width: 500px;
+				height: 500px;
+				background-color: red;
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box">01</div>
+			<div class="box">02</div>
+		</div>
+
+	</body>
+</html>

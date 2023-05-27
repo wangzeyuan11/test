@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom 17:20</title>
+    <style>
+        h1{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <script>
+        console.log(window); //找到docment属性
+        //log:会美化输出的结果，让其更容易阅读
+        console.log(document.body);
+        console.log(document.head);
+        console.log(document);
+        // dir:直接输出本体
+        console.dir(document.body);
+        //JS特点：能够实现更强大的 带有逻辑性的操作
+
+        //制作一个时钟效果
+        //通过定时器，每隔一秒钟，就修改页面上的某个元素
+        setInterval(() => {
+            var now = new Date().toLocaleDateString()
+
+            //document.title:就可以操作head中的title标签的内容
+            document.title = now
+
+            //彤css，js也提供类似选择器的方案，通过标签名来查找标签
+
+            //get查找，获取 elements:元素们 by：通过 tag：标签 name：名字
+            const h1s = document.getElementsByTagName('h1')
+            console.log('h1s',h1s);
+            //修改 找到的第一个h1标签的内容
+            h1s[0].innerHTML = now
+
+            console.log('now:',now);
+        }, 1000); //每隔1000毫秒 == 1秒
+    </script>
+</body>
+</html>

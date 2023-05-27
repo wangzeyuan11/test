@@ -1,0 +1,20 @@
+2023.03.30
+- 利用node.js管理整个项目包，安装jquery模块
+- 在根目录下，新建index.html作为首页
+-创建文件夹assets 用于存储静态资源
+    -多媒体资源：图片 视频音频
+-创建common目录，用于存放公共的css和js
+    -js
+    -css
+-创建文件夹 pages 用于存放每个页面的代码
+-为每个页面增加3个问价
+ -js scss 和 html
+-只做了两个全局样式文件 reset.css和base.css
+ -在 index.html中，引入两个全局样式
+ -在首页index.html中，分3个容器，用于存放头 脚 和身体的代码
+-创建 components目录 用于存放组件
+    -组件：组成页面的零件
+-新建两个组件：header和footer
+-从百度网盘提供的msgc.zip压缩包中，找到assets下的img和video文件夹，复制到我们项目的assets中
+-书写header相关代码，通过load方式加载到index.html中
+    -关注 相对路径 问题

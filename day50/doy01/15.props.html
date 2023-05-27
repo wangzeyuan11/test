@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        元素具有两种属性：
+        系统属性
+        自定义属性：
+        data- 开头；用dataset属性操作
+     -->
+     <a data-x="10" data-nan-NAN="楠楠" suibian="随便" v-text="自定义属性" href="https://www.baidu.com" target="_blank">百度一下</a>
+
+     <script src="jquery-3.6.4.js"></script>
+    <script>
+        //jQuery提供了 prop attr data三种方法操作属性
+
+        //prop:操作系统属性
+        console.log(
+            $('a').prop('href'),
+            $('a').prop('target')
+        );
+        //修改操作：使用两个参数
+        $('a').prop('href','http:www.jd.com')
+
+        //自定义属性：万能用法 attr
+        console.log(
+            $('a').attr('suibian'),
+            $('a').attr('v-text'),
+            $('a').attr('data-x'),
+            $('a').attr('href')
+        );
+        $('a').attr('suibian','修改一下')
+
+        //data():只能用于读取 data-定义的属性 无法修改 修改用attr
+        console.log(
+            $('a').data('x')
+        );
+    </script>
+</body>
+</html>

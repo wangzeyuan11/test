@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变换练习 位移函数</title>
+		<style>
+			.fu {
+				background-color: lightblue;
+			}
+
+			.fu div {
+				width: 100px;
+				height: 100px;
+				font-size: 30px;
+			}
+
+			.box1 {
+				background-color: #f00;
+				/* 变换属性：位移函数 */
+				transform: translateX(80px);
+			}
+
+			.box2 {
+				background-color: #0f0;
+				transform: translateY(-50px);
+			}
+
+			span {
+				transform: translateY(-50px);
+			}
+
+			img {
+				/* 图片可以使用位移，写一个值代表x轴位移 */
+				transform: translateY(-50px);
+			}
+
+			input {
+				transform: translateY(-50px);
+				/* 想要让元素两个方向都位移，需要使用translate */
+				transform: translate(100px 100px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fu">
+			<div class="box1">北京</div>
+			<div class="box2">大连</div>
+		</div>
+		<span>我是一个行内元素</span>
+		<img src="img/shop1.jpg" alt="">
+		<input type="text">
+	</body>
+</html>

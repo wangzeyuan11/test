@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模态框 modal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 超链接a也可以作为被点击的对象 -->
+			<!-- javascript 表示空连接 不发生任何跳转 -->
+			<a href="javascript:;" data-bs-toggle="modal" data-bs-target="#motai">
+				点击弹出</a>
+
+			<div class="modal fade" id="motai" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5">是否退出</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<p>点击之后将直接关闭页面，是否继续？</p>
+							再有内容还放在这里...
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-bs-dismiss="modal">确定关闭</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板文件</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="bg-warning">
+				<div class="w-25 bg-danger">占父级宽度的百分之25。颜色为红色</div>
+				<div class="w-50 bg-success">占父级宽度的百分之50。颜色为绿色</div>
+				<div class="w-75 bg-light">占父级宽度的百分之75。颜色为亮色</div>
+				<div class="w-100 bg-dark">占父级宽度的百分之100。颜色为暗色</div>
+			</div>
+
+			<div class="bg-primary" style="height: 200px;">
+				<!-- 制作一个高度为父级高度的百分之50的子元素 颜色为黄色 -->
+				<div class="h-50 bg-warning"></div>
+			</div>
+		</div>
+		<!-- 制作一个撑满全屏宽高的灰色背景色 -->
+		<div class="container-fluid" style="height: 1000px;">
+			<div class="vw-100 vh-100 bg-secondary"></div>
+		</div>
+	</body>
+</html>

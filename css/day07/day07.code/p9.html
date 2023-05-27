@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>高度坍塌解决方案</title>
+		<style>
+			.fu {
+				background-color: #ff0;
+				/* 方案1，父级自设高度 */
+				/* height: 100px; */
+				/* 方案2，给父级设置BFC保护 */
+				/* overflow: hidden; */
+				/* 方案3:父元素也浮动,宽度就是三个孩子的宽度,高度也回来了,但是,还得考虑爷爷,太爷爷,这里不太合适 */
+				/* float: left; */
+
+			}
+
+			.z1,
+			.z2,
+			.z3 {
+				width: 100px;
+				height: 100px;
+			}
+
+			.z1 {
+				background-color: #f00;
+				float: left;
+			}
+
+			.z2 {
+				background-color: #0f0;
+				float: left;
+			}
+
+			.z3 {
+				background-color: #00f;
+				float: left;
+			}
+
+			/* 方案4:在父元素最后添加一个宽度为0的块级子元素，不浮动，用来清除浮动影响 */
+			.z4 {
+				width: 0;
+				clear: both;
+			}
+
+			/* 方案5：利用伪元素在父元素最后生成一个假孩子清除影响 */
+			.clearfix::after {
+				/* 在指定元素的最后生成一个假孩子*/
+				content: '';
+				/* 内容是空白的，高度为0*/
+				display: block;
+				/* 块级元素才可以使用clear属性*/
+				clear: both;
+				/* 清除前面所有元素浮动造成的不支撑影响 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fu clearfix">
+			<div class="z1"></div>
+			<div class="z2"></div>
+			<div class="z3"></div>
+			<!-- <div class="z4"></div> -->
+		</div>
+	</body>
+</html>

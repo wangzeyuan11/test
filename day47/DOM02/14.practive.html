@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        ul{
+            display: flex;
+            background-color: #f2f5f6;
+            width: 900px;
+            height: 200px;
+            justify-content: center;
+            align-items: center;
+        }
+        li{
+            transition: 0.5s;
+            cursor: pointer;
+            width: 150px;
+            height: 40px;
+            border-radius: 100px;
+            color: #888;
+            background-color: white;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+        }
+        li:hover{         
+            background-color: white;
+            color: #ff5d23;
+            border: 1px solid #ff5d23;
+        }
+        li.active{
+            background-color: #ff5d23;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">网游竞技</li>
+        <li>单机热游</li>
+        <li>手游休闲</li>
+        <li>娱乐天地</li>
+        <li>颜值</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll('li')
+        lis.forEach(li=>{
+            li.onclick = function(){
+                //在整个页面上的所有元素中，找到符合条件的：查询会消耗一定的性能
+                // const actives = document.querySelector('li.active')
+                // actives.classList.remove('active')
+
+                //遍历之前查到的每个li都删除一次激活状态
+                lis.forEach(li=>li.classList.remove('active'))
+                this.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>

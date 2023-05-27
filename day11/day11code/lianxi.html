@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				width: 160px;
+				height: 50px;
+				background-color: #fc4646;
+				transition: 1s background-color, 1s 1s border-radius;
+			}
+
+			.box:hover {
+				border-radius: 20px;
+				background-color: #0aa1ed;
+				cursor: pointer;
+			}
+
+			.box span {
+				font-size: 18px;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				line-height: 50px;
+			}
+
+			.box1 {
+				width: 400px;
+				height: 40px;
+				border: 1px solid #000;
+				transition: 1s;
+			}
+
+			.box1:hover {}
+
+			.color {
+				background-color: blue;
+				width: 0;
+				/* 块级元素的宽度默认是父级的100% 这里需要设置为0 */
+				height: 100%;
+				transition: 1s width, 2s 1s background-color;
+			}
+
+			.box1:hover>.color {
+				width: 100%;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span>加入购物车</span>
+		</div>
+		<br>
+		<div class="box1">
+			<div class="color"></div>
+		</div>
+	</body>
+</html>

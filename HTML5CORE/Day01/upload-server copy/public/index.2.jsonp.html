@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+</head>
+
+<body>
+  <!-- index.html 这个文件名有说法: 所有网页服务器默认都会访问此文件作为首页 -->
+  <h1>Welcome To Express!</h1>
+
+  <ul id="emps"></ul>
+
+  <script src="https://api.xin88.top/js/jquery-3.6.1.min.js"></script>
+  <script>
+    // 脚本的src的作用: 从指定的文件中下载所有代码 并执行
+    // 能够通过 src 来请求接口中的数据呢?
+    const script = document.createElement('script')
+    script.src = 'http://localhost:3000/emps?callback=getEmps'
+    $('body').append(script) // 添加到body中, 才能执行
+
+    function getEmps(data) {
+      console.log('data:', data)
+    }
+
+    const script1 = document.createElement('script')
+    // cb: 自定义参数, 名称随便起. 用于把回调函数名 传递到服务器
+    script1.src = 'http://localhost:3000/names?cb=getNames'
+    $('body').append(script1)
+
+    function getNames(data) {
+      console.log(data)
+    }
+
+    const script2 = document.createElement('script')
+    script2.src = 'http://localhost:3000/movies?cb=getMovies'
+    $('body').append(script2)
+
+    function getMovies(data) {
+      console.log(data)
+    }
+  </script>
+</body>
+
+</html>

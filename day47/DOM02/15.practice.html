@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            display: flex;
+        }
+        #box>img{
+            width: 140px;
+            height: 140px;
+            border-radius: 4px;
+            margin: 4px;
+            /* 原始比例和显示比例不同 存在适配问题 */
+            /* cover:覆盖 保持原有比例 充满整个显示的区域 多余部分会被剪掉 */
+            object-fit: cover;
+            transition: 1s;
+        }
+        #box>img.active{
+            width: 305px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img class="active" src="../imgs/bigskin-1.jpg" alt="">
+        <img src="../imgs/bigskin-2.jpg" alt="">
+        <img src="../imgs/bigskin-3.jpg" alt="">
+        <img src="../imgs/bigskin-4.jpg" alt="">
+        <img src="../imgs/bigskin-5.jpg" alt="">
+
+    </div>
+    <script>
+        const imgs = document.querySelectorAll('#box>img')
+        imgs.forEach(img=>{
+            img.onmouseover = function(){
+                imgs.forEach(img=>img.classList.remove('active'))
+                img.classList.add('active')
+            }
+        })
+        
+    </script>
+</body>
+</html>

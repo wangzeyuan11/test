@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>算数运算符</title>
+	</head>
+	<body>
+		<script>
+			//1.测试取余
+			console.log(25 % 10) //商为2 余数为5
+			console.log(7 % 3) //商为2 余数为1
+			console.log(3 % 7) //商为  余数为3
+			var n = 8
+			console.log(n % 2) //对2取余，余数为0 得出n是偶数
+
+			// 自增自减运算符测试
+			var a = 2
+			a++
+			console.log(a) //3
+				++a
+			console.log(a) //4
+
+			var x = 5
+			x--
+			console.log(x)
+				--x
+			console.log(x)
+
+			var b = 3
+			var c = b++
+			console.log(b, c) //4,3 ++符号在后，先把b的值赋值给c，b在自增
+
+			var d = 3
+			var e = ++d
+			console.log(d, e) // 4,4  ++符号在前，d的值先自增，在把d的值赋值给e
+
+			var m1 = 7
+			var m2 = m1--
+			var m3 = --m1
+			console.log(m1, m2, m3)
+			console.log('7a' % 3)
+			// console.log(Number('7a'))
+
+			var n = '3'
+			n++
+			console.log(n)
+
+			//+-号还有正负号的功能，也会隐式转换为数字
+			console.log(2 + -'5' + +true) 2 + (-5) + —(+1)
+		</script>
+	</body>
+</html>

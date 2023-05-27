@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #red{
+            background-color: red;
+            width: 500px;
+            height: 500px;
+        }
+        #green{
+            background-color: green;
+            width: 300px;
+            height: 300px;
+        }#blue{
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="red">
+        <div id="green">
+            <div id="blue"></div>
+        </div>
+    </div>
+    <script>
+        //事件的冒泡机制:子元素上发生一个事件后，默认会传播到父元素，触发相同的事件
+
+
+
+        const red = document.getElementById('red')
+        const green = document.getElementById('green')
+        const blue = document.getElementById('blue')
+
+        //党当事元素：事件触发的当事‘人’
+        red.onclick = function(e){
+            //事件发生时的 target属性 存储的就是当事元素
+            console.log('当事元素',e.target);
+
+            console.log('red click');
+        }
+        green.onclick = function(){
+            console.log('grenn click');
+        }
+        blue.onclick = function(e){
+            //stopPropagation:停止传播 则不再冒泡到父元素
+            e.stopPropagation()
+            console.log('blue click');
+        }
+    </script>
+</body>
+</html>

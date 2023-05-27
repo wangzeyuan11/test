@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            /* width: 2100px; */
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            box-shadow: 0 0 2px  2px rgba(0, 0, 0, 0.1);
+            /* width: 300px; */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px 10px 0;
+            width: 250px;
+        }
+        li img{
+            width: 200px;
+        }
+        li b {
+            /* width: 300px; */
+            padding: 5px 0;
+            white-space: nowrap; 
+            text-overflow: ellipsis;
+            overflow: hidden;
+            /* height: 20px; */
+        }
+        li div {
+            /* margin-right: 20px;
+            margin: 0 auto; */
+            display: flex;
+        }
+        span{
+            /* margin-right: 60px; */
+            display: inline-block;
+            width: 50%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <img src="" alt="">
+            <b></b>
+            <span></span>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/bilibili/news.json'
+        get(url,data=>{
+            console.log(data);
+            var res = data.data.archives.map(value=>{
+                return `<li>
+            <img src="${value.pic}" alt="">
+            <b>${value.dynamic}</b>
+            <div>
+             <span>${value.stat.view}</span>
+             <span>${value.stat.danmaku}</span>
+            </div>
+
+
+        </li>`
+            })
+            box.innerHTML = res.join('')
+        })
+    </script>
+</body>
+</html>

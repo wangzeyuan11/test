@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1.创建用户名输入框,提示文字"在此输入您的用户名,最大长度为8"
+		2.创建密码输入框,提示文字"在此输入你的密码"
+		<form action="#">
+			用户名<input type="text" maxlength="8" value="lihua" name="uname" placeholder="再次输入您的用户名">
+			<br>
+			<input type="password" name="upwd" placeholder="在此输入密码">在此输入您的密码
+			<br>
+			<input type="submit" value="点我提交">
+
+			<input type="reset" value="点我重置">
+
+			<input type="button" value="按钮1"></button>
+
+			<button>按钮2</button>
+			<br>
+			<!-- 单选框 -->
+			性别
+			<input type="radio" name="gender" value="1">男
+			<input type="radio" name="gender" value="0" checked>女
+			<br>
+			<!-- 多选框 -->
+			<input type="checkbox" name="like" value="1">音乐
+			<input type="checkbox" name="like" value="2" checked>动漫
+			<input type="checkbox" name="like" value="3">蹦迪
+			<input type="checkbox" name="like" value="4" checked>电竞
+			<br>
+			<!-- 文件上传 -->
+			<!-- multiple可以实现多选 按住ctrl可以选中多个文件上传 -->
+			请上传您的文件<input type="file" name="ufile" multiple>单值属性
+			<hr>
+			<!-- h5新增的input控件 -->
+			年龄:<input type="number" max="30" min="10" name="age" step="3" /><br>
+			幸运色<input type="color"><br>
+			生日日期<input type="date"><br>
+			月份<input type="month"><br>
+			考试周<input type="week">
+			搜索<input type="search">
+			缩放<input type="range" max="30" min="10" step="7">
+			<hr>
+			<!-- 下拉选择框 -->
+			爱吃的菜
+			<select name="food" multiple>
+				<option value="1">四川火锅</option>
+				<option value="2">东北乱炖</option>
+				<option value="3">南京咸水鸭</option>
+				<option value="4" selected>潮汕砂锅粥</option>
+			</select>
+			<br>
+			<!-- 多行文本域 -->
+			请留下你的宝贵意见
+			<textarea style="resize: none;" cols="50" rows="10"></textarea>
+			<br>
+			<!-- 关联控件 -->
+			<input type="checkbox" name="yes" id="y" value="1">
+			<label for="y">请同意此协议</label>
+		</form>
+	</body>
+</html>

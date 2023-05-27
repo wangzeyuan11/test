@@ -1,0 +1,17 @@
+.box {
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  color: #fff;
+  background-color: #0aa1ed;
+  box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
+  border-radius: green;
+}
+
+h2 {
+  background-color: #0aa1ed;
+}
+
+button {
+  background-color: #0aa1ed;
+}/*# sourceMappingURL=02var.css.map */

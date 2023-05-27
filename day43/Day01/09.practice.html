@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 15:30</title>
+</head>
+
+<body>
+  <script>
+    function calc() {
+      if (arguments.length == 1) {
+        if (typeof arguments[0] == 'number') {
+          return arguments[0] * arguments[0]
+        }
+        // instanceof: 判断对象是否是指定构造函数创建的
+        // 是 Array 创建的, 则说明是数组类型
+        if (arguments[0] instanceof Array) {
+          var total = 0
+          // arguments[0] 是 数组
+          for (var i = 0; i < arguments[0].length; i++) {
+            total += arguments[0][i]
+          }
+          return total
+        }
+      }
+
+      if (arguments.length == 2) {
+        return arguments[0] + arguments[1]
+      }
+
+      if (arguments.length == 3) {
+        return arguments[0] * arguments[1] * arguments[2]
+      }
+    }
+
+    // 实现一个 calc 函数, 预期效果如下
+    console.log(calc(10)) //算出数字的平方, 即 10 * 10
+    console.log(calc(20)) //算出数字的平方, 即 20 * 20
+    console.log(calc(10, 20)) //算出和值, 即 10 + 20
+    console.log(calc(10, 20, 30)) //算出乘积, 即 10 * 20 * 30
+
+    // 难
+    console.log(calc([11, 22, 33])) //数组类型, 则计算出数组内容的和
+  </script>
+</body>
+
+</html>

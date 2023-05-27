@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器方案查找元素</title>
+    <style>
+        #girl>li{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="boy">
+        <li>凯凯</li>
+        <li>铭铭</li>
+        <li>亮亮</li>
+    </ul>
+    <ul id="girl">
+        <li>楠楠</li>
+        <li>泡泡</li>
+        <li>梦瑶</li>
+    </ul>
+    <script>
+        //querySelectorAll
+        //query:查询 selector:选择器 all：所有
+        //通过选择器查找所有符合的元素
+        //qsa
+        const girl_lis = document.querySelectorAll('#girl>li')
+        console.log(girl_lis);
+        //此方式查询的结果，是类数组类型，但是其原型 NodeList中存在forEach方法可以实现遍历操作
+        girl_lis.forEach(li=>{
+            li.onclick = function(){
+                this.style.color='pink'
+            }
+        })
+
+
+
+
+
+
+
+        //document:整个html代码
+
+        //要想精确查找：先找id=boy的元素
+            const boy = document.getElementsById('boy')
+            const boy_lis = boy.getElementsByTagName('li')
+
+        // console.log(lis);
+
+        //用for ... of遍历伪数组
+        for(const li of boy_lis){
+            // console.log(li);
+            li.onclick = function(){
+                li.style.color = 'blue'
+            }
+            //this：此变量非常灵活，需要运行时才知道代表什么
+            //所以：vscode静态分析代码的时候 不知道this是什么 无法提供准确的提示
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+        //设定：函数运行时产生的内存会在函数执行完毕后自动销毁，节省内存
+        //除非 把变量存放在全局对象window，因为window永存！
+        function displayName() {
+            var name = 'mike'
+
+            var x =function (){
+                console.log('name:',name)
+            }
+
+            return x
+        }
+        //show 中存储的是displayName()函数中声明的变量x
+        //所以x函数不会释放
+        var show = displayName()
+        //这里能打印出name，就说明name肯定存在哪里
+        show()
+        console.log('window');
+        //Scopes:作用域 们 --存放函数声明时所在的作用域链 中的作用域
+        //closure:闭包 -- 封闭的包；函数作用域生成的对象
+
+        //闭包 表达的是函数作用域的一种状态，被别人存在了scopes中
+
+        //类似 妻子/丈夫 这种称呼 代表一个人的一种状态
+
+        //为什么要存闭包：防止其释放后导致自身函数运行时，找不到对应的变量
+        //资源 而运行失败！
+
+        // 闭包的缺点：不可避免的消耗更多的内存
+    </script>
+</body>
+</html>

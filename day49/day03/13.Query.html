@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .warning{
+            background-color: orange;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>DOM</li>
+    </ul>
+    <script>
+        // 原生DOM操作的缺点:
+        //1.对于结果要遍历操作
+        //2.方法名比较长
+        // const lis = document.querySelectorAll('li')
+        // lis.forEach(li=>{
+        //     li.style.color = 'red'
+        // })
+
+        function $(selector){
+            return document.querySelectorAll(selector)
+        }
+
+        //在原型中增加css方法，用来设置style样式
+        NodeList.prototype.css=function(name,value){
+            //element 元素，缩写：el
+            //[]:方括号语法，其中是JS代码，此处是name变量的值
+            this.forEach(el=>el.style[name]=value)
+        }
+        NodeList.prototype.addClass=function(className){
+            this.forEach(el=>el.classList.add(className))
+        }
+        const lis = $('li')
+        console.log(lis);
+
+        //利用封装技巧：简化 预期效果如下：
+        $('li').css('color','red')
+        ///////////////////////////
+
+        $('li').addClass('warning')
+
+        
+    </script>
+</body>
+</html>

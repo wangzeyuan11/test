@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索员工</title>
+		<style>
+			div {
+				margin-top: 20px;
+			}
+
+			table {
+				border: 1px solid #CCC;
+				border-collapse: collapse;
+				width: 270px;
+			}
+
+			tr>td:nth-child(1) {
+				text-align: right;
+				padding-right: 15px;
+			}
+
+			tr>td:nth-child(2) {
+				text-align: left;
+				padding-left: 15px;
+			}
+
+			td {
+				border: 1px solid #CCC;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		员工姓名<input type="text" id="user">
+		<button id="btn">搜索</button>
+		<div id="cont">
+			<!-- 			<table>
+				<tr>
+					<td>编号</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>姓名</td>
+					<td>张三</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>男</td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td>1995-9-1</td>
+				</tr>
+				<tr>
+					<td>工资</td>
+					<td>5000</td>
+				</tr>
+				<tr>
+					<td>部门编号</td>
+					<td>10</td>
+				</tr>
+			</table> -->
+		</div>
+		<script>
+			//给按钮绑定点击事件
+			btn.onclick = function() {
+				var a = user.value
+				console.log(a)
+				//发送AJAX请求
+				//1.创建HTTP请求对象
+				var xhr = new XMLHttpRequest();
+				//2.打开服务器的连接，设置请求的接口
+				xhr.open("GRT", "http://127.0.0.1:3000/emp/search?ename=" + a);
+				//发送请求
+				xhr.send()
+				//4.绑定事件，监听服务器响应
+				xhr.onload = function() {
+					//将响应的json格式转js
+					var obj = JSON.parse(xhr.responseText)
+					console.log(obj)
+					//判断是否存在
+					if (obj.code === 200) {
+						//把值拼接到模板中最后渲染
+						cont.innerHTML = `			<table>
+				<tr>
+					<td>编号</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>姓名</td>
+					<td>张三</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>男</td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td>1995-9-1</td>
+				</tr>
+				<tr>
+					<td>工资</td>
+					<td>5000</td>
+				</tr>
+				<tr>
+					<td>部门编号</td>
+					<td>10</td>
+				</tr>
+			</table>`
+					} else {
+						cont.innerHTML = '该员工不存在'
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

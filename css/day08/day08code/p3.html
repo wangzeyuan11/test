@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>光标样式</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			/* 改变光标的显示 */
+			.a {
+				cursor: default;
+				/* 默认值 箭头*/
+				cursor: pointer;
+				/* 小手*/
+			}
+
+			.b {
+				cursor: crosshair;
+				/* 十字光标*/
+			}
+
+			.c {
+				cursor: wait;
+				/* 等待,转圈或者沙漏光标*/
+			}
+
+			.d {
+				cursor: move;
+				/* 移动光标*/
+				cursor: text;
+				/* 文本光标 工字型*/
+			}
+
+			input {
+				border: 3px solid #000;
+				border: none;
+				/* 去掉外轮廓线 */
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="a">床前明月光</li>
+			<li class="b">疑是地上霜</li>
+			<li class="c">举头望明月</li>
+			<li class="d">低头思故乡</li>
+		</ul>
+		<hr>
+		<input type="text" placeholder="我是一个输入框">
+	</body>
+</html>

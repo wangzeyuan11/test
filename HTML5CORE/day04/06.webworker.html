@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebWorker</title>
+</head>
+<body>
+    <h1 id="time"></h1>
+    <!-- src方式引入外部js文件，属于同步操作，需要把js中的代码执行一遍 -->
+    <!-- <script src="06.js"></script> -->
+
+    <script>
+        //worker:创建一个新的'工人'帮你去操作外部js文件中的代码，属于微任务
+        //不会影响到宏任务代码的执行 不会卡顿
+        new Worker('./06.js')
+
+        //用户体验优化的一种方案：耗时操作用worker执行即可
+
+        setInterval(() => {
+            time.innerHTML = new Date().toLocaleTimeString()
+        }, 1000);
+
+        //WebWorker:用于把某些JS代码 主动放到异步中执行，即放到微任务中 不妨碍主线任务的操作
+
+        //1个操作复杂的函数，会消耗很多时间
+        // function wasteTime(n){
+        //     return n < 3 ? 1 : wasteTime(n - 1) + wasteTime(n - 2)
+        // }
+
+        // console.log(
+        //     wasteTime(46)//属于主线任务 - 宏任务
+        //     //必须执行完毕 才能执行其他的微任务
+        // );
+        //JS代码的运行机制:时间循环
+        //所有代码会排队执行
+    </script>
+</body>
+</html>

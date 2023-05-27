@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+</head>
+<body>
+    <!-- 可以手动让JS代码进到严格模式的状态 ,此时有风险的操作都会报错 -->
+    <script>
+        //use:use：使用 strict：严格
+        //下方代码会开启严格模式处理
+        'use strict'
+
+        //严格模式下，变量必须先声明 在使用
+        var servername = 'localhost'
+
+        //修改
+        servename = 'www.tedu.cn'
+
+        //默认全局中的属性，子代前缀window.
+        //window.servename = 'www.tedu.cn'
+        //由于单词拼写错误，导致在windows对象新增了属性 全局污染
+
+        console.log(window);
+    </script>
+</body>
+</html>

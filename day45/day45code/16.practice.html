@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 解除防盗链 -->
+    <meta name="referrer" content="no-referrer">
+    <style>
+        ul{
+            /* width: 1000px; */
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            margin: 0px 10px 10px 0;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        li img{
+            width: 220px;
+            height: 330px;
+        }
+        li>div{
+            padding: 4px;
+            text-align: center;
+
+        }
+        li span{
+            font-size: 0.9em;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <img src="" alt="">
+            <div>
+                <b></b>
+                <span></span>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/douban/movies.json'
+        // const xhr = new XMLHttpRequest()
+        // xhr.open('get',url)
+        // xhr.onload = function(){
+        //     var data = JSON.parse(xhr.response)
+        //     console.log(data);
+        //     var res = data.subjects.map(value=>{
+        //         return `<li>${value.title}</li>`
+        //     })
+        //     box.innerHTML = res.join('')
+        // }
+        // xhr.send()
+        get(url,data=>{
+            console.log(data);
+            var res = data.subjects.map(value=>{
+                return ` <li>
+                        <img src="${value.cover}" alt="">
+                        <div>
+                            <b>${value.title}</b>
+                            <span>${value.rate}</span>
+                        </div>
+                         </li> `
+            })
+            box.innerHTML =res.join('')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //封装：
+      function get(url) {
+        return new Promise((resolve, reject) => {
+          var xhr = new XMLHttpRequest();
+          xhr.open("get", url);
+          xhr.send();
+          xhr.onload = function () {
+            var data = JSON.parse(xhr.response);
+            resolve({ data }); //触发then
+          };
+          xhr.onerror = function () {
+            reject(xhr.response);
+          };
+        });
+      }
+
+      var a = 'https://api.xin88.top/bilibili/news.json';
+    var b = 'https://api.xin88.top/bilibili/recommend.json';
+    var c = 'https://api.xin88.top/bilibili/recommends.json';
+    var d = 'https://api.xin88.top/bilibili/timeline.json';
+
+    //我们如何确保网络请求一定成功?如果服务器卡了怎么办?
+    //可以使用多服务器提供服务,比如提供4个接口地址 数据相同 来自4个不同的服务器
+    //请求同时请求4个服务器，任意一个请求完毕即可!
+
+    //race：竞争;过个promise,谁先完成fulfilled状态 就用哪个数据
+    Promise.race([
+        get(a),get(b),get(c),get(d)
+    ]).then(res=>{
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
+    })
+
+    //any:任何一个promise状态敲定即可，不管成功失败
+    Promise.any([
+        get(a),get(b),get(c),get(d)
+    ]).then(res=>{
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
+    })
+    </script>
+</body>
+</html>

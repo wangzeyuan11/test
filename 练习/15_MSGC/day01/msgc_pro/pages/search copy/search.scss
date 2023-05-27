@@ -1,0 +1,97 @@
+#body{
+
+    >.search{
+        margin: 0 auto;
+        width: var(--width-main);
+
+        >.sort{
+            display: flex;
+            padding: 10px 0;
+
+            >li{
+                margin-right: 10px;
+                cursor: pointer;
+
+                &.active{
+                    color: orange;
+                }
+            }
+        }
+
+        >.search-content{
+            
+
+            >li{
+                margin-bottom: 10px;
+                border-radius: 15px;
+                box-shadow: 0 0 4px 4px rgba(0,0,0,0.1);
+                display: flex;
+                overflow: hidden;
+                
+
+                >img{
+                    width: 150px;
+                    height: 150px;
+                    // margin-right: 10px;
+                }
+
+                >div{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 10px;
+                   >p{
+                    color: #000;
+                    font-size: 20px;
+                    font-weight: 800;
+                    } 
+                    >b{
+                        
+                        color: red;
+                        font-size: 1.2em;
+                        font-weight: 800;
+                    }
+                    }                                     
+                  }               
+            }
+            >.pages{
+                display: flex;
+                justify-content: center;
+                padding: 20px 0;
+    
+                >button{
+                    line-height: 40px;
+                    width: 80px;
+                    background-color: white; 
+                    border: 1px solid #333;
+                    box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+
+                    &:disabled{
+                        border-color: #aaa;
+                        columns: #aaa;
+                    }
+                }
+                >ul{
+                    display: flex;
+                    margin: 0 3px;
+        
+                    >li{
+                        cursor: default;
+                        width: 40px;
+                        text-align: center;
+                        background-color: white;
+                        margin: 0 3px;
+                        line-height: 40px;
+                        border: 1px solid #333;
+                    box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+                        
+
+                        &.active{
+                            background-color: orange;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }

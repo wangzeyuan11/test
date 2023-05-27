@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				list-style: none;
+				/* 清除列表项前的标识符*/
+				/* height: 181px; */
+				/* overflow: hidden; */
+			}
+
+			.server {
+				background-color: #e8e8e8;
+			}
+
+			.center {
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			.server ul li {
+				width: 250px;
+				padding: 50px 0;
+				/* 上下50 左右0*/
+				float: left;
+				/* 所有列表项都朝着一个方向浮动，就可以横置了*/
+				text-align: center;
+			}
+
+			.clearfix::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.最外层功能块 -->
+		<div class="server">
+			<!-- 2.版心 -->
+			<div class="center">
+				<!-- 3.每个列表项li都代表一个服务项，具有语义 -->
+				<ul class="clearfix">
+					<li>
+						<img src="icon1.png" alt="">
+						<p>品质保障</p>
+					</li>
+					<li>
+						<img src="icon2.png" alt="">
+						<p>私人订制</p>
+					</li>
+					<li>
+						<img src="icon3.png" alt="">
+						<p>学员特供</p>
+					</li>
+					<li>
+						<img src="icon4.png" alt="">
+						<p>专属特权</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

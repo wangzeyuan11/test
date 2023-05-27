@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        //在p标签中，实时显示当前时间
+        setInterval(() => {
+            var now = new Date().toLocaleTimeString()
+            // document.title=now
+            const ps = document.getElementsByTagName('p')
+            console.log(ps);
+            ps[0].innerHTML = now
+        }, 1000);
+    </script>
+</body>
+</html>

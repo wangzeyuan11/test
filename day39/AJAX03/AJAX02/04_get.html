@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id='user' placeholder="请输入用户名">
+		<span id="box"></span>
+		<script>
+			user.onblur = function() {
+				var a = user.value
+				console.log(a)
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", `http://127.0.0.1:3000/check?user=${a}`, true);
+				xhr.send()
+				xhr.onload = function() {
+					console.log(xhr.responseText)
+					box.innerHTML = xhr.responseText
+				}
+			}
+		</script>
+	</body>
+</html>

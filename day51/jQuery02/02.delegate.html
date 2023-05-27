@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <ul class="boy">
+            <li>凯凯</li>
+            <li>铭铭</li>
+            <li>亮亮</li>
+        </ul>
+
+        <ul class="girl">
+            <li>楠楠</li>
+            <li>梦瑶</li>
+            <li>燕子</li>
+        </ul>
+    </div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $('#box').on('click','>.boy>li',function(){
+            $(this).css('color','red')
+        })
+        $('#box').on('click','>.girl>li',function(){
+            $(this).css('color','green')
+        })
+    </script>
+</body>
+</html>

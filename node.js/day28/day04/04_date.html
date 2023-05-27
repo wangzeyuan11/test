@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>设置Date对象存储的值</title>
+	</head>
+	<body>
+		<script>
+			/* 
+			var d = new Date('2023/2/21 14:42:50')
+			// 拷贝一份Date对象
+			var d2 = new Date(d)
+			
+			// 设置年份
+			d.setFullYear(2025)
+			// 月份
+			d.setMonth(12)
+			// 日期修改为3天后：自动获取日期，然后加3
+			d.setDate( d.getDate()+3 )
+			// 两个小时前：自动获取小时，然后减2
+			d.setHours( d.getHours() - 2 )
+			// 10分钟以后：自动获取分钟，然后加10
+			d.setMinutes( d.getMinutes() + 10 )
+			
+			// 设置时间戳，会产生具体的日期时间
+			d.setTime(1730000000000)
+			//设置星期，没有这个API
+			// d.setDay(6)
+			// 如何确认一个API是否存在
+			// console.log( d.setDay ) 
+			
+			console.log( d.toLocaleString() )
+			console.log( d2.toLocaleString() ) */
+			
+			
+			// 练习：创建Date对象，保存员工的入职时间2023/2/28，假设合同期为3年，计算出合同的到期时间；合同到期前一个月进行续签，计算出续签时间；
+			// 创建Date对象，保存入职时间
+			var d1 = new Date('2023/2/28')
+			// 拷贝一份入职时间，作为到期时间
+			var d2 = new Date(d1)
+			// 3年后合同到期
+			d2.setFullYear( d2.getFullYear()+3 )
+			// 拷贝一份到期时间，作为续签时间
+			var d3 = new Date(d2)
+			// 提前一个月
+			d3.setMonth( d3.getMonth()-1 )
+			
+			console.log('入职时间：'+d1.toLocaleString())
+			console.log('到期时间：'+d2.toLocaleString())
+			console.log('续签时间：'+d3.toLocaleString())
+		</script>
+	</body>
+</html>

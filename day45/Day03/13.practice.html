@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 14:38</title>
+
+  <style>
+    table {
+      width: 400px;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid gray;
+      text-align: center;
+      padding: 6px;
+    }
+
+    thead {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>序号</td>
+        <td>id</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>婚姻状态</td>
+      </tr>
+    </thead>
+    <tbody id="box">
+      <!-- <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> -->
+    </tbody>
+  </table>
+
+  <script>
+    function Employee(eid, ename, age, married) {
+      this.eid = eid // 员工id
+      this.ename = ename
+      this.age = age
+      this.married = married //婚姻
+    }
+
+    var emps = [
+      new Employee('0001', '凯凯', 29, false),
+      new Employee('0002', '铭铭', 32, true),
+      new Employee('0003', '亮亮', 36, true),
+      new Employee('0004', '楠姐', 19, false),
+      new Employee('0005', '小新', 34, true),
+    ]
+
+    // 数据 -> HTML代码
+    var res = emps.map((value, index) => {
+      return `<tr>
+        <td>${index + 1}</td>
+        <td>${value.eid}</td>
+        <td>${value.ename}</td>
+        <td>${value.age}</td>
+        <td>${value.married ? '已婚' : '未婚'}</td>
+      </tr>`
+    })
+
+    box.innerHTML = res.join('')
+  </script>
+</body>
+
+</html>

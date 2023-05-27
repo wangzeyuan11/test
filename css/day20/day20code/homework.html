@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入一个整数" id="num"> <br>
+		<button id="btn">查看</button>
+		<script>
+			//素数，非素数
+			//1.给按钮绑定点击事件
+			btn.onclick = function() {
+				//2.获取用户输入的值
+				var n = num.value
+				// console.log(n)
+				//3.判断数字n是否为素数
+				//循环2~n-1之间是否有能被n整除的数字
+				for (var i = 2, count = 0, b = []; i < n; i++) {
+
+					//判断循环到的每个数字能否被n整除，出现一个count++
+					if (n % i === 0) {
+						count++
+
+					}
+					b.push(n)
+
+				}
+
+
+				//6.循环结束后，如果count的值为0，说明中间没有遇到能被n整除的数字，n是素数
+				if (count === 0) {
+					console.log(b)
+					alert('素数')
+				} else {
+					alert('非素数,一共出现了' + count + '个数字可以被' + n + '整除')
+				}
+			}
+
+			//创建函数 计算出1-任意数之间整数的合
+			function getSum(num) {
+				//使用循环累加1~num
+				for (var i = 1, sum = 0; i <= num; i++) {
+					sum += i
+				}
+				// console.log(sum)
+			}
+			getSum(5)
+			getSum(10)
+			getSum(100)
+
+			//创建函数 传递任意两个年份
+			function getCount(n1, n2) {
+				//同级n1~n2之间闰年的数量
+				for (var i = n1, count = 0; i <= n2; i++) {
+					if (i % 4 === 0 && i % 100 !== 0 || i % 400 === 0) {
+						count++
+					}
+				}
+				console.log(count)
+			}
+			getCount(3000, 3100)
+		</script>
+	</body>
+</html>

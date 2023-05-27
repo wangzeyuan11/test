@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数返回值练习</title>
+	</head>
+	<body>
+		<script>
+			function hello() {
+				var name = '张三'
+				console.log(111)
+				return name
+			}
+			//	console.log(hello())
+			//var a = hello()
+			//console.log(a + '住在北京')
+			hello()
+
+			//创建函数getMax，传递任意两个数字，返回最大值
+			function getMax(a, b) {
+				//方案一：使用分支结构实现
+				// if (a > b) {
+				// 	return a
+				// } else {
+				// 	return b
+				// }
+				//三目运算符
+				return a > b ? a : b
+			}
+			var r = getMax(10, 15)
+			console.log('最大值为' + r)
+
+			function sum(a) {
+				console.log('我是功能1')
+				console.log('我是功能2')
+				console.log('我是功能3')
+				return '我是结果' + a
+			}
+			//sunm(7) 调用了函数sum（）
+			console.log(sum(7)) //调用函数sum（），并打印此函数的返回值
+
+			//计算任意两个数字相加的和add，并将结果返回
+			//调用函数，在外部打印接收到的函数执行结果
+			function add(a, b) {
+				console.log('马上要做加法了')
+				//return a + b
+				//遇到return函数会直接结束，return后的语句不会执行
+				//console.log('函数结束')
+			}
+			var r = add(7, 8)
+			console.log(r)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				background-color: #f00;
+				height: 200px;
+				display: flex;
+			}
+
+			.left {
+				width: 230px;
+				background-color: #0ff;
+				/* 设置项目不允许缩小 */
+				flex-shrink: 0;
+			}
+
+			.center {
+				background-color: #ff0;
+				/* 右侧区域允许放大，且占据父容器的所有剩余空间 */
+				flex-grow: 1;
+			}
+
+			.right {
+
+				background-color: #000;
+				width: 230px;
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left">不放大部缩小</div>
+			<div class="center">会放大缩小</div>
+			<div class="right">不放大部缩小</div>
+		</div>
+	</body>
+</html>

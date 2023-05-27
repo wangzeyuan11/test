@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        var stu = {
+            sname  : "楠楠",
+            age:18,
+            sid:'200703012',
+            phone:'10084'
+        }
+
+        // Object.defineProperty(stu,'sname',{
+        //     writable:false
+        // })
+        // Object.defineProperty(stu,'age',{
+        //     writable:false
+        // })
+        // Object.defineProperty(stu,'sid',{
+        //     writable:false
+        // })
+        // Object.defineProperty(stu,'phone',{
+        //     writable:false
+        // })
+
+        //definePropertise:一次性为多个属性进行配置
+        Object.defineProperties(stu,{
+            //属性名：{配置项}
+            sname:{writable:false},
+            age:{writable:false},
+            eid:{writable:false},
+            phone:{writable:false}
+        })
+
+        stu.sname = 11
+        stu.age = 11
+        stu.sid = 11
+        stu.phone = 11
+    </script>
+</body>
+</html>

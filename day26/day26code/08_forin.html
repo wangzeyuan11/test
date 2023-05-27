@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>遍历数组元素</title>
+	</head>
+	<body>
+		<script>
+			var arr = ['a', 'b', 'c', 'd', 'e', 'f']
+			// //遍历数组元素
+			// for (var k in arr) {
+			// 	//k代表下标
+			// 	console.log(k, arr[k])
+			// }
+			//使用for循环的方式遍历数组元素
+			//循环条件：由数组长度决定
+			for (var i = 0; i < arr.length; i++) {
+				console.log(i, arr[i])
+			}
+			var sj = [100, 60, 70, 76]
+			for (var a = 0, sum = 0; a < sj.length; a++) {
+				console.log(a, sj[a])
+				sum += sj[a]
+			}
+			console.log(sum, sum / sj.length)
+
+			//练习：创建数组，包含一组工资，遍历数组，统计出工资在5000-8000之间的百分比； 38.5%
+			//声明变量，用于统计数量
+			var gz = [1300, 3200, 5100, 8200, 13500, 2700, 3900, 17000]
+			for (var b = 0, count = 0, c = 0; b < gz.length; b++) {
+				if (gz[b] >= 5000 && gz[b] <= 8000) {
+					//console.log(gz[b])
+					//数量加1
+					count++
+				} else if (gz[b] >= 3000 && gz[b] <= 5000) {
+					c++
+				}
+			}
+			console.log(count / gz.length * 100 + '%')
+			console.log(c / gz.length * 100 + '%')
+		</script>
+	</body>
+</html>

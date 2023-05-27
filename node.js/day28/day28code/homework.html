@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'hOw aRE yOU'
+			//按照空格将字符串切割为数组
+			var arr = str.split(' ')
+
+			//遍历数组，得到每个元素（单词）
+			for (var i = 0; i < arr.length; i++) {
+				// console.log(arr[i])
+				//截取首字母转大写
+				var f = arr[i].slice(0, 1).toUpperCase()
+				//截取其余字母转小写
+				var o = arr[i].slice(1).toLowerCase()
+				// console.log(f, o)
+				//把转换后拼接成一个新单词，然后再去覆盖之前元素的内容
+				arr[i] = f + o
+			}
+			//将数组转为字符串,指定空格为分隔符
+			console.log(arr.join(' '))
+		</script>
+	</body>
+</html>

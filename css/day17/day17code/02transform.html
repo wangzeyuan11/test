@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>强制类型转换</title>
+	</head>
+	<body>
+		<script>
+			// Number函数 将传入的值转为数字
+			var n1 = Number('3') //3
+			var n2 = Number(true) //1
+			var n3 = Number(false) //0
+			var n4 = Number(null) //0
+			var n5 = Number('3a') //NaN
+			var n6 = Number(undefined) //NaN
+			console.log(n1, n2, n3, n4, n5, typeof n1)
+			//NaN 与任何数执行数学运算都是NaN
+			console.log(NaN + 2, NaN - 5, NaN * 100, NaN / 3, NaN - NaN)
+
+			//转整型parseInt
+			var p1 = parseInt(3.5) //3
+			var p2 = parseInt('6a') //6
+			var p3 = parseInt('a6') //NaN
+			var p4 = parseInt(null) //NaN
+			console.log(p4)
+
+			//转浮点型
+			var f1 = parseFloat('75') //75
+			var f2 = parseFloat('3.14a') // 3.14
+			var f3 = parseFloat('a3.14') // NaN
+			var f4 = parseFloat(null) // NaN
+			console.log(f4)
+		</script>
+	</body>
+</html>

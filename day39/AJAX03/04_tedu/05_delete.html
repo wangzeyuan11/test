@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		员工编号<input type="text" id="eid"><button id="btn">删除</button>
+		<script>
+			btn.onclick = function() {
+				var a = eid.value
+				console.log(a)
+				//发送AJAX请求(接口的请求方式，接口地址，参数，回调函数)
+				get({
+					type: 'DELETE', //请求方式
+					url: '/emp/del', //接口地址
+					data: { //以对象的形式传递的
+						eid: a
+					},
+					success: function(res) { //通过回调函数获取结果
+						//res 获取的结果
+						console.log(res)
+						if (res.code === 200) {
+							alert('删除成功')
+						} else {
+							alert('删除失败')
+						}
+					}
+				})
+			}
+
+			//声明变量，用于保存服务器地址
+			var baseURL = 'http://127.0.0.1:3000'
+
+			//封装AJAX请求
+			function get(obj) {
+				//obj.type 接口的请求方式
+				//obj.url 传递过来的地址
+				//obj.data 接口传递的参数，对象格式，需要转化为查询参数格式 a=1&b=2
+				//obj.success 函数，成功以后会调用
+				var arr = []
+				for (var k in obj.data) {
+					//k代表属性名 obj[k]代表属性值
+					// console.log(k + '=' + obj[k])
+					arr.push(k + '=' + obj.data[k])
+				}
+				//数组转字符串，元素之间用&分割
+				var str = arr.join('&')
+				console.log(str)
+				//1.创建HTTP请求对象
+				var xhr = new XMLHttpRequest()
+				//2.打开服务器的连接，设置请求的接口
+				xhr.open(obj.type, baseURL + obj.url + '?' + str)
+				//3.发送请求
+				xhr.send()
+				//4.绑定事件，监听服务器端响应
+				xhr.onload = function() {
+					//将响应的结果JSON转为JS，然后在传到外部
+					obj.success(JSON.parse(xhr.responseText))
+				}
+			}
+		</script>
+	</body>
+</html>

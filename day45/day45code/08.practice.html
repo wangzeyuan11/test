@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          function Employee(eid,ename,age,married){
+            this.eid = eid
+            this.ename = ename
+            this.age = age
+            this.married = married
+        }
+        var emps = [
+            new Employee('0001','凯凯',29,false),
+            new Employee('0002','明明',39,true),
+            new Employee('0003','亮亮',49,true),
+            new Employee('0004','媛媛',39,false),
+            new Employee('0005','笑笑',59,true)
+        ]
+        var res = emps.some(value=>value.age<20)
+        console.log(res?'有人小于20':'没有人小于20');
+        var res = emps.some(value=>value.married==false)
+        var res = emps.some(value=>!value.married)
+
+
+        console.log(res?'有人未婚':'没有人未婚');
+
+    </script>
+</body>
+</html>

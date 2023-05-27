@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        li{
+            display: flex;
+            flex-wrap: wrap;
+            /* margin-left: 10px; */
+            margin-right: 10px;
+        }
+        img{
+            width: 120px;
+            height: 120px;
+            border-radius: 2px;
+        }
+        .right{
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        b{
+            /* display: block; */
+            /* margin-bottom: 80px; */
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <!-- <li>
+            <div class="left">
+                <img src="" alt="">
+            </div>
+            <div class="right">
+                <b></b>
+                <span></span>
+                <span></span>
+            </div>
+        </li> -->
+    </ul>
+    <script src="common.js/common.js"></script>
+    <script>
+        var url = 'https://api.xin88.top/bilibili/timeline.json'
+        get(url,data=>{
+            console.log(data);
+            var res = data.result.map(value=>{
+                return `<li>
+            <div class="left">
+                <img src="${value.cover}" alt="">
+            </div>
+            <div class="right">
+                <b>${value.title}</b>
+                <div>
+                <span>更新至</span>
+                <span>${value.bgmcount}话</span>
+                </div>
+
+            </div>
+        </li>`
+            })
+            box.innerHTML = res.join('')
+        })
+    </script>
+</body>
+</html>

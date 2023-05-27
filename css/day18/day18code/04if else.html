@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>if else语句</title>
+	</head>
+	<body>
+		<script>
+			//定义变量age保存用户的年龄
+			//使用if else结构，判断一个人是否为成年人并输出结果
+			var age = 10
+			if (age >= 18) {
+				console.log('成年')
+			} else {
+				console.log('未成年')
+			}
+			//盛明明变量保存数字num
+			//判断是奇数还是偶数。并输出：xxx是x数
+			var num = 1
+			if (num % 2 === 0) {
+				console.log(num + '是偶数')
+			} else {
+				console.log(num + '是奇数')
+			}
+			//声明变量保存用户输入的用户名和密码
+			//如果用户名是root并且密码是123456提示登录成功，反之失败
+			var uname = 'root'
+			var upwd = '123456'
+			if (uname === 'root' && upwd === '123456') {
+				console.log('登陆成功')
+			} else {
+				console.log('登录失败')
+			}
+			//练习：声明变量保存一个人的性别gender （1或是0）
+			//对性别进行判断，如果是1打印'男'，反之则是女
+			//要求：使用分支结构与三目运算两种方式完成
+			var gender = 2
+			if (gender === 1) {
+				console.log('男')
+			} else {
+				console.log('女')
+			}
+
+			var gender = 2
+
+			console.log(gender === 1 ? '男' : '女')
+		</script>
+	</body>
+</html>

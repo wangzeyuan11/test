@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        defineProperty 可以对对象类型的属性 进行一些个性化的配置 让他们在业务上更加完善
+     -->
+     <script>
+        //来自ES5的严格模式：可以让报错更多
+        'use strict'
+
+        //静默失败：失败但是不会报错;只有在严格模式下 这些报错才会显示
+
+        //Employee:员工
+        var emp = {
+            ename:"凯凯",
+            age:32,
+            eid:"000567"
+        }
+
+        console.dir(Object); //对象的构造函数
+
+        // define定义 Property属性
+        //作用：为属性增加个性化的定义
+        //参数1：对象 参数2：属性名 参数3：个性化的配置
+        Object.defineProperty(emp,'age',{
+            //ctrl + i弹出提示
+
+            //writable:可以写入值;值为boolean类型 false代表不可以
+            writable:false, 
+        })
+        Object.defineProperty(emp,'eid',{
+            writable:false
+        })
+
+        //emp.age = 250 //从逻辑上分析 是错误的
+
+        //员工编号：应该是只读的，类似身份证号
+        emp.eid = true
+        console.log(emp);
+     </script>
+</body>
+</html>

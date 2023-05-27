@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>DOM</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+
+    <script>
+        const lis = document.getElementsByTagName('li')
+        console.log(lis);
+
+        //用for ... of遍历伪数组
+        for(const li of lis){
+            li.onclick = function(){
+                li.style.color = 'red'
+            }
+            //this：此变量非常灵活，需要运行时才知道代表什么
+            //所以：vscode静态分析代码的时候 不知道this是什么 无法提供准确的提示
+        }
+    </script>
+</body>
+</html>

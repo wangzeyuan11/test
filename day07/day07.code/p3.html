@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素的隐藏于显示</title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+			}
+
+			.box1 {
+				background-color: #f00;
+			}
+
+			/* 当鼠标悬停在btn1上时 对box1做操作 */
+			/* 元素隐藏方案1：给元素设置一个透明背景色 */
+			.btn1:hover+.box1 {
+				background-color: transparent;
+			}
+
+			.box2 {
+				background-color: green;
+			}
+
+			.btn2:hover+.box2 {
+				display: none;
+			}
+
+			.box3 {
+				background-color: blue;
+			}
+
+			.btn3:hover+.box3 {
+				/* 设置可见度为隐藏 默认值为visible不隐藏 */
+				visibility: hidden;
+			}
+
+			.box4 {
+				background-color: yellow;
+			}
+
+			.btn4:hover+.box4 {
+				/* 元素的不透明度 0完全透明 1完全不透明 */
+				opacity: 0.2;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn1">移入按钮让box1消失</button>
+		<div class="box1"></div>
+		<button class="btn2">移入按钮让box1消失</button>
+		<div class="box2"></div>
+		<button class="btn3">移入按钮让box1消失</button>
+		<div class="box3"></div>
+		<button class="btn4">移入按钮让box1消失</button>
+		<div class="box4"></div>
+	</body>
+</html>

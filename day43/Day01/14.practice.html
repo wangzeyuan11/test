@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>练习 17:30</title>
+</head>
+
+<body>
+  <script>
+    var emp1 = { name: "亮亮", salary: 30000 } //月薪
+    var emp2 = { name: "凯凯", salary: 10000 }
+    var emp3 = { name: "泡泡", salary: 20000 }
+
+    // 所得税汇算函数  shui
+    // 年薪 10~ 15w   扣税 5%
+    // 年薪 >15 ~ 20  扣税 10%
+    // 年薪 >20 ~ 30  扣税 15%
+    // 年薪 >30 ~ 40  扣税 20%
+    // >40  扣税40%;   <10  不扣税
+    function shui() {
+      var total = 12 * this.salary // 年薪
+      // 语法糖: 代码在满足一些特定条件时, 有简化写法. 让程序员能够偷懒, 像吃糖一样, 令人愉悦!
+      // if判断的 {} 里只有一行代码, 可以省略{}
+      if (total < 10) return 0
+      if (total >= 10 && total < 15) return total * 0.05
+      if (total >= 15 && total < 20) return total * 0.1
+      if (total >= 20 && total < 30) return total * 0.15
+      if (total >= 30 && total < 40) return total * 0.2
+      if (total >= 40) return total * 0.4
+    }
+
+    // 把shui函数, 放到 emp1 2 3 中, 分别计算扣税的金额
+    console.log(shui.call(emp1))
+    console.log(shui.call(emp2))
+    console.log(shui.call(emp3))
+  </script>
+</body>
+
+</html>

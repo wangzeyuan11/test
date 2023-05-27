@@ -1,0 +1,52 @@
+code 代码/写代码
+server 服务器
+computer/PC 计算机
+copy 复制
+save 保存
+directory 文件夹/目录
+clear 清除 清空
+remove 删除 移除
+delete 删除
+browser 浏览器
+client 客户端
+
+DOC document 文档
+TYPE 类型
+title标题
+bold 加粗
+italic 斜体
+underline下划线
+mark 高亮 (字体后面颜色)
+width 宽度
+height 高度
+
+target 目标
+table 表格
+row 行
+column 列
+data 数据
+date 日期
+border 边框
+style 样式
+colspan 跨列
+rowspan 跨行
+order 排序
+list 列表
+itme 项
+none 没有标识
+
+tetx 文本
+input 输入
+max 最大值
+min 最小值
+name 名称
+value 值
+password 密码
+submit 提交
+reset 重置
+type 设置类型
+
+
+http://www.codece.cn/ 喊唐网址
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				margin: 50px auto;
+				width: 500px;
+				height: 50px;
+				background-color: #cccccc;
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id=time>
+			<!-- 今天是2023-03-02 09:19:30 -->
+		</div>
+
+		<script>
+			//获取系统时间，渲染到网页
+			function getTime() {
+				var d = new Date()
+				var year = d.getFullYear()
+				var month = d.getMonth() + 1
+				var date = d.getDate()
+				var hour = d.getHours()
+				var minute = d.getMinutes()
+				var second = d.getSeconds()
+				//渲染
+				time.innerHTML =
+					`今天是${year}-${month}${date} ${hour <0 ? '0'+hour : hour}:${minute}:${second<10 ? '0'+second : second
+				}`
+			}
+			//调用函数，就可以显示时间
+			getTime()
+			//每隔一秒钟，重新获取系统时间，渲染到网页
+			//每隔一秒钟，调用一次函数
+			setInterval(getTime, 1000)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>作业答案</title>
+	</head>
+	<body>
+		<script>
+			function isPrime(n) {
+				//数据合法性判断
+				if (n <= 1) {
+					//如果实参的值小于等于1，不是素数，直接返回flase
+					return false
+				}
+				//2.开始素数的判断
+				for (var i = 2; i <= n - 1; i++) {
+					//如果在循环中出现了一个i值可以被n整除
+					if (n % i === 0) {
+						//说明n不是素数，返回结果false并结束函数
+						return false
+					}
+				}
+				//3.直到for循环结束，没有出现任何一个数可以被n整除
+				//说明n是素数，返回结果
+				return true
+			}
+			//调用函数，并用r变量保存函数return的结果，打印r
+			var r = isPrime(-1)
+			console.log(r)
+			//直接打印查看调用函数后return的值
+			console.log(isPrime(7))
+
+			//调用刚刚写好的函数，输出101~200的素数
+			//循环101~200
+			for (var i = 101; i <= 200; i++) {
+				//判断当前循环到的数i是不是素数
+				if (isPrime(i)) {
+					//3.是true，说明是素数，打印出来
+					console.log(i)
+				}
+			}
+		</script>
+	</body>
+</html>

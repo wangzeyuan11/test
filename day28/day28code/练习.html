@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var d = new Date()
+			var year = d.getFullYear()
+			var month = d.getMonth() + 1
+			var date = d.getDate()
+			var hour = d.getHours()
+			var minute = d.getMinutes()
+			var second = d.getSeconds()
+			var day = d.getDay() //范围0~6之间
+
+			// console.log('今天是' + a.getFullYear() + '年' + a.getMonth() + 1 + '月' + a.getDate() + '日' + a.getHours() + '时' + a
+			// 	.getMinutes() + '分' + a.getSeconds() + '秒 星期' + a.getDay())
+			//如果秒钟小于10，在前拼接0，否则正常显示
+			second = second < 10 ? '0' + second : second
+			//创建数组，包含日~六，下标范围0~6
+			var arr = ['日', '一', '二', '三', '四', '五', '六', ]
+			//console.log(arr[day])
+			console.log(`今天是${year}年${month}月${month}日 ${hour}时${minute}分${second}秒 星期${arr[day]}`)
+		</script>
+	</body>
+</html>

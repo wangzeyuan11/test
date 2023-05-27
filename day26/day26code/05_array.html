@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//数组字面量
+			var arr = ['yu', 'xin', 'tom', 5, true, function() {}, {}]
+			console.log(arr)
+			console.log(typeof arr)
+
+			// function fn() {
+
+			// }
+			// console.log(typeof fn())
+
+			var a = [
+				2000, 3000, 4000, 5000,
+			]
+			console.log(a)
+			var city = ['北京', '南京', '郑州', '杭州']
+			//console.log(city[0], city[2], city[5])
+			city[0] = '成都'
+			city[4] = '长春'
+			city[5] = '武汉'
+			city[8] = '苏州'
+			console.log(city)
+
+			//练习：创建一个数组，包含多个手机的品牌名称，修改其中的品牌，在末尾添加新的品牌
+			var phone = ['苹果', '小米', '菠萝', '华为']
+			// phone[3] = '三星'
+			// phone[4] = 'oppo'
+			phone[phone.length] = 'oppo'
+			phone[phone.length] = 'vivo'
+			phone[phone.length] = '荣耀'
+			console.log(phone)
+			//获取数组长度属性
+			console.log(phone.length)
+
+			var b = ['宝马', '奔驰', '劳斯莱斯']
+			b[b.length] = '法拉利'
+			b[b.length] = '大众'
+			b[b.length] = '宝来'
+			console.log(b)
+			//清空数组
+			//b = []
+			//给长度设置为0
+			b.length = 0
+			console.log(b)
+		</script>
+	</body>
+</html>

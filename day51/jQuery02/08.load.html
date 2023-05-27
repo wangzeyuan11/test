@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外部加载html文件</title>
+
+    <style>
+        body>div{
+            border: 3px solid black;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo01"></div>
+    <div id="demo02"></div>
+    <div id="demo03"></div>
+    <div id="demo04"></div>
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        //此语法仅支持 通过服务器运行的html文件
+        //参数1：要加载文件地址
+        //参数2：加载完毕后的回调函数
+        $('#demo01').load('./02.delegate.html',function(){
+            $('ul').css('border','2px solid green')
+        })
+        //load操作是异步操作，类似网络请求
+        //必须在操作load完毕后 才能去操作加载过来的元素
+        // $('ul').css('border','2px solid green')
+
+        // $('demo02').load('./03.practice.html')
+
+        // $('#demo03').load('./05.practice.html')
+    </script>
+</body>
+</html>

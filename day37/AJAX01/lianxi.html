@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>验证用户名是否存在</title>
+	</head>
+	<body>
+		<input type="text" id="txt" placeholder="请输入用户名" value="">
+		<span id="msg"></span>
+		<script>
+			//给文本框绑定失去焦点事件
+			txt.onblur = function() {
+				//获取用户输入的值
+				console.log(txt.value)
+				//判断用户名是否为xin666
+				if (txt.value === 'xin666') {
+					msg.innerHTML = '该用户已被占用'
+					//操作css
+					msg.style.color = 'red'
+				} else {
+					msg.innerHTML = '用户名可以使用'
+					msg.style.color = 'green'
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>准备就绪</title>
+    <script src="jquery-3.6.4.js"></script>
+    <!-- 此处代码运行时，下方的body还没用开始加载，导致查询不到对于元素 -->
+    <script src="./07.js"></script>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>DOM</li>
+    </ul>
+    <!-- 一个html文件 可以由三种代码组成：css html js -->
+    <!-- 都写在1个文件中，会导致结构复杂 -->
+    <!-- 所以往往把css和js拆分成外部文件 -->
+    <!-- <script src="jquery-3.6.4.js"></script> -->
+    <!-- 正常人： -->
+    <!-- <script src="./07.js"></script> -->
+    <script>
+        $('li').css('color','red')
+    </script>
+</body>
+</html>

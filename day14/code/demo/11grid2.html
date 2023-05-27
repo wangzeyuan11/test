@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>栅格布局商品列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-icons.css" />
+		<script src="../js/bootstrap.bundle.js"></script>
+	</head>
+	<body>
+		<!-- 最外层功能块 -->
+		<div class="shoplist">
+			<!-- 响应式版心 -->
+			<div class="container">
+				<!-- 栅格布局先写行 -->
+				<div class="row">
+					<!-- 4.设计：lg及以上一行四张 md及以上一行三张 sm一行两张 sm以下一行一张 -->
+					<!-- 列的响应式写法：要加类中缀，如：col-md-5 
+					 不加类中缀表示任何情况下都份固定的份数 -->
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+						<div class="bg-primary" style="height: 100px;"></div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+						<div class="bg-primary" style="height: 100px;"></div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+						<div class="bg-primary" style="height: 100px;"></div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+						<div class="bg-primary" style="height: 100px;"></div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+						<div class="bg-primary" style="height: 100px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS盒子模型</title>
+		<style>
+			img {
+				/* 让所有图片在垂直方向的对齐方式为中线对齐 */
+				vertical-align: middle;
+
+			}
+
+			.img5 {
+				margin-left: 20px;
+				/* 左外间距*/
+				border-left: 30px solid #00f;
+				/* 左内间距*/
+				padding-left: 40px;
+				/* 左边框*/
+				/* 图片作为元素本身,就自带宽度,这里不用设置 */
+				padding-right: 40px;
+				border-right: 30px solid #0f0;
+				margin-right: 20px;
+				/* 垂直方向 */
+				margin-top: 20px;
+				border-top: 30px solid #f00;
+				padding-top: 40px;
+
+				padding-bottom: 40px;
+				border-bottom: 30px solid #f00;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./img/1.jpg"><img src="./img/2.jpg"><img src="./img/3.jpg"><img src="./img/4.jpg"><img class="img5"
+			src="./img/5.jpg"><img src="./img/6.jpg"><img src="./img/7.jpg"><img src="./img/8.jpg"><img
+			src="./img/9.jpg">
+	</body>
+</html>

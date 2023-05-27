@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据类型</title>
+	</head>
+	<body>
+		<script>
+			//1.数值型number
+			//1.1 整型
+			var n1 = 10 //十进制
+			//2进制：用0b开头的数字
+			var n2 = 0b1010
+			//8进制:用0开头的数字
+			var n3 = 012
+			//16进制：用0X开头的数字
+			var n4 = 0XA
+			console.log(n1, n2, n3, n4)
+
+			//1.2浮点型
+			var f1 = 3140
+			var f2 = 3.14E+3
+			var f3 = 31.4e2
+			var f4 = 31400e-1
+			console.log(f1, f2, f3, f4)
+			console.log(typeof n3)
+			//2.字符串型string
+			var star1 = '新歌'
+			var star2 = '3'
+			var star3 = 'star1'
+			var star4 = star1
+			console.log(star1, star2, star3, star4)
+			//检测数据类型
+			console.log(typeof star2) //查看star2这个变量时什么类型的
+			//查看一个字符的编码
+			console.log('a'.charCodeAt())
+			console.log('中'.charCodeAt())
+
+			//3.布尔型
+			var b1 = true //真 正确
+			var b2 = false //假 错误
+			var b3 = 0 > 1
+			console.log(b1, b2, b3, typeof b3)
+
+			//4. 未定义型
+			var c
+			console.log(c, typeof c)
+
+			//5.空
+			var p = null
+			console.log(p, typeof p) //null object
+		</script>
+	</body>
+</html>

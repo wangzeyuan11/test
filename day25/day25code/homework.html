@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="cont">
+			<h3>公司名称</h3>
+			<ul>
+				<li>地址：</li>
+				<li>电话：</li>
+				<li>传真：</li>
+				<li邮编:>
+					</li>
+			</ul>
+		</div>
+		<script>
+			var gs = {
+				title: '北京汉唐资产管理集团有限公司',
+				adde: '北京市西城区',
+				tel: '1333333333',
+				fax: '85185646',
+				code: '100011'
+			}
+			console.log(gs)
+			cont.innerHTML = `
+			<h3>${gs.title}</h3>
+			<ul>
+				<li>地址：${gs.adde}</li>
+				<li>电话：${gs.tel}</li>
+				<li>传真：${gs.fax}</li>
+				<li>邮编:${gs.code}</li>
+			</ul>
+			`
+		</script>
+	</body>
+</html>

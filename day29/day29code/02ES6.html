@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//块级作用域
+			// {
+			// 	var a = 1 //全局变量
+			// 	let b = 2 //局部变量
+			// 	const c = 3 //局部常量
+			// }
+			//console.log(c)
+			//练习 计算出1-100之间所有整数的合
+			let a = 0
+			for (let i = 1; i <= 100; i++) {
+				a += i
+			}
+			console.log(a)
+			// var let const 的区别
+			//var 声明的变量存在声明提升，允许重复声明；
+			//let 声明变量解决了提升的问题，不允许重复声明；
+			//const 声明的是常量，声明后必须赋值，不允许重新赋值
+			//var 声明变量只有在函数作用域下是局部变量；
+			//let和const存在块级作用域，在块级作用域是局部变量和常量
+			// const c = {n:5}
+			// c.n = 8
+			//2.参数增强
+			//给参数设置默认值
+			function add(a, b = 0, c = 0) {
+				//ES6之前的写法
+				// if(b = undefined){
+				// 	b = 0
+				// }
+				b = b || 0
+				console.log(a + b + c)
+			}
+			add(5000, 8000, 500)
+			add(5000, 8000)
+			add(5000)
+
+
+			//逻辑运算符赋值，表示选择将其中一个进行赋值
+			//|| 如果第一个转布尔型为true 就把第一个赋值
+			// 如果第一个转布尔型为false，就把第二个赋值
+			// var n1 = 8000 || 0
+			// //&& 如果第一个转布尔型为true，就把第二个赋值
+			// //若果第一个为false，就把第一个赋值
+			// var n2 = 2 && 3
+			// var n3 = 0 && 1
+			// console.log(n2,n3)
+
+			//3.箭头函数
+			var arr = [23, 9, 78, 45, 6]
+			// arr.sort(function(a, b) {
+			// 	return a - b
+			// })
+			// arr.sort((a, b) => {
+			// 	return a - b
+			// })
+			//如果箭头函数的函数体中只有一行代码并且return形式
+			arr.sort((a, b) => a - b)
+			console.log(arr)
+			//练习：要求使用匿名函数创建函数，传递任意三个数字，返回平均值;使用箭头函数代替匿名函数
+			var avg = (a, b, c) => (b + c + a) / 3
+
+			console.log(avg(10, 20, 30))
+		</script>
+	</body>
+</html>

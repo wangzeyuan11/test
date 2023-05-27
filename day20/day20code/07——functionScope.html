@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数作用域</title>
+	</head>
+	<body>
+		<script>
+			//全局函数
+			function fn1() {
+				console.log('我是一个全局函数')
+			}
+			fn1() //调用全局函数
+
+			function fun() {
+				console.log('全局函数fun()')
+
+				function fun2() {
+					console.log('局部函数fun2()')
+				}
+				//局部函数也是函数，必须调用才会执行
+				fun2()
+			}
+			fun()
+
+			var a = 1 //全局变量
+			function zoo() { //全局函数
+				var a = 2 //局部变量
+				function zoo2() { //局部函数
+					console.log(a) //局部变量打印
+				}
+				zoo2() //局部函数调用
+			}
+			zoo() //全局函数调用
+
+			foo() //函数提升，执行程序前，会将函数整体提升到所在作用域的最前面
+			function foo() {
+				console.log(999)
+			}
+		</script>
+	</body>
+</html>

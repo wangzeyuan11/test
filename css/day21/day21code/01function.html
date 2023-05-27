@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数补充</title>
+	</head>
+	<body>
+		<script>
+			//1.函数的提升
+			//1.1函数声明：存在函数的整体提升，可以先写调用在写创建
+			f1()
+
+			function f1() {
+				console.log('我是一个有名字的普通函数')
+			}
+			f1()
+
+			//1.2函数表达式：只存在声明提升，必须先创建函数，在写调用
+			//console.log(f2) 、、undefined
+			//f2() //f2 is not a function
+			var f2 = function() {
+				console.log('我是一个通过函数表达式创建的匿名函数')
+			}
+			f2()
+
+			b()
+			console.log(a)
+			var a = 2
+
+			function b() {
+				console.log(666)
+			}
+
+
+			//思考：变量名与函数名重名，该如何提升？
+			//正常情况下，普通函数（整体）先提升，变量（声明）后提升
+			//第一步：函数整体先提升
+			//第二步：由于变量名与函数名重名，所以不提升
+			//第三步：所有提升工作结束，变量c保存了一个函数值
+			//第四步：c的值被覆盖成2
+			var c = 2
+
+			function c() {
+				console.log('哈哈哈')
+			}
+			//第五步：数值2的类型是number不是function
+			//所以无法像函数那样被调用报错
+			//c()
+			console.log(c, typeof c) //2 number
+		</script>
+	</body>
+</html>

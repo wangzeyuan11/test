@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var emp = {
+            ename:'凯凯',age:32,phone:'18888888888'
+        }
+
+        //别名：换一个名称
+        //{属性名：别名}
+        var {ename:en}=emp
+        console.log(en);
+
+
+        //解构
+        var { ename,age,phone } = emp
+        console.log(ename,age,phone);
+        //////////////////////
+        //复杂的解构
+        var paopao = {
+            name:'晓宇',
+            age:18,
+            tags:['html','css','js'],
+            husband:{
+                name:'大连',
+                age:26
+            }
+        }
+
+        //技巧：ctrl+i 可以弹提示
+        var { name,age,husband:{age:hus_age,name:hus_name},
+        tags:[tag1,tag2,tag3]
+    } = paopao
+    console.log(name,age,hus_name,hus_age,tag1,tag2,tag3);
+    </script>
+</body>
+</html>

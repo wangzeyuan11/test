@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据渲染</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul {
+				width: 700px;
+				margin: 100px auto;
+			}
+			li {
+				border-bottom: 1px dashed #eee;
+				line-height: 32px;
+				display: flex;
+				justify-content: space-between;
+			}
+			a {
+				text-decoration: none;
+				color: #666;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="news">
+			<li>
+				<a href="">· 盘点！美国操纵网络霸权的四大罪状</a>
+				<span>2022-11-18</span>
+			</li>
+		</ul>
+		<script>
+			var arr = [
+				{
+					title: '去年京津冀经济总量突破十万亿元',
+					ctime: '2023-02-24'
+				},
+				{
+					title: '乌克兰人的一年：停电、涨价、增税、失业、抓壮丁',
+					ctime: '2023-02-23'
+				},
+				{
+					title: '多地延长婚假，为什么有的省只有3天？',
+					ctime: '2023-02-22'
+				},
+			]
+			// 遍历数组
+			// 声明变量，用于拼接每条新闻
+			for(var i = 0, str = ''; i < arr.length; i++) {
+				// console.log(arr[i].title, arr[i].ctime)
+				// 拼接每一条新闻
+				str += `
+					<li>
+						<a href="">· ${arr[i].title}</a>
+						<span>${arr[i].ctime}</span>
+					</li>
+				`
+			}
+			// 渲染整个一组
+			news.innerHTML = str
+		</script>
+	</body>
+</html>

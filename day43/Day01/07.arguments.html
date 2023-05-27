@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arguments 14:10</title>
+</head>
+
+<body>
+  <script>
+    function show(x, y) {
+      console.log(x, y)
+      // 函数内部自带 arguments 变量, 存储收到的所有实参
+      console.log('arguments:', arguments)
+    }
+
+    show(11, 22, 'mike', 'lucy', 'lily')
+
+    // 来自 Math 的 max 函数, 求多个实参中的最大值
+    console.log(
+      Math.max(11, 2, 3, 43, 54),
+      Math.max(11, 2, 3, 43, 54, 11, 23, 345, 6786),
+    );
+
+    // 仿写 max 函数
+    function max() {
+      // 利用 arguments 来查看收到的所有实参, 进行进一步处理
+      console.log('max:', arguments)
+      // 思路:
+      // 1. 先假设数组的第一个值是最大的
+      // 2. 然后从第二个值开始比较, 是否有更大的
+      // 3. 如果有更大的, 就替换成 找到的最大值, 一直到最后
+      var tmp_max = arguments[0] //临时最大值
+
+      for (var i = 1; i < arguments.length; i++) {
+        // 如果临时最大值 比 遍历出来的值 小
+        if (tmp_max < arguments[i]) {
+          // 替换临时最大值
+          tmp_max = arguments[i]
+        }
+      }
+      // 遍历结束后, 返回最终的结果
+      return tmp_max
+    }
+
+    console.log(
+      max(11, 22),
+      max(11, 22, 342, 43, 564, 76),
+    )
+
+    // 什么是编程?
+    // 把人类解决问题的思维,转换成代码的方式表达出来.
+
+
+    // 练习1: 制作一个min函数, 找到实参中的最小值
+    function min() {
+      var tmp_min = arguments[0]
+
+      for (var i = 1; i > arguments.length; i++) {
+        if (tmp_min > arguments[i]) {
+          tmp_min = arguments[i]
+        }
+      }
+
+      return tmp_min
+    }
+
+    console.log(
+      min(11, 22, 33),
+      min(11, 22, 33, 34, 54, 65, 766),
+    )
+
+    // 练习2: 制作一个sum函数, 求出实参的总和
+    function sum() {
+      var total = 0
+      for (var i = 0; i < arguments.length; i++) {
+        total += arguments[i]
+      }
+      return total
+    }
+
+    console.log(
+      sum(11, 232, 43, 56),
+      sum(54, 54, 23, 3, 5, 4, 10),
+    );
+  </script>
+</body>
+
+</html>

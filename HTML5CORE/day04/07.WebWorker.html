@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>运行结果:<span id="result"></span></h1>
+
+    <script>
+        //当前：不需要反馈信息
+        //现在：需要worker执行完毕后 告知执行结果
+        const worker = new Worker('./06.js')
+
+        //监听Worker发送的信息
+        worker.onmessage = function(e){
+            console.log('来自worker的消息:',e);
+
+            result.innerHTML = e.data.res
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>其他事件</title>
+		<style>
+			/* 2.设置CSS样式 */
+			div {
+				width: 300px;
+				height: 100px;
+				background-color: pink;
+				/* 最初的时候让此div先消失，输入框获得焦点时在出现 */
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.准备html的元素 -->
+		<input type="text" id="uname">
+		<div id="box">
+			123
+		</div>
+		<!-- 3.js交互效果准备 -->
+		<script>
+			//4.设置获取焦点(光标)事件
+			uname.onfocus = function() {
+				console.log('获取了光标')
+				box.style.display = 'block'
+				box.style.fontSize = '20px'
+			}
+			//5.设置失去焦点（光标）事件
+			uname.onblur = function() {
+				console.log('失去了光标')
+				box.style.display = 'none'
+			}
+		</script>
+	</body>
+</html>

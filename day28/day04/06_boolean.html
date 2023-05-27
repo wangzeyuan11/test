@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>布尔对象</title>
+	</head>
+	<body>
+		<script>
+			// 字面量
+			var b1 = true
+			// 包装为对象
+			var b2 = new Boolean(true)
+			// console.log(b2, typeof b2)
+			// false：0  NaN  ''  undefined  null
+			// {}  []
+			// 转换为布尔型
+			// console.log( Boolean({}) )
+			
+			// 第一步：先执行!0，对0进行取反，会把0转为布尔型，然后再取反    !false -> true
+			// 第二步：再对第一步的结果取反  !true -> false
+			console.log( !![] )
+			
+		</script>
+	</body>
+</html>

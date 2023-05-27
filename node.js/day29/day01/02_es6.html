@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性</title>
+	</head>
+	<body>
+		<script>
+			/* 
+			// 块级作用域
+			{
+				var a = 1  //全局变量
+				let b = 2  //局部变量
+				const c = 3  //局部常量
+			}
+			console.log(c)
+			
+			//  练习：计算出1~100之间所有整数的和，使用let声明变量
+			let sum=0
+			for(let i=1; i<=100; i++) {
+				sum += i
+			}
+			console.log(sum)
+			
+			const c = {n: 5}
+			c.n = 8
+			console.log(c)
+			
+			// 2.参数增强
+			// 给参数设置默认值
+			function add(a, b, c=0) {
+				// ES6之前写法
+				// if(b === undefined) {
+				// 	b = 0
+				// }
+				b = b || 0
+				console.log(a + b + c)
+			}
+			add(5000, 8000, 500)
+			add(5000, 8000)
+			add(5000)
+			
+			// 逻辑运算符赋值，表示选择将其中一个进行赋值
+			// || 如果第1个转布尔型为true，就把第1个赋值
+			//    如果第1个转布尔型为false，就把第2个赋值
+			var n1 = 8000 || 0
+			// && 如果第1个转布尔型为true，就把第2个赋值
+			//    如果第1个转布尔型为false，就把第1个赋值
+			var n2 = 2 && 3  //3
+			var n3 = 0 && 1  //0
+			
+			console.log(n2, n3)
+			
+			
+			// 3. 箭头函数
+			var arr = [23, 9, 78, 45, 6]
+			// arr.sort(function(a, b) {
+			// 	return a - b
+			// })
+			// arr.sort((a, b) => {
+			// 	return a - b
+			// })
+			// 如果箭头函数的函数体中只有一行代码，并且是return形式
+			arr.sort((a, b) => a-b)
+			
+			
+			console.log(arr)
+			 */
+			
+			// 练习：使用匿名函数创建函数，传递任意3个数字，返回平均值；使用箭头函数代替匿名函数。
+			var avg = (a, b, c) => (a + b + c)/3
+			console.log( avg(5, 8, 9) )
+			
+		</script>
+	</body>
+</html>

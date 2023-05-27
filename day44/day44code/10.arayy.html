@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 万物皆对象，对象由构造而来 -->
+    <script>
+        var a = 5
+        console.log(a.toFixed(2));
+        //构造语法
+        var a = new Number(5)
+        console.log(a);
+
+        //数组
+        var nums = [11,22,33,44,55]
+        console.log(nums);
+
+        //为数组的原型增加一个求和的方法
+        Array.prototype.sum = function(){
+            //this代表：函数运行时所在的对象 当前数组 当前在sum
+            for(var i = 0,total = 0;i<this.length;i++){
+                total += this[i]
+            }
+            return total
+        }
+
+        console.log(nums.sum());
+    </script>
+</body>
+</html>
