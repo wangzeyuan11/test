@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var emp = {
+            ename:"凯凯",
+            age:33,
+            salary:30000
+        }
+
+        //把薪资改为25000
+        //默认设定：如果点语法赋值，属性名不存在 则为新增操作
+        //个性化要求:只允许修改，不允许新增属性
+        //prevent阻止 Extensions：扩展，扩充
+        // Object.preventExtensions(emp)
+
+        //密封：seal；不允许增删元素
+        // Object.seal(emp)
+        //冻结：freeze； 不允许增删改
+        Object.freeze(emp)
+        
+        // delete emp.age
+        emp.ename = '孙凯'
+        // emp.salay = 25000
+        console.log(emp);
+    </script>
+</body>
+</html>

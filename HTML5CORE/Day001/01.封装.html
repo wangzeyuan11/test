@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //封装:把一些代码封装在一起 后续可以复用
+        function get(url,cb){
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url)
+            xhr.send()
+            xhr.onload = function(){
+                cb(JSON.parse(xhr.response))
+            }
+        }
+
+        //复用：重复使用
+        get('https://api.xin88.top/car/news.json',data=>{
+            console.log(data);
+        })
+
+        var emp = {ename:"凯凯",age:22}
+    </script>
+</body>
+</html>

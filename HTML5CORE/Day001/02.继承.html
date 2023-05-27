@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name,category){
+                this.name = name
+                this.category = category
+            }
+        }
+
+        class Cat extends Animal{
+            cry(){
+                console.log('喵喵...');
+            }
+        }
+        
+        class Dog extends Animal{
+            cry(){
+                console.log('旺旺...');
+            }
+        }
+        class Sheep extends Animal{
+            cry(){
+                console.log('咩咩...');
+            }
+        }
+
+        var cat_mimi = new Cat('咪咪',4)
+        var dog_wangcai = new Dog('旺财',5)
+        var sheep_duoli = new Sheep('多利',3)
+        console.log(cat_mimi);
+        console.log(dog_wangcai);
+        console.log(sheep_duoli);
+
+
+    </script>
+</body>
+</html>

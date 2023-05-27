@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
+    <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
+    <style>
+        .swiper{
+            width: 700px;
+            height: 300px;
+            border: 2px solid red;
+        }
+        .swiper-slide{
+            display: flex;
+            flex-direction: column;
+        }
+        .swiper-slide>img{
+            width: 100%;
+            border-radius: 6px;
+            height: 260px;
+        }
+        ul{
+            display: flex;
+        }
+        li{
+            padding: 10px 20px;
+            color: #333;
+            background-color: #f6f6f6;
+            list-style: none;
+            border-radius: 100px;
+            margin: 10px;
+            font-weight: bold;
+        }
+        li.active{
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="items">
+        <li class="active">早餐</li>
+        <li>午餐</li>
+        <li>下午茶</li>
+        <li>晚餐</li>
+        <li>夜宵</li>
+    </ul>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide">
+                <img src="../assets/img/food/index (10).jpg" alt="">
+                <b>食物10</b>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $('ul').on('click','li',function(){
+            $(this).addClass('active').siblings().removeClass('active')
+            //读取点击项的序号
+            const i = $(this).index()
+            console.log(i);
+            //滚动项目3个为一组，即012 345 678...
+            //所以需要把序号*3
+            mySwiper.slideTo(3 * i)
+            
+            
+        })
+
+        //利用for循环 批量添加滚动项目
+        for(let i =10;i<25;i++){
+            $('.swiper-wrapper').append(`<div class="swiper-slide">
+                <img src="../assets/img/food/index (${i}).jpg" alt="">
+                <b>食物${i}</b>
+            </div>`)
+        }
+        //用Swiper管理
+        var mySwiper = new Swiper('.swiper',{
+            slidesPerView : 3,
+            spaceBetween : 10,
+            slidesPerGroup : 3,
+            //事件监听
+            on:{
+                //滚动项目切换时
+                slideChange() {
+                    console.log('滚动切换:',this.activeIndex);
+                    const i = this.activeIndex / 3
+                    //触发序号对应的li的点击事件
+                    $('.items>li').eq(i).click()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

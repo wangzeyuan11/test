@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name,category){
+                this.name = name
+                this.category = category
+            }
+            //公共的方法：所有动物都会叫 但是具体如何叫 要看子类
+            cry(){}
+        }
+
+        class Cat extends Animal{
+            //重写:override; 把父元素提供的属性重写
+            cry(){
+                console.log('喵喵...');
+            }
+        }
+        
+        class Dog extends Animal{
+            cry(){
+                console.log('旺旺...');
+            }
+        }
+        class Sheep extends Animal{
+            cry(){
+                console.log('咩咩...');
+            }
+        }
+
+        var cat_mimi = new Cat('咪咪',4)
+        var dog_wangcai = new Dog('旺财',5)
+        var sheep_duoli = new Sheep('多利',3)
+        console.log(cat_mimi);
+        console.log(dog_wangcai);
+        console.log(sheep_duoli);
+
+        //同样的方法 由于子类的重写 使用时出现不同的状态：多态
+        cat_mimi.cry()
+        dog_wangcai.cry()
+        sheep_duoli.cry()
+
+    </script>
+</body>
+</html>

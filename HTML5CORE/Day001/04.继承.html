@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        构造函数的发展过程：
+        早起：用function实现:在实现继承时特别复杂
+
+        ES6之后：class语法；更简单 更易用 广受欢迎
+
+        实际开发中 很少见到 用function实现继承的
+
+        但是：面试会考
+     -->
+     <script>
+        function Animal(name,category){
+            this.name = name
+            this.category = category            
+        }
+        Animal.prototype.cry = function(){}
+
+        //继承写法:
+        function Cat(name,category){
+            //触发Animal的构造方法
+            Animal.call(this,name,category)
+            //call():触发函数，并且制定函数中的this指向
+            //把cat对象传递给Animal进行初始化赋值
+        }
+
+        //修改Cat的原型的原型为Animal的原型
+        //create:创建一个对象 对象的原型是Animal.prototype
+        Cat.prototype = Object.create(Animal.prototype)
+        Cat.prototype.constructor = Cat //设置原型的构造函数
+
+        console.dir(Cat);
+     </script>
+</body>
+</html>
